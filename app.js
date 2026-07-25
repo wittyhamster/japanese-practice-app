@@ -1,6 +1,7 @@
 import { loadLesson } from './js/lesson.js';
 import { createStateStore } from './js/state.js';
-import { applyTheme, renderLesson, showLoadError, showToast, updateProgress } from './js/view.js';
+import { createReferenceFeedback } from './js/feedback.js';
+import { applyTheme, clearCompletion, renderCompletion, renderLesson, showLoadError, showToast, updateProgress } from './js/view.js';
 
 const store = createStateStore();
 let lesson;
@@ -43,9 +44,12 @@ document.addEventListener('click', event => {
   } else if (button.id === 'resetAnswers' && lesson) {
     store.resetAnswers();
     render();
+    clearCompletion();
     showToast('Answers reset');
   } else if (button.id === 'copyAnswers' && lesson) {
     copyAnswers();
+  } else if (button.id === 'checkAnswers' && lesson) {
+    renderCompletion(createReferenceFeedback(lesson, store.get()));
   } else if (button.dataset.favorite && lesson) {
     store.toggleFavorite(button.dataset.favorite);
     render();
@@ -65,6 +69,7 @@ document.addEventListener('input', event => {
   if (!lesson || !event.target.matches('[data-answer]')) return;
   store.setAnswer(event.target.dataset.answer, event.target.value);
   updateProgress(lesson, store.get());
+  clearCompletion();
 });
 
 async function init() {

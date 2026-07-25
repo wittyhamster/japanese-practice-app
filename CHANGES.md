@@ -2,6 +2,11 @@
 
 This update is limited to stabilizing the existing Sensei application. It does not add features or redesign the interface.
 
+## Unreleased
+
+- Added a deterministic “Check Answers” completion flow that shows each response beside the lesson’s reference answer and explanation.
+- Added `js/feedback.js` as a feedback-model boundary that can support a future AI feedback provider without changing the completion UI.
+
 ## Modified files
 
 ### `app.js`

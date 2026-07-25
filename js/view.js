@@ -72,10 +72,34 @@ export function updateProgress(lesson, state) {
   $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} keywords</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>`;
 }
 
+export function renderCompletion(feedback) {
+  const results = $('#completionResults');
+  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">Practice complete</p><h3>Review your answers</h3><p>Compare your translation with the reference. Natural wording can vary, so focus on meaning and nuance.</p></div>
+    <div class="completion-list">${feedback.items.map(item => `<article class="feedback-card">
+      <div class="feedback-number">Question ${item.number}</div>
+      <p class="feedback-prompt">${escapeHtml(item.prompt)}</p>
+      <div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div>
+      <div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div>
+      <div class="feedback-field"><span>Explanation</span><p>${escapeHtml(item.explanation)}</p></div>
+    </article>`).join('')}</div>`;
+  results.classList.remove('hidden');
+  $('#checkAnswers').setAttribute('aria-expanded', 'true');
+  results.focus({ preventScroll: true });
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+export function clearCompletion() {
+  const results = $('#completionResults');
+  results.classList.add('hidden');
+  results.innerHTML = '';
+  $('#checkAnswers').setAttribute('aria-expanded', 'false');
+}
+
 export function showLoadError() {
   $('#keywordList').innerHTML = '<div class="empty-card">The lesson could not load. Check your connection, then refresh the page.</div>';
   $('#copyAnswers').disabled = true;
   $('#resetAnswers').disabled = true;
+  $('#checkAnswers').disabled = true;
 }
 
 export function showToast(message) {
