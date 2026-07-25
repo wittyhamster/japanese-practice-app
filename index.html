@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#f4efe7">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Sensei</title>
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +17,7 @@
     <nav class="desktop-nav" aria-label="Main navigation">
       <a href="#lesson">Lesson</a><a href="#practice">Practice</a><a href="#review">Review</a>
     </nav>
-    <button id="themeToggle" class="icon-button" aria-label="Toggle dark mode">◐</button>
+    <button id="themeToggle" class="icon-button" aria-label="Use dark theme" aria-pressed="false">◐</button>
   </header>
 
   <main id="top" class="app-shell">
@@ -47,7 +46,7 @@
         <div><p class="eyebrow">Today's lesson</p><h2>Four everyday expressions</h2><p>These words are common, flexible, and heavily dependent on context.</p></div>
         <span class="badge">Days 1–4</span>
       </div>
-      <div id="keywordList" class="keyword-grid"></div>
+      <div id="keywordList" class="keyword-grid"><div class="empty-card loading-card">Loading lesson…</div></div>
     </section>
 
     <section id="practice" class="content-section practice-section">
@@ -76,6 +75,6 @@
   </nav>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
