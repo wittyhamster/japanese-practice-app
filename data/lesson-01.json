@@ -1,0 +1,69 @@
+{
+  "id": "core-expressions-01",
+  "title": "Four everyday expressions",
+  "subtitle": "Days 1–4",
+  "keywords": [
+    {
+      "id": "yappari",
+      "word": "やっぱり",
+      "reading": "やっぱり",
+      "meaning": "as expected; after all; on second thought",
+      "nuance": "Used when reality matches an expectation, when you return to an earlier opinion, or when you change your mind after considering something.",
+      "example": "やっぱり日本語は面白い。",
+      "exampleTranslation": "Japanese really is interesting after all."
+    },
+    {
+      "id": "chanto",
+      "word": "ちゃんと",
+      "reading": "ちゃんと",
+      "meaning": "properly; correctly; as one should",
+      "nuance": "Shows that something is done carefully, responsibly, completely, or in the expected way. It often carries the feeling of ‘not carelessly.’",
+      "example": "毎日ちゃんと勉強しています。",
+      "exampleTranslation": "I study properly every day."
+    },
+    {
+      "id": "amari",
+      "word": "あまり",
+      "reading": "あまり",
+      "meaning": "not very; not much",
+      "nuance": "Most commonly used with a negative form to soften a statement: あまり分からない means ‘I don’t understand very well.’ In positive sentences, it can also mean ‘too much,’ but that usage is less basic.",
+      "example": "アニメはあまり見ません。",
+      "exampleTranslation": "I don’t watch anime very much."
+    },
+    {
+      "id": "kekkou",
+      "word": "結構",
+      "reading": "けっこう",
+      "meaning": "quite; fairly; more than expected",
+      "nuance": "Often expresses that the degree is higher than expected. Depending on context, 結構です can also mean ‘No, thank you’ or ‘That is fine.’",
+      "example": "この本は結構難しいです。",
+      "exampleTranslation": "This book is quite difficult."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "やっぱり、この店のラーメンが一番おいしい。",
+      "hint": "The speaker’s experience confirms what they already believed.",
+      "answer": "As expected, this restaurant’s ramen is the best. / This restaurant’s ramen really is the best after all."
+    },
+    {
+      "id": "q2",
+      "prompt": "宿題をちゃんとやりましたか？",
+      "hint": "The question is asking whether the homework was done properly or completely.",
+      "answer": "Did you do your homework properly? / Did you actually finish your homework?"
+    },
+    {
+      "id": "q3",
+      "prompt": "昨日はあまり眠れませんでした。",
+      "hint": "あまり is paired with a negative verb here.",
+      "answer": "I couldn’t sleep very well last night. / I didn’t get much sleep last night."
+    },
+    {
+      "id": "q4",
+      "prompt": "今日は結構暑いですね。",
+      "hint": "The heat is stronger than the speaker may have expected.",
+      "answer": "It’s quite hot today, isn’t it?"
+    }
+  ]
+}
