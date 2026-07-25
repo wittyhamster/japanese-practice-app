@@ -1,0 +1,42 @@
+{
+  "id": "core-expression-02",
+  "title": "Understanding 一応",
+  "subtitle": "Day 5",
+  "keywords": [
+    {
+      "id": "ichiou",
+      "word": "一応",
+      "reading": "いちおう",
+      "meaning": "for now; just in case; technically",
+      "nuance": "一応 often shows that something has been done to a basic or acceptable extent, but perhaps not perfectly or with full confidence. It can also describe doing something as a precaution.",
+      "example": "一応、確認しておきます。",
+      "exampleTranslation": "I’ll check, just in case."
+    }
+  ],
+  "questions": [
+    {
+      "id": "lesson-02-q1",
+      "prompt": "宿題は一応終わりました。",
+      "hint": "The homework is finished to a basic degree, though the speaker may not feel completely satisfied with it.",
+      "answer": "I finished my homework, more or less. / My homework is technically finished."
+    },
+    {
+      "id": "lesson-02-q2",
+      "prompt": "雨が降るかもしれないので、一応傘を持っていきます。",
+      "hint": "Here, 一応 describes taking a precaution.",
+      "answer": "It might rain, so I’ll bring an umbrella just in case."
+    },
+    {
+      "id": "lesson-02-q3",
+      "prompt": "一応、日本語を話せます。",
+      "hint": "The speaker qualifies the claim and avoids sounding overly confident.",
+      "answer": "Technically, I can speak Japanese. / I can speak some Japanese, at least."
+    },
+    {
+      "id": "lesson-02-q4",
+      "prompt": "一応、彼にも連絡しておいたほうがいいと思います。",
+      "hint": "The speaker suggests doing something as a precaution.",
+      "answer": "I think we should contact him too, just in case."
+    }
+  ]
+}

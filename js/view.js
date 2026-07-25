@@ -66,10 +66,11 @@ export function updateProgress(lesson, state) {
   const answered = lesson.questions.filter(item => (state.answers[item.id] || '').trim()).length;
   const total = lesson.keywords.length + lesson.questions.length;
   const percent = total ? Math.round(((reviewed + answered) / total) * 100) : 0;
+  const expressionLabel = lesson.keywords.length === 1 ? 'expression' : 'expressions';
   $('#progressText').textContent = `${percent}%`;
   $('#progressBar').style.width = `${percent}%`;
   $('#learnedStat').textContent = reviewed;
-  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} keywords</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>`;
+  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>`;
 }
 
 export function renderCompletion(feedback) {

@@ -6,6 +6,8 @@ import { applyTheme, clearCompletion, renderCompletion, renderLesson, showLoadEr
 const store = createStateStore();
 let lesson;
 
+applyTheme(store.get().theme);
+
 function render() {
   renderLesson(lesson, store.get());
 }
@@ -73,9 +75,11 @@ document.addEventListener('input', event => {
 });
 
 async function init() {
-  applyTheme(store.get().theme);
   try {
-    lesson = await loadLesson('./data/lesson-01.json');
+    lesson = await loadLesson('./data/lesson-02.json');
+    store.selectLesson(lesson.id);
+    document.querySelector('#lessonTitle').textContent = lesson.title;
+    document.querySelector('#lessonSubtitle').textContent = lesson.subtitle;
     document.querySelector('#questionCount').textContent = `${lesson.questions.length} questions`;
     render();
   } catch (error) {

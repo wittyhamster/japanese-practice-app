@@ -1,6 +1,7 @@
 const STORAGE_KEY = 'sensei-v1-state';
+const LESSON_ONE_ID = 'core-expressions-01';
 
-function normalize(raw = {}) {
+function normalizeLesson(raw = {}) {
   const answers = raw.answers && typeof raw.answers === 'object' && !Array.isArray(raw.answers)
     ? Object.fromEntries(Object.entries(raw.answers).filter(([, value]) => typeof value === 'string'))
     : {};
@@ -8,9 +9,16 @@ function normalize(raw = {}) {
   return {
     answers,
     favorites: Array.isArray(raw.favorites) ? raw.favorites.filter(item => typeof item === 'string') : [],
-    reviewed: Array.isArray(raw.reviewed) ? raw.reviewed.filter(item => typeof item === 'string') : [],
-    theme: raw.theme === 'dark' ? 'dark' : 'light'
+    reviewed: Array.isArray(raw.reviewed) ? raw.reviewed.filter(item => typeof item === 'string') : []
   };
+}
+
+function normalize(raw = {}) {
+  const lessons = raw.lessons && typeof raw.lessons === 'object' && !Array.isArray(raw.lessons)
+    ? Object.fromEntries(Object.entries(raw.lessons).map(([id, lessonState]) => [id, normalizeLesson(lessonState)]))
+    : { [LESSON_ONE_ID]: normalizeLesson(raw) };
+
+  return { theme: raw.theme === 'dark' ? 'dark' : 'light', lessons };
 }
 
 function read() {
@@ -24,6 +32,13 @@ function read() {
 
 export function createStateStore() {
   let state = read();
+  let currentLessonId = null;
+
+  function currentLesson() {
+    if (!currentLessonId) return normalizeLesson();
+    state.lessons[currentLessonId] ||= normalizeLesson();
+    return state.lessons[currentLessonId];
+  }
 
   function save() {
     try {
@@ -35,19 +50,25 @@ export function createStateStore() {
   }
 
   return {
-    get: () => state,
-    setAnswer(id, value) { state.answers[id] = value; save(); },
-    resetAnswers() { state.answers = {}; save(); },
+    selectLesson(id) {
+      currentLessonId = id;
+      currentLesson();
+    },
+    get: () => ({ theme: state.theme, ...currentLesson() }),
+    setAnswer(id, value) { currentLesson().answers[id] = value; save(); },
+    resetAnswers() { currentLesson().answers = {}; save(); },
     toggleFavorite(id) {
-      state.favorites = state.favorites.includes(id)
-        ? state.favorites.filter(item => item !== id)
-        : [...state.favorites, id];
+      const lessonState = currentLesson();
+      lessonState.favorites = lessonState.favorites.includes(id)
+        ? lessonState.favorites.filter(item => item !== id)
+        : [...lessonState.favorites, id];
       save();
     },
     toggleReviewed(id) {
-      state.reviewed = state.reviewed.includes(id)
-        ? state.reviewed.filter(item => item !== id)
-        : [...state.reviewed, id];
+      const lessonState = currentLesson();
+      lessonState.reviewed = lessonState.reviewed.includes(id)
+        ? lessonState.reviewed.filter(item => item !== id)
+        : [...lessonState.reviewed, id];
       save();
     },
     toggleTheme() {

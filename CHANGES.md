@@ -4,6 +4,9 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ## Unreleased
 
+- Added Lesson 2, “Understanding 一応,” and made it the currently displayed lesson while retaining Lesson 1.
+- Moved the visible lesson title and subtitle to JSON-driven rendering and removed wording that assumed every lesson contained four expressions.
+- Namespaced answers, favorites, and reviewed state by lesson, including migration of existing Lesson 1 data.
 - Added a deterministic “Check Answers” completion flow that shows each response beside the lesson’s reference answer and explanation.
 - Added `js/feedback.js` as a feedback-model boundary that can support a future AI feedback provider without changing the completion UI.
 
