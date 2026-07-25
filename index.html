@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f4efe7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Japanese Practice</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">日本語練習</p>
+      <h1>Japanese Practice</h1>
+    </div>
+    <button id="themeToggle" class="icon-button" aria-label="Toggle dark mode">◐</button>
+  </header>
+
+  <main class="app-shell">
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">Today’s session</p>
+        <h2>Build recognition, then produce the meaning.</h2>
+        <p>Your work is saved automatically on this device.</p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Session progress</span><strong id="progressText">0%</strong></div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Practice sections">
+      <button class="tab active" data-view="learn">Learn</button>
+      <button class="tab" data-view="practice">Practice</button>
+      <button class="tab" data-view="review">Review</button>
+    </nav>
+
+    <section id="learnView" class="view active">
+      <div class="section-heading">
+        <div><p class="eyebrow">Daily keywords</p><h2>Core expressions</h2></div>
+        <span class="badge">4 words</span>
+      </div>
+      <div id="keywordList" class="stack"></div>
+    </section>
+
+    <section id="practiceView" class="view">
+      <div class="section-heading">
+        <div><p class="eyebrow">Translation</p><h2>Japanese → English</h2></div>
+        <span class="badge" id="questionCount">0 questions</span>
+      </div>
+      <div class="actions sticky-actions">
+        <button id="copyAnswers" class="primary">Copy for ChatGPT</button>
+        <button id="resetAnswers" class="secondary">Reset</button>
+      </div>
+      <div id="questionList" class="stack"></div>
+    </section>
+
+    <section id="reviewView" class="view">
+      <div class="section-heading">
+        <div><p class="eyebrow">Saved items</p><h2>Review queue</h2></div>
+        <span class="badge" id="favoriteCount">0 favorites</span>
+      </div>
+      <div id="reviewList" class="stack"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
