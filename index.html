@@ -11,60 +11,69 @@
 </head>
 <body>
   <header class="topbar">
-    <div>
-      <p class="eyebrow">日本語練習</p>
-      <h1>Sensei</h1>
-    </div>
+    <a class="brand" href="#top" aria-label="Sensei home">
+      <span class="brand-mark">先</span>
+      <span><small>日本語練習</small><strong>Sensei</strong></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#lesson">Lesson</a><a href="#practice">Practice</a><a href="#review">Review</a>
+    </nav>
     <button id="themeToggle" class="icon-button" aria-label="Toggle dark mode">◐</button>
   </header>
 
-  <main class="app-shell">
-    <section class="hero card">
+  <main id="top" class="app-shell">
+    <section class="welcome card">
       <div>
-        <p class="eyebrow">Today’s session</p>
-        <h2>Build recognition, then produce the meaning.</h2>
-        <p>Your work is saved automatically on this device.</p>
+        <p class="eyebrow">今日も頑張ろう</p>
+        <h1>Welcome back.</h1>
+        <p>Spend a few focused minutes with four useful expressions, then test what you remember.</p>
+        <a class="primary button-link" href="#lesson">Continue lesson →</a>
       </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Session progress</span><strong id="progressText">0%</strong></div>
+      <div class="goal-panel">
+        <div class="goal-header"><span>Today's goal</span><strong id="progressText">0%</strong></div>
         <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <div id="goalList" class="goal-list"></div>
       </div>
     </section>
 
-    <nav class="tabs" aria-label="Practice sections">
-      <button class="tab active" data-view="learn">Learn</button>
-      <button class="tab" data-view="practice">Practice</button>
-      <button class="tab" data-view="review">Review</button>
-    </nav>
-
-    <section id="learnView" class="view active">
-      <div class="section-heading">
-        <div><p class="eyebrow">Daily keywords</p><h2>Core expressions</h2></div>
-        <span class="badge">4 words</span>
-      </div>
-      <div id="keywordList" class="stack"></div>
+    <section class="stats-grid" aria-label="Study statistics">
+      <article class="mini-card"><span>🔥</span><div><strong id="streakCount">1</strong><small>day streak</small></div></article>
+      <article class="mini-card"><span>⭐</span><div><strong id="favoriteStat">0</strong><small>favorites</small></div></article>
+      <article class="mini-card"><span>✓</span><div><strong id="learnedStat">0</strong><small>words reviewed</small></div></article>
     </section>
 
-    <section id="practiceView" class="view">
+    <section id="lesson" class="content-section">
       <div class="section-heading">
-        <div><p class="eyebrow">Translation</p><h2>Japanese → English</h2></div>
-        <span class="badge" id="questionCount">0 questions</span>
+        <div><p class="eyebrow">Today's lesson</p><h2>Four everyday expressions</h2><p>These words are common, flexible, and heavily dependent on context.</p></div>
+        <span class="badge">Days 1–4</span>
       </div>
-      <div class="actions sticky-actions">
-        <button id="copyAnswers" class="primary">Copy for ChatGPT</button>
-        <button id="resetAnswers" class="secondary">Reset</button>
+      <div id="keywordList" class="keyword-grid"></div>
+    </section>
+
+    <section id="practice" class="content-section practice-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">Quick practice</p><h2>Translate naturally</h2><p>Write what the sentence means—not a rigid word-for-word translation.</p></div>
+        <span class="badge" id="questionCount">4 questions</span>
+      </div>
+      <div class="practice-toolbar">
+        <button id="copyAnswers" class="primary">Copy answers for ChatGPT</button>
+        <button id="resetAnswers" class="secondary">Reset answers</button>
       </div>
       <div id="questionList" class="stack"></div>
     </section>
 
-    <section id="reviewView" class="view">
+    <section id="review" class="content-section">
       <div class="section-heading">
-        <div><p class="eyebrow">Saved items</p><h2>Review queue</h2></div>
-        <span class="badge" id="favoriteCount">0 favorites</span>
+        <div><p class="eyebrow">Your review queue</p><h2>Favorites and weak points</h2><p>Star any word or practice sentence you want to revisit.</p></div>
+        <span class="badge" id="favoriteCount">0 saved</span>
       </div>
       <div id="reviewList" class="stack"></div>
     </section>
   </main>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#top"><span>⌂</span>Home</a><a href="#lesson"><span>本</span>Lesson</a><a href="#practice"><span>✎</span>Practice</a><a href="#review"><span>★</span>Review</a>
+  </nav>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
