@@ -1,0 +1,23 @@
+{
+  "activeLesson": "lesson-03",
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "title": "Four Everyday Expressions",
+      "subtitle": "Days 1–4",
+      "file": "lesson-01.json"
+    },
+    {
+      "id": "lesson-02",
+      "title": "Understanding 一応",
+      "subtitle": "Day 5",
+      "file": "lesson-02.json"
+    },
+    {
+      "id": "lesson-03",
+      "title": "Understanding 別に",
+      "subtitle": "Day 6",
+      "file": "lesson-03.json"
+    }
+  ]
+}

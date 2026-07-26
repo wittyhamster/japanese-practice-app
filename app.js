@@ -1,4 +1,4 @@
-import { loadLesson } from './js/lesson.js';
+import { loadActiveLesson } from './js/lesson.js';
 import { createStateStore } from './js/state.js';
 import { createReferenceFeedback } from './js/feedback.js';
 import { applyTheme, clearCompletion, renderCompletion, renderLesson, showLoadError, showToast, updateProgress } from './js/view.js';
@@ -76,7 +76,7 @@ document.addEventListener('input', event => {
 
 async function init() {
   try {
-    lesson = await loadLesson('./data/lesson-02.json');
+    lesson = await loadActiveLesson('./data/lessons.json');
     store.selectLesson(lesson.id);
     document.querySelector('#lessonTitle').textContent = lesson.title;
     document.querySelector('#lessonSubtitle').textContent = lesson.subtitle;

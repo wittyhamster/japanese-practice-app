@@ -22,3 +22,30 @@ export async function loadLesson(url) {
   }
   return lesson;
 }
+
+function validateManifest(manifest) {
+  if (!manifest || typeof manifest.activeLesson !== 'string' || !Array.isArray(manifest.lessons)) {
+    throw new Error('Lesson manifest has an invalid structure');
+  }
+
+  const validEntries = manifest.lessons.every(entry => entry && typeof entry === 'object'
+    && typeof entry.id === 'string' && typeof entry.title === 'string'
+    && typeof entry.subtitle === 'string' && typeof entry.file === 'string');
+  const uniqueIds = new Set(manifest.lessons.map(entry => entry.id));
+  if (!validEntries || uniqueIds.size !== manifest.lessons.length) {
+    throw new Error('Lesson manifest contains invalid entries');
+  }
+
+  const activeEntry = manifest.lessons.find(entry => entry.id === manifest.activeLesson);
+  if (!activeEntry) throw new Error('Active lesson is missing from the manifest');
+  return activeEntry;
+}
+
+export async function loadActiveLesson(manifestUrl) {
+  const response = await fetch(manifestUrl, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`Lesson manifest request failed (${response.status})`);
+
+  const activeEntry = validateManifest(await response.json());
+  const lessonUrl = new URL(activeEntry.file, new URL(manifestUrl, window.location.href));
+  return loadLesson(lessonUrl);
+}

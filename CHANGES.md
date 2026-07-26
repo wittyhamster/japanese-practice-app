@@ -4,6 +4,9 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ## Unreleased
 
+- Added a lesson manifest as the curriculum source of truth, so changing or adding the active lesson no longer requires editing application code.
+- Added Lesson 3, “Understanding 別に,” as the active lesson while preserving Lessons 1 and 2 and their saved progress.
+- Removed the remaining fixed question-count loading text and made lesson selection fully data-driven.
 - Added Lesson 2, “Understanding 一応,” and made it the currently displayed lesson while retaining Lesson 1.
 - Moved the visible lesson title and subtitle to JSON-driven rendering and removed wording that assumed every lesson contained four expressions.
 - Namespaced answers, favorites, and reviewed state by lesson, including migration of existing Lesson 1 data.
@@ -14,6 +17,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `app.js`
 
+- Loads the curriculum manifest rather than a lesson-specific file, so future lessons require no application-code changes.
 - Reduced the entry point to application orchestration and event handling.
 - Switched to reusable modules for lesson loading, state persistence, and rendering.
 - Added a clipboard fallback so the existing copy action works when the modern Clipboard API is unavailable.
@@ -22,6 +26,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `index.html`
 
+- Replaced the fixed four-question loading label with a neutral state until the active lesson supplies its question count.
 - Changed `app.js` to an ES module so the separated JavaScript files work on GitHub Pages.
 - Added an explicit loading state while `data/lesson-01.json` is being fetched.
 - Added accessible state to the dark-mode button.
@@ -39,6 +44,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `js/lesson.js`
 
+- Loads and validates `data/lessons.json`, resolves its active lesson, and then validates and loads that lesson’s JSON file.
 - Isolated lesson fetching from application startup.
 - Checks the HTTP response before parsing.
 - Validates the lesson structure and item IDs before rendering, producing a controlled error state for invalid data.
@@ -60,6 +66,16 @@ This update is limited to stabilizing the existing Sensei application. It does n
 ### `CHANGES.md`
 
 - Documents the complete production-readiness scope and the reason for every modified or added file before publication.
+
+## Curriculum data
+
+### `data/lessons.json`
+
+- Defines every available lesson and selects Lesson 3 as the active lesson, making the curriculum extensible without JavaScript edits.
+
+### `data/lesson-03.json`
+
+- Adds the complete “Understanding 別に” lesson content, including its expression, nuance, example, four practice questions, hints, and reference answers.
 
 ## Verification completed
 

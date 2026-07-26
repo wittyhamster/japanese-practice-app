@@ -1,0 +1,42 @@
+{
+  "id": "core-expression-03",
+  "title": "Understanding 別に",
+  "subtitle": "Day 6",
+  "keywords": [
+    {
+      "id": "betsuni",
+      "word": "別に",
+      "reading": "べつに",
+      "meaning": "not particularly; not really; nothing in particular",
+      "nuance": "別に is most commonly used with negative expressions. It softens a statement rather than sounding blunt. Native speakers frequently use it to mean 'not really' or 'nothing in particular.'",
+      "example": "別に気にしてないよ。",
+      "exampleTranslation": "I'm not really bothered by it."
+    }
+  ],
+  "questions": [
+    {
+      "id": "lesson-03-q1",
+      "prompt": "別に欲しくないです。",
+      "hint": "別に + negative usually means 'not particularly.'",
+      "answer": "I don't really want it."
+    },
+    {
+      "id": "lesson-03-q2",
+      "prompt": "別に怒ってないよ。",
+      "hint": "The speaker denies being angry without sounding defensive.",
+      "answer": "I'm not really angry. / I'm not mad."
+    },
+    {
+      "id": "lesson-03-q3",
+      "prompt": "別に何もありません。",
+      "hint": "The speaker says nothing special happened.",
+      "answer": "Nothing in particular."
+    },
+    {
+      "id": "lesson-03-q4",
+      "prompt": "今日は別に忙しくない。",
+      "hint": "The speaker says today isn't especially busy.",
+      "answer": "I'm not particularly busy today."
+    }
+  ]
+}
