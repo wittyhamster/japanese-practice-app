@@ -46,6 +46,41 @@ export function renderLesson(lesson, state) {
   updateProgress(lesson, state);
 }
 
+export function renderPitfall(lesson) {
+  const pitfall = $('#commonPitfall');
+  if (!lesson.commonPitfall?.title || !lesson.commonPitfall?.body) {
+    pitfall.innerHTML = '';
+    pitfall.classList.add('hidden');
+    return;
+  }
+
+  const paragraphs = lesson.commonPitfall.body.split(/\n\s*\n/)
+    .map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('');
+  pitfall.innerHTML = `<p class="eyebrow">Watch out</p><h3>${escapeHtml(lesson.commonPitfall.title)}</h3>${paragraphs}`;
+  pitfall.classList.remove('hidden');
+}
+
+export function renderLessonLibrary(manifest, currentLessonId, store) {
+  $('#lessonLibraryList').innerHTML = manifest.lessons.map(entry => {
+    const current = entry.id === currentLessonId;
+    const complete = store.isLessonComplete(entry.contentId, entry.questionCount);
+    const status = current ? `● Current${complete ? ' · Completed' : ''}` : complete ? '✓ Completed' : '○ Not completed';
+    return `<button class="lesson-entry ${current ? 'current' : ''}" data-lesson-id="${escapeHtml(entry.id)}" ${current ? 'aria-current="page"' : ''}>
+      <span class="lesson-entry-meta"><span>${escapeHtml(entry.subtitle)}</span><strong>${escapeHtml(entry.expression)}</strong></span>
+      <span class="lesson-entry-title">${escapeHtml(entry.title)}</span>
+      <span class="lesson-entry-status">${status}</span>
+    </button>`;
+  }).join('');
+}
+
+export function renderLessonNavigation(manifest, currentLessonId) {
+  const index = manifest.lessons.findIndex(entry => entry.id === currentLessonId);
+  const total = manifest.lessons.length;
+  $('#lessonNavigation').innerHTML = `<button class="secondary" data-lesson-direction="previous" ${index <= 0 ? 'disabled' : ''}>← Previous</button>
+    <span>Lesson ${index + 1} of ${total}</span>
+    <button class="secondary" data-lesson-direction="next" ${index < 0 || index >= total - 1 ? 'disabled' : ''}>Next →</button>`;
+}
+
 function renderReview(lesson, state) {
   const items = [];
   lesson.keywords.forEach(item => {

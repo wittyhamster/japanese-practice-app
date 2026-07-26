@@ -2,6 +2,10 @@
   "id": "core-expression-03",
   "title": "Understanding 別に",
   "subtitle": "Day 6",
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "別に does not always translate directly as “in particular.” It commonly appears with a negative expression and softens it: 別に怒ってない means “I’m not really angry.” In 別に欲しくない, it means “I don’t particularly want it,” not “I don’t want anything in particular.”"
+  },
   "keywords": [
     {
       "id": "betsuni",

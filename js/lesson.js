@@ -17,7 +17,10 @@ export async function loadLesson(url) {
   }
   const validKeywords = lesson.keywords.every(item => hasTextFields(item, ['word', 'reading', 'meaning', 'nuance', 'example', 'exampleTranslation']));
   const validQuestions = lesson.questions.every(item => hasTextFields(item, ['prompt', 'hint', 'answer']));
-  if (!validKeywords || !validQuestions) {
+  const validPitfall = lesson.commonPitfall === undefined
+    || (lesson.commonPitfall && typeof lesson.commonPitfall === 'object'
+      && typeof lesson.commonPitfall.title === 'string' && typeof lesson.commonPitfall.body === 'string');
+  if (!validKeywords || !validQuestions || !validPitfall) {
     throw new Error('Lesson data contains invalid items');
   }
   return lesson;
@@ -29,23 +32,35 @@ function validateManifest(manifest) {
   }
 
   const validEntries = manifest.lessons.every(entry => entry && typeof entry === 'object'
-    && typeof entry.id === 'string' && typeof entry.title === 'string'
-    && typeof entry.subtitle === 'string' && typeof entry.file === 'string');
+    && typeof entry.id === 'string' && typeof entry.contentId === 'string'
+    && typeof entry.title === 'string' && typeof entry.subtitle === 'string'
+    && typeof entry.expression === 'string' && typeof entry.file === 'string'
+    && Number.isInteger(entry.questionCount) && entry.questionCount >= 0);
   const uniqueIds = new Set(manifest.lessons.map(entry => entry.id));
-  if (!validEntries || uniqueIds.size !== manifest.lessons.length) {
+  const uniqueContentIds = new Set(manifest.lessons.map(entry => entry.contentId));
+  if (!validEntries || uniqueIds.size !== manifest.lessons.length || uniqueContentIds.size !== manifest.lessons.length) {
     throw new Error('Lesson manifest contains invalid entries');
   }
 
-  const activeEntry = manifest.lessons.find(entry => entry.id === manifest.activeLesson);
-  if (!activeEntry) throw new Error('Active lesson is missing from the manifest');
-  return activeEntry;
+  return manifest;
 }
 
-export async function loadActiveLesson(manifestUrl) {
+export async function loadManifest(manifestUrl) {
   const response = await fetch(manifestUrl, { cache: 'no-store' });
   if (!response.ok) throw new Error(`Lesson manifest request failed (${response.status})`);
+  const manifest = validateManifest(await response.json());
+  if (!manifest.lessons.some(entry => entry.id === manifest.activeLesson) && !manifest.lessons.length) {
+    throw new Error('Lesson manifest does not contain any lessons');
+  }
+  return manifest;
+}
 
-  const activeEntry = validateManifest(await response.json());
-  const lessonUrl = new URL(activeEntry.file, new URL(manifestUrl, window.location.href));
-  return loadLesson(lessonUrl);
+export async function loadManifestLesson(manifest, manifestUrl, lessonId) {
+  const entry = manifest.lessons.find(item => item.id === lessonId);
+  if (!entry) throw new Error(`Unknown lesson: ${lessonId}`);
+  const lessonUrl = new URL(entry.file, new URL(manifestUrl, window.location.href));
+  const lesson = await loadLesson(lessonUrl);
+  if (lesson.id !== entry.contentId) throw new Error(`Lesson ID mismatch: ${entry.id}`);
+  if (lesson.questions.length !== entry.questionCount) throw new Error(`Lesson question count mismatch: ${entry.id}`);
+  return lesson;
 }

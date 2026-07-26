@@ -3,26 +3,38 @@
   "lessons": [
     {
       "id": "lesson-01",
+      "contentId": "core-expressions-01",
       "title": "Four Everyday Expressions",
       "subtitle": "Days 1–4",
+      "expression": "やっぱり・ちゃんと・あまり・結構",
+      "questionCount": 4,
       "file": "lesson-01.json"
     },
     {
       "id": "lesson-02",
+      "contentId": "core-expression-02",
       "title": "Understanding 一応",
       "subtitle": "Day 5",
+      "expression": "一応",
+      "questionCount": 4,
       "file": "lesson-02.json"
     },
     {
       "id": "lesson-03",
+      "contentId": "core-expression-03",
       "title": "Understanding 別に",
       "subtitle": "Day 6",
+      "expression": "別に",
+      "questionCount": 4,
       "file": "lesson-03.json"
     },
     {
       "id": "lesson-04",
+      "contentId": "core-expression-04",
       "title": "Understanding 全然",
       "subtitle": "Day 7",
+      "expression": "全然",
+      "questionCount": 4,
       "file": "lesson-04.json"
     }
   ]

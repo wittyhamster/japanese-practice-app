@@ -1,9 +1,13 @@
-# Production-readiness changes
+# Sensei changes
 
-This update is limited to stabilizing the existing Sensei application. It does not add features or redesign the interface.
+This document tracks the production changes made to the Sensei application.
 
 ## Unreleased
 
+- Added a responsive, manifest-driven lesson library with accessible open/close behavior, current/completed status text, and immediate lesson switching.
+- Added previous/next controls, bookmarkable lesson URLs, browser history support, safe invalid-ID fallbacks, and last-viewed lesson persistence.
+- Added optional common-pitfall cards and lesson-specific notes for Lessons 2–4 while leaving Lesson 1 without an empty placeholder.
+- Added manifest metadata for library labels and completion calculation without fetching every lesson file.
 - Added a lesson manifest as the curriculum source of truth, so changing or adding the active lesson no longer requires editing application code.
 - Added Lesson 3, “Understanding 別に,” as the active lesson while preserving Lessons 1 and 2 and their saved progress.
 - Removed the remaining fixed question-count loading text and made lesson selection fully data-driven.
@@ -17,6 +21,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `app.js`
 
+- Uses one shared selection flow for initial loading, the library, previous/next buttons, URL history, and safe fallback behavior.
 - Loads the curriculum manifest rather than a lesson-specific file, so future lessons require no application-code changes.
 - Reduced the entry point to application orchestration and event handling.
 - Switched to reusable modules for lesson loading, state persistence, and rendering.
@@ -26,6 +31,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `index.html`
 
+- Adds the accessible Lessons control, lesson-library panel, common-pitfall region, and previous/next navigation containers.
 - Replaced the fixed four-question loading label with a neutral state until the active lesson supplies its question count.
 - Changed `app.js` to an ES module so the separated JavaScript files work on GitHub Pages.
 - Added an explicit loading state while `data/lesson-01.json` is being fetched.
@@ -34,6 +40,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `styles.css`
 
+- Styles the lesson library, completion/current states, pitfall note, and previous/next controls across light, dark, desktop, and mobile layouts.
 - Added visible keyboard focus styling for links, buttons, and text areas.
 - Added disabled-control styling for the lesson-load failure state.
 - Added nonvisual positioning for the clipboard fallback element.
@@ -44,6 +51,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `js/lesson.js`
 
+- Validates the expanded manifest metadata and optional `commonPitfall` schema, and loads any selected manifest lesson.
 - Loads and validates `data/lessons.json`, resolves its active lesson, and then validates and loads that lesson’s JSON file.
 - Isolated lesson fetching from application startup.
 - Checks the HTTP response before parsing.
@@ -51,6 +59,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `js/state.js`
 
+- Persists the last-viewed manifest lesson and derives per-lesson completion from existing namespaced answers without changing saved lesson IDs.
 - Isolated local-storage access and state mutations.
 - Normalizes saved answers, favorites, reviewed words, and theme values.
 - Recovers from malformed or unavailable local storage without stopping application startup.
@@ -58,6 +67,7 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `js/view.js`
 
+- Renders the dynamic lesson library, completion indicators, common-pitfall note, and calculated previous/next navigation.
 - Isolated lesson, practice, review, progress, theme, toast, and error rendering.
 - Escapes lesson and saved-answer content before inserting it into generated markup.
 - Adds accessible pressed/expanded states and question labels to existing controls.
@@ -71,11 +81,21 @@ This update is limited to stabilizing the existing Sensei application. It does n
 
 ### `data/lessons.json`
 
-- Defines every available lesson and selects Lesson 3 as the active lesson, making the curriculum extensible without JavaScript edits.
+- Adds expression, content ID, and question-count metadata for all lessons so the library and completion states need no lesson-specific code.
+- Defines every available lesson and the default active lesson, making the curriculum extensible without JavaScript edits.
 
 ### `data/lesson-03.json`
 
+- Adds the lesson’s optional common-pitfall guidance without changing its questions or reference answers.
 - Adds the complete “Understanding 別に” lesson content, including its expression, nuance, example, four practice questions, hints, and reference answers.
+
+### `data/lesson-02.json`
+
+- Adds the optional common-pitfall guidance for 一応 without changing existing exercises.
+
+### `data/lesson-04.json`
+
+- Adds the optional common-pitfall guidance for 全然 without changing existing exercises.
 
 ## Verification completed
 

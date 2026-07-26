@@ -44,9 +44,18 @@
     <section id="lesson" class="content-section">
       <div class="section-heading">
         <div><p class="eyebrow">Today's lesson</p><h2 id="lessonTitle">Loading lesson…</h2><p>Learn the meaning, nuance, and usage before you practice.</p></div>
-        <span class="badge" id="lessonSubtitle">—</span>
+        <div class="lesson-heading-actions">
+          <span class="badge" id="lessonSubtitle">—</span>
+          <button id="lessonLibraryToggle" class="secondary lessons-button" aria-expanded="false" aria-controls="lessonLibrary">📚 Lessons</button>
+        </div>
       </div>
+      <section id="lessonLibrary" class="lesson-library hidden" aria-labelledby="lessonLibraryTitle">
+        <div class="library-heading"><div><p class="eyebrow">Core expressions</p><h3 id="lessonLibraryTitle">Lesson library</h3></div><button id="lessonLibraryClose" class="icon-button" aria-label="Close lesson library">×</button></div>
+        <div id="lessonLibraryList" class="lesson-library-list"></div>
+      </section>
       <div id="keywordList" class="keyword-grid"><div class="empty-card loading-card">Loading lesson…</div></div>
+      <aside id="commonPitfall" class="common-pitfall hidden"></aside>
+      <nav id="lessonNavigation" class="lesson-navigation" aria-label="Lesson navigation"></nav>
     </section>
 
     <section id="practice" class="content-section practice-section">

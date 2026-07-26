@@ -18,7 +18,11 @@ function normalize(raw = {}) {
     ? Object.fromEntries(Object.entries(raw.lessons).map(([id, lessonState]) => [id, normalizeLesson(lessonState)]))
     : { [LESSON_ONE_ID]: normalizeLesson(raw) };
 
-  return { theme: raw.theme === 'dark' ? 'dark' : 'light', lessons };
+  return {
+    theme: raw.theme === 'dark' ? 'dark' : 'light',
+    lastViewedLesson: typeof raw.lastViewedLesson === 'string' ? raw.lastViewedLesson : null,
+    lessons
+  };
 }
 
 function read() {
@@ -55,6 +59,13 @@ export function createStateStore() {
       currentLesson();
     },
     get: () => ({ theme: state.theme, ...currentLesson() }),
+    getLastViewedLesson: () => state.lastViewedLesson,
+    setLastViewedLesson(id) { state.lastViewedLesson = id; save(); },
+    isLessonComplete(id, questionCount) {
+      const lessonState = state.lessons[id] || normalizeLesson();
+      return questionCount > 0
+        && Object.values(lessonState.answers).filter(value => value.trim()).length >= questionCount;
+    },
     setAnswer(id, value) { currentLesson().answers[id] = value; save(); },
     resetAnswers() { currentLesson().answers = {}; save(); },
     toggleFavorite(id) {

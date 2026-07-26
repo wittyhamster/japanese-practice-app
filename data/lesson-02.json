@@ -2,6 +2,10 @@
   "id": "core-expression-02",
   "title": "Understanding 一応",
   "subtitle": "Day 5",
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Do not always translate 一応 as “for now.” Depending on the situation, it often means “just in case,” “technically,” or “at least to a basic degree.” Pay attention to what the speaker is trying to accomplish rather than forcing one English translation."
+  },
   "keywords": [
     {
       "id": "ichiou",
