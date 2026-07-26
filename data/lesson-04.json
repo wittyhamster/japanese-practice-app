@@ -1,0 +1,42 @@
+{
+  "id": "core-expression-04",
+  "title": "Understanding 全然",
+  "subtitle": "Day 7",
+  "keywords": [
+    {
+      "id": "zenzen",
+      "word": "全然",
+      "reading": "ぜんぜん",
+      "meaning": "not at all; completely (casual positive usage)",
+      "nuance": "Traditionally, 全然 is paired with negative expressions to mean 'not at all.' In modern conversational Japanese, especially among younger speakers, it is also commonly used before positive expressions such as 全然大丈夫 ('It's totally fine'). Learners should recognize both patterns.",
+      "example": "全然分からない。",
+      "exampleTranslation": "I don't understand at all."
+    }
+  ],
+  "questions": [
+    {
+      "id": "lesson-04-q1",
+      "prompt": "全然眠れなかった。",
+      "hint": "The speaker couldn't sleep whatsoever.",
+      "answer": "I couldn't sleep at all."
+    },
+    {
+      "id": "lesson-04-q2",
+      "prompt": "その映画は全然面白くなかった。",
+      "hint": "全然 strengthens the negative.",
+      "answer": "That movie wasn't interesting at all."
+    },
+    {
+      "id": "lesson-04-q3",
+      "prompt": "全然大丈夫ですよ。",
+      "hint": "This is the modern positive usage of 全然.",
+      "answer": "It's totally fine. / No worries at all."
+    },
+    {
+      "id": "lesson-04-q4",
+      "prompt": "日本語は全然難しくないですよ。",
+      "hint": "The speaker is reassuring someone.",
+      "answer": "Japanese isn't difficult at all."
+    }
+  ]
+}

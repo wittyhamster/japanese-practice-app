@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-03",
+  "activeLesson": "lesson-04",
   "lessons": [
     {
       "id": "lesson-01",
@@ -18,6 +18,12 @@
       "title": "Understanding 別に",
       "subtitle": "Day 6",
       "file": "lesson-03.json"
+    },
+    {
+      "id": "lesson-04",
+      "title": "Understanding 全然",
+      "subtitle": "Day 7",
+      "file": "lesson-04.json"
     }
   ]
 }
