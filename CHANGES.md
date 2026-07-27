@@ -110,3 +110,13 @@ This document tracks the production changes made to the Sensei application.
 - Fixed and retested a mobile Home-anchor issue that initially placed the welcome heading beneath the sticky header.
 - Desktop verification at 1440 px showed a centered 980 px content area, two-column lesson grid, and no horizontal overflow.
 - GitHub Pages-style loading was verified at `/japanese-practice-app/` with all JavaScript modules and lesson data resolving correctly.
+# Sprint: Add むしろ lesson and production practice
+
+- `data/lesson-05.json` — Added the Day 8 むしろ lesson, pitfall guidance, recognition questions, and production prompts.
+- `data/lessons.json` — Added Lesson 5 metadata and made it active, including its production-question count.
+- `index.html` — Added the optional English → Japanese production section.
+- `app.js` — Added production-answer input handling and included both practice directions in copied prompts.
+- `js/lesson.js` — Validated optional production-question data and manifest counts.
+- `js/state.js` — Persisted production answers independently and included them in reset/completion behavior.
+- `js/view.js` — Rendered production prompts/hints, progress, completion review, and lesson-library completion state.
+- `js/feedback.js` — Added production reference-answer feedback items.

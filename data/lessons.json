@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-04",
+  "activeLesson": "lesson-05",
   "lessons": [
     {
       "id": "lesson-01",
@@ -36,6 +36,16 @@
       "expression": "全然",
       "questionCount": 4,
       "file": "lesson-04.json"
+    },
+    {
+      "id": "lesson-05",
+      "contentId": "core-expression-05",
+      "title": "Understanding むしろ",
+      "subtitle": "Day 8",
+      "expression": "むしろ",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-05.json"
     }
   ]
 }

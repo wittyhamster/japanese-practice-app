@@ -93,7 +93,8 @@ async function selectLesson(requestedId, { historyMode = 'push', focusTitle = tr
 function copyPayload() {
   const state = store.get();
   const answers = lesson.questions.map((item, index) => `${index + 1}. ${item.prompt}\nMy answer: ${state.answers[item.id] || '(blank)'}`).join('\n\n');
-  return `Please review my Japanese translation practice:\n\n${answers}`;
+  const production = (lesson.productionQuestions || []).map((item, index) => `${index + 1}. ${item.prompt}\nTarget expression: ${item.keyword}\nMy answer: ${state.productionAnswers[item.id] || '(blank)'}`).join('\n\n');
+  return `Please review my Japanese translation practice.\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}`;
 }
 
 async function copyAnswers() {
@@ -157,8 +158,9 @@ document.addEventListener('click', async event => {
 });
 
 document.addEventListener('input', event => {
-  if (!lesson || !event.target.matches('[data-answer]')) return;
-  store.setAnswer(event.target.dataset.answer, event.target.value);
+  if (!lesson || !event.target.matches('[data-answer], [data-production-answer]')) return;
+  if (event.target.matches('[data-production-answer]')) store.setProductionAnswer(event.target.dataset.productionAnswer, event.target.value);
+  else store.setAnswer(event.target.dataset.answer, event.target.value);
   updateProgress(lesson, store.get());
   renderLessonLibrary(manifest, currentEntry.id, store);
   clearCompletion();

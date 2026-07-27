@@ -17,10 +17,13 @@ export async function loadLesson(url) {
   }
   const validKeywords = lesson.keywords.every(item => hasTextFields(item, ['word', 'reading', 'meaning', 'nuance', 'example', 'exampleTranslation']));
   const validQuestions = lesson.questions.every(item => hasTextFields(item, ['prompt', 'hint', 'answer']));
+  const validProduction = lesson.productionQuestions === undefined || (Array.isArray(lesson.productionQuestions)
+    && lesson.productionQuestions.every(item => hasTextFields(item, ['prompt', 'keyword', 'sampleAnswer'])
+      && (item.hint === undefined || typeof item.hint === 'string')));
   const validPitfall = lesson.commonPitfall === undefined
     || (lesson.commonPitfall && typeof lesson.commonPitfall === 'object'
       && typeof lesson.commonPitfall.title === 'string' && typeof lesson.commonPitfall.body === 'string');
-  if (!validKeywords || !validQuestions || !validPitfall) {
+  if (!validKeywords || !validQuestions || !validProduction || !lesson.questions.every(item => typeof item.id === 'string')) {
     throw new Error('Lesson data contains invalid items');
   }
   return lesson;
@@ -35,7 +38,8 @@ function validateManifest(manifest) {
     && typeof entry.id === 'string' && typeof entry.contentId === 'string'
     && typeof entry.title === 'string' && typeof entry.subtitle === 'string'
     && typeof entry.expression === 'string' && typeof entry.file === 'string'
-    && Number.isInteger(entry.questionCount) && entry.questionCount >= 0);
+    && Number.isInteger(entry.questionCount) && entry.questionCount >= 0
+    && (entry.productionQuestionCount === undefined || (Number.isInteger(entry.productionQuestionCount) && entry.productionQuestionCount >= 0)));
   const uniqueIds = new Set(manifest.lessons.map(entry => entry.id));
   const uniqueContentIds = new Set(manifest.lessons.map(entry => entry.contentId));
   if (!validEntries || uniqueIds.size !== manifest.lessons.length || uniqueContentIds.size !== manifest.lessons.length) {

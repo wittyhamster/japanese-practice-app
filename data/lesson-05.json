@@ -1,0 +1,19 @@
+{
+  "id": "core-expression-05",
+  "title": "Understanding むしろ",
+  "subtitle": "Day 8",
+  "keywords": [{"id":"mushiro","word":"むしろ","reading":"むしろ","meaning":"rather; if anything; on the contrary; actually, more like...","nuance":"むしろ is used when the speaker corrects an expectation or says that the opposite is closer to the truth. It often introduces a stronger or more accurate alternative to what was just suggested.","example":"疲れるどころか、むしろ元気になった。","exampleTranslation":"Far from getting tired, I actually felt more energetic."}],
+  "commonPitfall": {"title":"Common Pitfall","body":"Do not translate むしろ as “rather” every time. In natural conversation, it often corrects an assumption and is closer to “actually,” “if anything,” or “on the contrary.” Focus on the contrast the speaker is making."},
+  "questions": [
+    {"id":"lesson-05-q1","prompt":"難しいと思ったけど、むしろ簡単だった。","hint":"The speaker expected it to be difficult, but the result was the opposite.","answer":"I thought it would be difficult, but it was actually easy."},
+    {"id":"lesson-05-q2","prompt":"彼は冷たいというより、むしろ恥ずかしがり屋だ。","hint":"The speaker is correcting the impression that he is cold or unfriendly.","answer":"Rather than being cold, he's actually just shy."},
+    {"id":"lesson-05-q3","prompt":"運動すると疲れるどころか、むしろ元気になる。","hint":"The result is the opposite of what someone might expect from exercise.","answer":"Instead of making me tired, exercising actually gives me more energy."},
+    {"id":"lesson-05-q4","prompt":"日本語は勉強すればするほど、むしろ面白くなる。","hint":"The more the speaker studies, the more interesting Japanese becomes.","answer":"The more I study Japanese, the more interesting it becomes."}
+  ],
+  "productionQuestions": [
+    {"id":"lesson-05-prod-1","prompt":"I thought it would be difficult, but it was actually easy.","keyword":"むしろ","hint":"Use 〜と思ったけど to contrast the expectation with the actual result.","sampleAnswer":"難しいと思ったけど、むしろ簡単だった。"},
+    {"id":"lesson-05-prod-2","prompt":"Rather than being cold, he's actually just shy.","keyword":"むしろ","hint":"Use 〜というより to replace one description with a more accurate one.","sampleAnswer":"彼は冷たいというより、むしろ恥ずかしがり屋だ。"},
+    {"id":"lesson-05-prod-3","prompt":"Instead of making me tired, exercising actually gives me more energy.","keyword":"むしろ","hint":"Use 〜どころか to show that the result is the opposite of what was expected.","sampleAnswer":"運動すると疲れるどころか、むしろ元気になる。"},
+    {"id":"lesson-05-prod-4","prompt":"The more I study Japanese, the more interesting it becomes.","keyword":"むしろ","hint":"Use 〜ば〜ほど for “the more..., the more....”","sampleAnswer":"日本語は勉強すればするほど、むしろ面白くなる。"}
+  ]
+}

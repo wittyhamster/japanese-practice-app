@@ -42,6 +42,17 @@ export function renderLesson(lesson, state) {
     </article>`;
   }).join('');
 
+  const production = lesson.productionQuestions || [];
+  const productionSection = $('#productionPractice');
+  productionSection.classList.toggle('hidden', !production.length);
+  $('#productionList').innerHTML = production.map((item, index) => `<article class="question-card production-card">
+    <div class="question-header"><span class="question-number">Question ${index + 1}</span></div>
+    <p class="production-label">English</p><p class="prompt">${escapeHtml(item.prompt)}</p>
+    <p class="production-target">Target expression: <strong>${escapeHtml(item.keyword)}</strong></p>
+    <textarea data-production-answer="${escapeHtml(item.id)}" aria-label="Japanese answer for production question ${index + 1}" placeholder="Write your Japanese answer...">${escapeHtml(state.productionAnswers[item.id] || '')}</textarea>
+    ${item.hint ? `<div class="question-actions"><button class="small-button" data-toggle="production-hint-${escapeHtml(item.id)}" aria-expanded="false">Hint</button></div><div id="production-hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Hint:</strong> ${escapeHtml(item.hint)}</div>` : ''}
+  </article>`).join('');
+
   renderReview(lesson, state);
   updateProgress(lesson, state);
 }
@@ -63,7 +74,7 @@ export function renderPitfall(lesson) {
 export function renderLessonLibrary(manifest, currentLessonId, store) {
   $('#lessonLibraryList').innerHTML = manifest.lessons.map(entry => {
     const current = entry.id === currentLessonId;
-    const complete = store.isLessonComplete(entry.contentId, entry.questionCount);
+    const complete = store.isLessonComplete(entry.contentId, entry.questionCount, entry.productionQuestionCount || 0);
     const status = current ? `● Current${complete ? ' · Completed' : ''}` : complete ? '✓ Completed' : '○ Not completed';
     return `<button class="lesson-entry ${current ? 'current' : ''}" data-lesson-id="${escapeHtml(entry.id)}" ${current ? 'aria-current="page"' : ''}>
       <span class="lesson-entry-meta"><span>${escapeHtml(entry.subtitle)}</span><strong>${escapeHtml(entry.expression)}</strong></span>
@@ -99,13 +110,15 @@ function renderReview(lesson, state) {
 export function updateProgress(lesson, state) {
   const reviewed = state.reviewed.filter(id => lesson.keywords.some(item => item.id === id)).length;
   const answered = lesson.questions.filter(item => (state.answers[item.id] || '').trim()).length;
-  const total = lesson.keywords.length + lesson.questions.length;
-  const percent = total ? Math.round(((reviewed + answered) / total) * 100) : 0;
+  const production = lesson.productionQuestions || [];
+  const productionAnswered = production.filter(item => (state.productionAnswers[item.id] || '').trim()).length;
+  const total = lesson.keywords.length + lesson.questions.length + production.length;
+  const percent = total ? Math.round(((reviewed + answered + productionAnswered) / total) * 100) : 0;
   const expressionLabel = lesson.keywords.length === 1 ? 'expression' : 'expressions';
   $('#progressText').textContent = `${percent}%`;
   $('#progressBar').style.width = `${percent}%`;
   $('#learnedStat').textContent = reviewed;
-  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>`;
+  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}`;
 }
 
 export function renderCompletion(feedback) {
@@ -117,7 +130,7 @@ export function renderCompletion(feedback) {
       <div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div>
       <div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div>
       <div class="feedback-field"><span>Explanation</span><p>${escapeHtml(item.explanation)}</p></div>
-    </article>`).join('')}</div>`;
+    </article>`).join('')}</div>${feedback.productionItems?.length ? `<div class="completion-list production-feedback"><h4>English → Japanese</h4>${feedback.productionItems.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div><div class="feedback-field"><span>Target expression</span><p>${escapeHtml(item.keyword)}</p></div></article>`).join('')}</div>` : ''}`;
   results.classList.remove('hidden');
   $('#checkAnswers').setAttribute('aria-expanded', 'true');
   results.focus({ preventScroll: true });

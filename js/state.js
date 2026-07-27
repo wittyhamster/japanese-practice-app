@@ -5,9 +5,12 @@ function normalizeLesson(raw = {}) {
   const answers = raw.answers && typeof raw.answers === 'object' && !Array.isArray(raw.answers)
     ? Object.fromEntries(Object.entries(raw.answers).filter(([, value]) => typeof value === 'string'))
     : {};
+  const productionAnswers = raw.productionAnswers && typeof raw.productionAnswers === 'object' && !Array.isArray(raw.productionAnswers)
+    ? Object.fromEntries(Object.entries(raw.productionAnswers).filter(([, value]) => typeof value === 'string'))
+    : {};
 
   return {
-    answers,
+    answers, productionAnswers,
     favorites: Array.isArray(raw.favorites) ? raw.favorites.filter(item => typeof item === 'string') : [],
     reviewed: Array.isArray(raw.reviewed) ? raw.reviewed.filter(item => typeof item === 'string') : []
   };
@@ -61,13 +64,14 @@ export function createStateStore() {
     get: () => ({ theme: state.theme, ...currentLesson() }),
     getLastViewedLesson: () => state.lastViewedLesson,
     setLastViewedLesson(id) { state.lastViewedLesson = id; save(); },
-    isLessonComplete(id, questionCount) {
+    isLessonComplete(id, questionCount, productionQuestionCount = 0) {
       const lessonState = state.lessons[id] || normalizeLesson();
-      return questionCount > 0
-        && Object.values(lessonState.answers).filter(value => value.trim()).length >= questionCount;
+      return questionCount > 0 && Object.values(lessonState.answers).filter(value => value.trim()).length >= questionCount
+        && Object.values(lessonState.productionAnswers).filter(value => value.trim()).length >= productionQuestionCount;
     },
     setAnswer(id, value) { currentLesson().answers[id] = value; save(); },
-    resetAnswers() { currentLesson().answers = {}; save(); },
+    setProductionAnswer(id, value) { currentLesson().productionAnswers[id] = value; save(); },
+    resetAnswers() { currentLesson().answers = {}; currentLesson().productionAnswers = {}; save(); },
     toggleFavorite(id) {
       const lessonState = currentLesson();
       lessonState.favorites = lessonState.favorites.includes(id)
