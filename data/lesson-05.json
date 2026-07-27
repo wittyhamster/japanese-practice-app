@@ -11,9 +11,9 @@
     {"id":"lesson-05-q4","prompt":"日本語は勉強すればするほど、むしろ面白くなる。","hint":"The more the speaker studies, the more interesting Japanese becomes.","answer":"The more I study Japanese, the more interesting it becomes."}
   ],
   "productionQuestions": [
-    {"id":"lesson-05-prod-1","prompt":"I thought it would be difficult, but it was actually easy.","keyword":"むしろ","hint":"Use 〜と思ったけど to contrast the expectation with the actual result.","sampleAnswer":"難しいと思ったけど、むしろ簡単だった。"},
-    {"id":"lesson-05-prod-2","prompt":"Rather than being cold, he's actually just shy.","keyword":"むしろ","hint":"Use 〜というより to replace one description with a more accurate one.","sampleAnswer":"彼は冷たいというより、むしろ恥ずかしがり屋だ。"},
-    {"id":"lesson-05-prod-3","prompt":"Instead of making me tired, exercising actually gives me more energy.","keyword":"むしろ","hint":"Use 〜どころか to show that the result is the opposite of what was expected.","sampleAnswer":"運動すると疲れるどころか、むしろ元気になる。"},
-    {"id":"lesson-05-prod-4","prompt":"The more I study Japanese, the more interesting it becomes.","keyword":"むしろ","hint":"Use 〜ば〜ほど for “the more..., the more....”","sampleAnswer":"日本語は勉強すればするほど、むしろ面白くなる。"}
+    {"id":"lesson-05-prod-1","prompt":"I was going to leave early, but I ended up staying until the end.","keyword":"むしろ","hint":"Contrast the plan to leave early with what actually happened.","sampleAnswer":"早く帰るつもりだったけど、むしろ最後まで残った。"},
+    {"id":"lesson-05-prod-2","prompt":"This bag looks expensive, but it is actually quite cheap.","keyword":"むしろ","hint":"Use むしろ to correct the first impression about the price.","sampleAnswer":"このかばんは高そうだけど、むしろかなり安い。"},
+    {"id":"lesson-05-prod-3","prompt":"The train is crowded, so taking the bus might actually be faster.","keyword":"むしろ","hint":"Compare the crowded train with the alternative that may be faster.","sampleAnswer":"電車は混んでいるので、むしろバスで行ったほうが早いかもしれない。"},
+    {"id":"lesson-05-prod-4","prompt":"I can concentrate better on rainy days.","keyword":"むしろ","hint":"Use むしろ to say the result is the opposite of what someone might expect from rainy weather.","sampleAnswer":"雨の日のほうが、むしろ集中できる。"}
   ]
 }

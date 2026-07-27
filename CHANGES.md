@@ -120,3 +120,6 @@ This document tracks the production changes made to the Sensei application.
 - `js/state.js` — Persisted production answers independently and included them in reset/completion behavior.
 - `js/view.js` — Rendered production prompts/hints, progress, completion review, and lesson-library completion state.
 - `js/feedback.js` — Added production reference-answer feedback items.
+# Follow-up: Revise Lesson 5 production prompts
+
+- `data/lesson-05.json` — Replaced mirrored English → Japanese prompts with new vocabulary, situations, and reference answers that test transfer of むしろ.
