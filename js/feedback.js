@@ -11,7 +11,8 @@ export function createReferenceFeedback(lesson, state) {
     })),
     productionItems: (lesson.productionQuestions || []).map((question, index) => ({
       id: question.id, number: index + 1, prompt: question.prompt, keyword: question.keyword,
-      userAnswer: (state.productionAnswers[question.id] || '').trim(), referenceAnswer: question.sampleAnswer
+      userAnswer: (state.productionAnswers[question.id] || '').trim(),
+      referenceAnswers: question.referenceAnswers || [{ answer: question.sampleAnswer, note: 'A natural way to express the idea.' }]
     }))
   };
 }

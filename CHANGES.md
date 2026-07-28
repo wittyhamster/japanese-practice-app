@@ -123,3 +123,11 @@ This document tracks the production changes made to the Sensei application.
 # Follow-up: Revise Lesson 5 production prompts
 
 - `data/lesson-05.json` — Replaced mirrored English → Japanese prompts with new vocabulary, situations, and reference answers that test transfer of むしろ.
+
+# Add Lesson 6 and flexible production references
+
+- `data/lesson-06.json` — Added the Day 9 やっと lesson with pitfall guidance, recognition practice, and multiple natural production references.
+- `data/lessons.json` — Added Lesson 6 and made it active.
+- `js/lesson.js` — Validated both legacy `sampleAnswer` and new `referenceAnswers` production formats.
+- `js/feedback.js` — Normalized production feedback to a list of reference answers with notes.
+- `js/view.js` — Displays possible natural answers, levels, and explanations in production review.

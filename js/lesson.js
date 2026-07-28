@@ -18,7 +18,10 @@ export async function loadLesson(url) {
   const validKeywords = lesson.keywords.every(item => hasTextFields(item, ['word', 'reading', 'meaning', 'nuance', 'example', 'exampleTranslation']));
   const validQuestions = lesson.questions.every(item => hasTextFields(item, ['prompt', 'hint', 'answer']));
   const validProduction = lesson.productionQuestions === undefined || (Array.isArray(lesson.productionQuestions)
-    && lesson.productionQuestions.every(item => hasTextFields(item, ['prompt', 'keyword', 'sampleAnswer'])
+    && lesson.productionQuestions.every(item => hasTextFields(item, ['prompt', 'keyword'])
+      && (typeof item.sampleAnswer === 'string' || (Array.isArray(item.referenceAnswers) && item.referenceAnswers.length > 0
+        && item.referenceAnswers.every(reference => hasTextFields(reference, ['answer', 'note'])
+          && (reference.level === undefined || typeof reference.level === 'string'))))
       && (item.hint === undefined || typeof item.hint === 'string')));
   const validPitfall = lesson.commonPitfall === undefined
     || (lesson.commonPitfall && typeof lesson.commonPitfall === 'object'
