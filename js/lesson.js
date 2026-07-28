@@ -20,7 +20,8 @@ export async function loadLesson(url) {
   const validProduction = lesson.productionQuestions === undefined || (Array.isArray(lesson.productionQuestions)
     && lesson.productionQuestions.every(item => hasTextFields(item, ['prompt', 'keyword'])
       && (typeof item.sampleAnswer === 'string' || (Array.isArray(item.referenceAnswers) && item.referenceAnswers.length > 0
-        && item.referenceAnswers.every(reference => hasTextFields(reference, ['answer', 'note'])
+        && item.referenceAnswers.every(reference => reference && typeof reference === 'object'
+          && typeof reference.answer === 'string' && typeof reference.note === 'string'
           && (reference.level === undefined || typeof reference.level === 'string'))))
       && (item.hint === undefined || typeof item.hint === 'string')));
   const validPitfall = lesson.commonPitfall === undefined
