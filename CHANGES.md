@@ -132,3 +132,4 @@ This document tracks the production changes made to the Sensei application.
 - `js/feedback.js` — Normalized production feedback to a list of reference answers with notes.
 - `js/view.js` — Displays possible natural answers, levels, and explanations in production review.
 - `index.html` — Renamed the home-page lesson link to “Start lesson” to reflect that it jumps to the current lesson rather than advancing the curriculum.
+- `js/lesson.js` — Corrected production-reference validation so reference objects do not need unrelated IDs.
