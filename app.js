@@ -97,6 +97,13 @@ function copyPayload() {
   return `Please review my Japanese translation practice.\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}`;
 }
 
+function aiReviewPayload() {
+  const state = store.get();
+  const answers = lesson.questions.map((item, index) => `${index + 1}. ${item.prompt}\nMy answer: ${state.answers[item.id] || '(blank)'}`).join('\n\n');
+  const production = (lesson.productionQuestions || []).map((item, index) => `${index + 1}. ${item.prompt}\nTarget expression: ${item.keyword}\nMy answer: ${state.productionAnswers[item.id] || '(blank)'}`).join('\n\n');
+  return `Please review my Japanese translation practice.\n\nLesson:\n${lesson.title}\n\nTarget expression:\n${lesson.keywords.map(item => item.word).join('、')}\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}\n\nPlease evaluate:\n\n• grammar\n• naturalness\n• vocabulary\n• recurring mistakes\n• overall score\n• encouragement\n• suggestions for improvement`;
+}
+
 async function copyAnswers() {
   const payload = copyPayload();
   try {
@@ -140,6 +147,9 @@ document.addEventListener('click', async event => {
     showToast('Answers reset');
   } else if (button.id === 'copyAnswers' && lesson) {
     copyAnswers();
+  } else if (button.id === 'aiReview' && lesson) {
+    try { await navigator.clipboard.writeText(aiReviewPayload()); showToast('AI review prompt copied'); }
+    catch { showToast('Copy unavailable; use Copy answers instead'); }
   } else if (button.id === 'checkAnswers' && lesson) {
     renderCompletion(createReferenceFeedback(lesson, store.get()));
   } else if (button.dataset.favorite && lesson) {

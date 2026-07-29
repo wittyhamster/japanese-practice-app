@@ -133,3 +133,11 @@ This document tracks the production changes made to the Sensei application.
 - `js/view.js` — Displays possible natural answers, levels, and explanations in production review.
 - `index.html` — Renamed the home-page lesson link to “Start lesson” to reflect that it jumps to the current lesson rather than advancing the curriculum.
 - `js/lesson.js` — Corrected production-reference validation so reference objects do not need unrelated IDs.
+
+# Production Practice v2
+
+- `index.html` — Added the Review with AI action.
+- `app.js` — Builds and copies a structured AI review prompt containing user responses only.
+- `js/lesson.js` — Validates optional helpful vocabulary entries.
+- `js/view.js` — Renders collapsible vocabulary tables beneath production prompts.
+- `styles.css` — Added compact responsive table styling for vocabulary hints.

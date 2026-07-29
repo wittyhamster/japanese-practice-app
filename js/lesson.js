@@ -24,10 +24,13 @@ export async function loadLesson(url) {
           && typeof reference.answer === 'string' && typeof reference.note === 'string'
           && (reference.level === undefined || typeof reference.level === 'string'))))
       && (item.hint === undefined || typeof item.hint === 'string')));
+  const validVocabulary = lesson.productionQuestions === undefined || lesson.productionQuestions.every(item => item.helpfulVocabulary === undefined
+    || (Array.isArray(item.helpfulVocabulary) && item.helpfulVocabulary.every(word => word && typeof word === 'object'
+      && typeof word.jp === 'string' && typeof word.reading === 'string' && typeof word.en === 'string')));
   const validPitfall = lesson.commonPitfall === undefined
     || (lesson.commonPitfall && typeof lesson.commonPitfall === 'object'
       && typeof lesson.commonPitfall.title === 'string' && typeof lesson.commonPitfall.body === 'string');
-  if (!validKeywords || !validQuestions || !validProduction || !lesson.questions.every(item => typeof item.id === 'string')) {
+  if (!validKeywords || !validQuestions || !validProduction || !validVocabulary || !lesson.questions.every(item => typeof item.id === 'string')) {
     throw new Error('Lesson data contains invalid items');
   }
   return lesson;
