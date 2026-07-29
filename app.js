@@ -90,26 +90,17 @@ async function selectLesson(requestedId, { historyMode = 'push', focusTitle = tr
   }
 }
 
-function copyPayload() {
-  const state = store.get();
-  const answers = lesson.questions.map((item, index) => `${index + 1}. ${item.prompt}\nMy answer: ${state.answers[item.id] || '(blank)'}`).join('\n\n');
-  const production = (lesson.productionQuestions || []).map((item, index) => `${index + 1}. ${item.prompt}\nTarget expression: ${item.keyword}\nMy answer: ${state.productionAnswers[item.id] || '(blank)'}`).join('\n\n');
-  return `Please review my Japanese translation practice.\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}`;
+export function buildAIReviewPayload(currentLesson, state) {
+  const answers = currentLesson.questions.map((item, index) => `${index + 1}. ${item.prompt}\nMy answer: ${state.answers[item.id] || '(blank)'}`).join('\n\n');
+  const production = (currentLesson.productionQuestions || []).map((item, index) => `${index + 1}. ${item.prompt}\nTarget expression: ${item.keyword}\nMy answer: ${state.productionAnswers[item.id] || '(blank)'}`).join('\n\n');
+  return `Please review my Japanese translation practice.\n\nLesson:\n${currentLesson.title}\n\nTarget expression:\n${currentLesson.keywords.map(item => item.word).join('、')}\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}\n\nPlease evaluate:\n\n• grammar\n• naturalness\n• vocabulary\n• recurring mistakes\n• overall score\n• encouragement\n• suggestions for improvement`;
 }
 
-function aiReviewPayload() {
-  const state = store.get();
-  const answers = lesson.questions.map((item, index) => `${index + 1}. ${item.prompt}\nMy answer: ${state.answers[item.id] || '(blank)'}`).join('\n\n');
-  const production = (lesson.productionQuestions || []).map((item, index) => `${index + 1}. ${item.prompt}\nTarget expression: ${item.keyword}\nMy answer: ${state.productionAnswers[item.id] || '(blank)'}`).join('\n\n');
-  return `Please review my Japanese translation practice.\n\nLesson:\n${lesson.title}\n\nTarget expression:\n${lesson.keywords.map(item => item.word).join('、')}\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}\n\nPlease evaluate:\n\n• grammar\n• naturalness\n• vocabulary\n• recurring mistakes\n• overall score\n• encouragement\n• suggestions for improvement`;
-}
-
-async function copyAnswers() {
-  const payload = copyPayload();
+async function copyToClipboard(payload) {
   try {
     if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
     await navigator.clipboard.writeText(payload);
-    showToast('Copied for ChatGPT');
+    return true;
   } catch {
     const fallback = document.createElement('textarea');
     fallback.value = payload;
@@ -119,8 +110,16 @@ async function copyAnswers() {
     fallback.select();
     const copied = document.execCommand('copy');
     fallback.remove();
-    showToast(copied ? 'Copied for ChatGPT' : 'Select your answers and copy manually');
+    return copied;
   }
+}
+
+async function deliverAIReview(payload) {
+  let reviewTab = null;
+  try { reviewTab = window.open('https://chatgpt.com/', '_blank', 'noopener'); } catch { /* Clipboard delivery still works. */ }
+  const copied = await copyToClipboard(payload);
+  if (copied) showToast(reviewTab ? 'Review prompt copied. Paste it into ChatGPT.' : 'Review prompt copied. Open ChatGPT and paste it.');
+  else showToast('Could not copy the review prompt. Please try again.');
 }
 
 document.addEventListener('click', async event => {
@@ -145,11 +144,8 @@ document.addEventListener('click', async event => {
     render();
     clearCompletion();
     showToast('Answers reset');
-  } else if (button.id === 'copyAnswers' && lesson) {
-    copyAnswers();
   } else if (button.id === 'aiReview' && lesson) {
-    try { await navigator.clipboard.writeText(aiReviewPayload()); showToast('AI review prompt copied'); }
-    catch { showToast('Copy unavailable; use Copy answers instead'); }
+    deliverAIReview(buildAIReviewPayload(lesson, store.get()));
   } else if (button.id === 'checkAnswers' && lesson) {
     renderCompletion(createReferenceFeedback(lesson, store.get()));
   } else if (button.dataset.favorite && lesson) {

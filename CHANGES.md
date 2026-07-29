@@ -141,3 +141,10 @@ This document tracks the production changes made to the Sensei application.
 - `js/lesson.js` — Validates optional helpful vocabulary entries.
 - `js/view.js` — Renders collapsible vocabulary tables beneath production prompts.
 - `styles.css` — Added compact responsive table styling for vocabulary hints.
+
+# Streamline AI review and improve Production Practice
+
+- `index.html` — Replaced the duplicate copy action with the primary Review with AI workflow.
+- `app.js` — Separated AI-review request construction from clipboard/browser delivery and opens ChatGPT after copying the learner-only review prompt.
+- `data/lesson-06.json` — Added optional helpful vocabulary to each production prompt.
+- `js/view.js` — Keeps the existing multiple-answer review presentation and optional vocabulary rendering.

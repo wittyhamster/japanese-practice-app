@@ -149,7 +149,7 @@ export function clearCompletion() {
 
 export function showLoadError() {
   $('#keywordList').innerHTML = '<div class="empty-card">The lesson could not load. Check your connection, then refresh the page.</div>';
-  $('#copyAnswers').disabled = true;
+  $('#aiReview').disabled = true;
   $('#resetAnswers').disabled = true;
   $('#checkAnswers').disabled = true;
 }
