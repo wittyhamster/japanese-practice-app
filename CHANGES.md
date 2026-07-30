@@ -148,3 +148,8 @@ This document tracks the production changes made to the Sensei application.
 - `app.js` — Separated AI-review request construction from clipboard/browser delivery and opens ChatGPT after copying the learner-only review prompt.
 - `data/lesson-06.json` — Added optional helpful vocabulary to each production prompt.
 - `js/view.js` — Keeps the existing multiple-answer review presentation and optional vocabulary rendering.
+
+# Add Lesson 7: せっかく
+
+- `data/lesson-07.json` — Added the Day 10 せっかく lesson with learning content, pitfall guidance, translation practice, vocabulary hints, and multiple production references.
+- `data/lessons.json` — Added Lesson 7 to the curriculum manifest and made it the active lesson.

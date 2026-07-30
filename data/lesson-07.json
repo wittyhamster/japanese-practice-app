@@ -1,0 +1,48 @@
+{
+  "id": "core-expression-07",
+  "title": "Understanding せっかく",
+  "subtitle": "Day 10",
+  "keywords": [
+    {
+      "id": "sekkaku",
+      "word": "せっかく",
+      "reading": "せっかく",
+      "meaning": "after making the effort; since you've gone to the trouble; specially",
+      "nuance": "せっかく emphasizes that someone invested effort, time, money, or a valuable opportunity. It often means that the opportunity should not be wasted, or that it is a shame the effort was not rewarded. Unlike やっと, which focuses on relief after difficulty, せっかく focuses on the value of the effort itself.",
+      "example": "せっかく日本に来たんだから、寿司を食べよう。",
+      "exampleTranslation": "Since we've come all the way to Japan, let's eat sushi."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Don't translate せっかく as simply 'especially.' Think 'after all that effort' or 'since we already went to the trouble.' English often does not translate it directly."
+  },
+  "questions": [
+    {"id":"lesson-07-q1","prompt":"せっかく作ったのに、誰も食べなかった。","hint":"The speaker is disappointed because effort was wasted.","answer":"Even though I went to the trouble of making it, nobody ate it."},
+    {"id":"lesson-07-q2","prompt":"せっかくの休みだから、ゆっくりしよう。","hint":"A valuable opportunity shouldn't be wasted.","answer":"Since we have this precious day off, let's take it easy."},
+    {"id":"lesson-07-q3","prompt":"せっかく日本語を勉強しているんだから、日本人と話してみたら？","hint":"The speaker encourages someone to make use of their effort.","answer":"Since you're already studying Japanese, why don't you try speaking with Japanese people?"},
+    {"id":"lesson-07-q4","prompt":"せっかく買ったのに、一度も使っていない。","hint":"Something was purchased but never used.","answer":"Even though I went to the trouble of buying it, I haven't used it even once."}
+  ],
+  "productionQuestions": [
+    {
+      "id":"lesson-07-prod-1","prompt":"Since we're already here, let's take some pictures.","keyword":"せっかく","hint":"Use 〜んだから to naturally express 'since we've already come all this way.'",
+      "helpfulVocabulary":[{"jp":"来る","reading":"くる","en":"to come"},{"jp":"写真","reading":"しゃしん","en":"photograph"},{"jp":"撮る","reading":"とる","en":"to take (a picture)"}],
+      "referenceAnswers":[{"answer":"せっかく来たんだから、写真を撮ろう。","level":"Recommended","note":"Uses 〜んだから to naturally express 'since we've already come all this way.'"},{"answer":"せっかくここまで来たし、写真を撮ろう。","level":"Alternative","note":"Adds ここまで ('all the way here'), making the effort more explicit."}]
+    },
+    {
+      "id":"lesson-07-prod-2","prompt":"I studied so much, but I forgot everything.","keyword":"せっかく","hint":"Use 〜のに to show that the effort was wasted.",
+      "helpfulVocabulary":[{"jp":"勉強する","reading":"べんきょうする","en":"to study"},{"jp":"忘れる","reading":"わすれる","en":"to forget"}],
+      "referenceAnswers":[{"answer":"せっかく勉強したのに、全部忘れてしまった。","level":"Recommended","note":"A classic use of せっかく showing disappointment that the effort was wasted."},{"answer":"たくさん勉強したのに、結局忘れてしまった。","level":"Alternative","note":"Doesn't use せっかく, but expresses a similar idea naturally."}]
+    },
+    {
+      "id":"lesson-07-prod-3","prompt":"She bought a nice camera but never uses it.","keyword":"せっかく","hint":"Use 一度も with a negative form for 'never.'",
+      "helpfulVocabulary":[{"jp":"カメラ","reading":"カメラ","en":"camera"},{"jp":"一度も","reading":"いちども","en":"never"},{"jp":"使う","reading":"つかう","en":"to use"}],
+      "referenceAnswers":[{"answer":"せっかくいいカメラを買ったのに、一度も使っていない。","level":"Recommended","note":"Focuses on the wasted purchase."},{"answer":"いいカメラを買ったのに、全然使っていない。","level":"Alternative","note":"More direct, but loses the nuance that the purchase itself was valuable."}]
+    },
+    {
+      "id":"lesson-07-prod-4","prompt":"Since you're already studying Japanese, you should visit Japan someday.","keyword":"せっかく","hint":"Use 〜んだから to encourage someone to make good use of their effort.",
+      "helpfulVocabulary":[{"jp":"日本語","reading":"にほんご","en":"Japanese"},{"jp":"勉強する","reading":"べんきょうする","en":"to study"},{"jp":"日本","reading":"にほん","en":"Japan"},{"jp":"行く","reading":"いく","en":"to go"},{"jp":"いつか","reading":"いつか","en":"someday"}],
+      "referenceAnswers":[{"answer":"せっかく日本語を勉強しているんだから、いつか日本へ行ったほうがいいよ。","level":"Recommended","note":"Encourages someone to make good use of their effort."},{"answer":"日本語を勉強しているなら、いつか日本へ行ってみたら？","level":"Alternative","note":"Very natural, but it doesn't emphasize the value of the effort the way せっかく does."}]
+    }
+  ]
+}
