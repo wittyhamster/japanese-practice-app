@@ -36,7 +36,7 @@
     </section>
 
     <section class="stats-grid" aria-label="Study statistics">
-      <article class="mini-card"><span>🔥</span><div><strong id="streakCount">1</strong><small>day streak</small></div></article>
+      <article class="mini-card"><span>🔥</span><div><strong id="streakCount">0</strong><small>day streak</small></div></article>
       <article class="mini-card"><span>⭐</span><div><strong id="favoriteStat">0</strong><small>favorites</small></div></article>
       <article class="mini-card"><span>✓</span><div><strong id="learnedStat">0</strong><small>words reviewed</small></div></article>
     </section>
@@ -66,8 +66,10 @@
       <div class="practice-toolbar">
         <button id="aiReview" class="primary">✨ Review with AI</button>
         <button id="resetAnswers" class="secondary">Reset answers</button>
+        <button id="manageApiKey" class="secondary" type="button">🔑 API key</button>
       </div>
       <div id="questionList" class="stack"></div>
+      <section id="aiReviewResults" class="completion-results hidden" aria-live="polite" tabindex="-1"></section>
       <div class="completion-action">
         <button id="checkAnswers" class="primary completion-button" aria-controls="completionResults" aria-expanded="false">Check Answers</button>
       </div>

@@ -1,9 +1,11 @@
 import { loadManifest, loadManifestLesson } from './js/lesson.js';
 import { createStateStore } from './js/state.js';
 import { createReferenceFeedback } from './js/feedback.js';
+import { getApiKey, setApiKey, requestAIReview } from './js/ai.js';
 import {
-  applyTheme, clearCompletion, renderCompletion, renderLesson, renderLessonLibrary,
-  renderLessonNavigation, renderPitfall, showLoadError, showToast, updateProgress
+  applyTheme, clearAIReview, clearCompletion, renderAIReviewError, renderAIReviewPending, renderAIReviewResult,
+  renderCompletion, renderLesson, renderLessonLibrary, renderLessonNavigation, renderPitfall, renderStreak,
+  showLoadError, showToast, updateProgress
 } from './js/view.js';
 
 const MANIFEST_URL = './data/lessons.json';
@@ -51,6 +53,7 @@ function render() {
   renderPitfall(lesson);
   renderLessonLibrary(manifest, currentEntry.id, store);
   renderLessonNavigation(manifest, currentEntry.id);
+  renderStreak(store.getStreak());
 }
 
 async function selectLesson(requestedId, { historyMode = 'push', focusTitle = true } = {}) {
@@ -79,6 +82,7 @@ async function selectLesson(requestedId, { historyMode = 'push', focusTitle = tr
   store.setLastViewedLesson(currentEntry.id);
   updateUrl(currentEntry.id, historyMode);
   clearCompletion();
+  clearAIReview();
   setLibraryOpen(false);
   render();
 
@@ -96,30 +100,48 @@ export function buildAIReviewPayload(currentLesson, state) {
   return `Please review my Japanese translation practice.\n\nLesson:\n${currentLesson.title}\n\nTarget expression:\n${currentLesson.keywords.map(item => item.word).join('、')}\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}\n\nPlease evaluate:\n\n• grammar\n• naturalness\n• vocabulary\n• recurring mistakes\n• overall score\n• encouragement\n• suggestions for improvement`;
 }
 
-async function copyToClipboard(payload) {
-  try {
-    if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
-    await navigator.clipboard.writeText(payload);
-    return true;
-  } catch {
-    const fallback = document.createElement('textarea');
-    fallback.value = payload;
-    fallback.setAttribute('readonly', '');
-    fallback.className = 'clipboard-fallback';
-    document.body.appendChild(fallback);
-    fallback.select();
-    const copied = document.execCommand('copy');
-    fallback.remove();
-    return copied;
-  }
+async function promptForApiKey() {
+  const input = window.prompt('Enter your Anthropic API key to enable AI review.\n\nGet one at console.anthropic.com. It is stored only in this browser (localStorage) and sent directly to Anthropic’s API — never anywhere else.');
+  const trimmed = input?.trim();
+  if (!trimmed) return null;
+  setApiKey(trimmed);
+  return trimmed;
 }
 
-async function deliverAIReview(payload) {
-  let reviewTab = null;
-  try { reviewTab = window.open('https://chatgpt.com/', '_blank', 'noopener'); } catch { /* Clipboard delivery still works. */ }
-  const copied = await copyToClipboard(payload);
-  if (copied) showToast(reviewTab ? 'Review prompt copied. Paste it into ChatGPT.' : 'Review prompt copied. Open ChatGPT and paste it.');
-  else showToast('Could not copy the review prompt. Please try again.');
+function manageApiKey() {
+  const input = window.prompt('Update your Anthropic API key. Clear the field and press OK to remove it.', getApiKey());
+  if (input === null) return; // Cancelled.
+  const trimmed = input.trim();
+  setApiKey(trimmed);
+  showToast(trimmed ? 'API key saved.' : 'API key removed.');
+}
+
+async function runAIReview() {
+  const apiKey = getApiKey() || await promptForApiKey();
+  if (!apiKey) return;
+
+  const button = document.querySelector('#aiReview');
+  button.disabled = true;
+  button.textContent = 'Reviewing…';
+  renderAIReviewPending();
+
+  try {
+    const payload = buildAIReviewPayload(lesson, store.get());
+    const feedback = await requestAIReview(payload, apiKey);
+    renderAIReviewResult(feedback);
+  } catch (error) {
+    console.error('Sensei AI review failed.', error);
+    if (error.status === 401) {
+      setApiKey('');
+      renderAIReviewError('That API key was rejected. Use the 🔑 API key button to enter a valid one.');
+    } else {
+      renderAIReviewError(error.message || 'AI review failed. Please try again.');
+    }
+    showToast('AI review failed.');
+  } finally {
+    button.disabled = false;
+    button.textContent = '✨ Review with AI';
+  }
 }
 
 document.addEventListener('click', async event => {
@@ -143,9 +165,12 @@ document.addEventListener('click', async event => {
     store.resetAnswers();
     render();
     clearCompletion();
+    clearAIReview();
     showToast('Answers reset');
   } else if (button.id === 'aiReview' && lesson) {
-    deliverAIReview(buildAIReviewPayload(lesson, store.get()));
+    await runAIReview();
+  } else if (button.id === 'manageApiKey') {
+    manageApiKey();
   } else if (button.id === 'checkAnswers' && lesson) {
     renderCompletion(createReferenceFeedback(lesson, store.get()));
   } else if (button.dataset.favorite && lesson) {
@@ -169,6 +194,7 @@ document.addEventListener('input', event => {
   else store.setAnswer(event.target.dataset.answer, event.target.value);
   updateProgress(lesson, store.get());
   renderLessonLibrary(manifest, currentEntry.id, store);
+  renderStreak(store.getStreak());
   clearCompletion();
 });
 

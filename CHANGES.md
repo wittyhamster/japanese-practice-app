@@ -153,3 +153,17 @@ This document tracks the production changes made to the Sensei application.
 
 - `data/lesson-07.json` — Added the Day 10 せっかく lesson with learning content, pitfall guidance, translation practice, vocabulary hints, and multiple production references.
 - `data/lessons.json` — Added Lesson 7 to the curriculum manifest and made it the active lesson.
+
+# Real day streak and API-backed AI review
+
+- `js/state.js` — Added a real `streak` field (`count` + `lastActiveDate`) to app state, normalized on load. Added `recordActivity()`, which increments the streak once per calendar day when the learner does something that counts as practice, and resets it to 1 after a missed day. Added `getStreak()`. Wired `recordActivity()` into `setAnswer`, `setProductionAnswer`, and `toggleReviewed` — starring a favorite does not count as practice, on purpose.
+- `js/ai.js` (new) — Calls the Anthropic Messages API directly from the browser using a learner-supplied API key (bring-your-own-key pattern), via the `anthropic-dangerous-direct-browser-access` CORS header. The key lives only in the browser's `localStorage`, never in the repo. Exposes `getApiKey`, `setApiKey`, `requestAIReview`.
+- `app.js` — Removed the clipboard-copy-and-open-ChatGPT flow. `Review with AI` now calls `js/ai.js` directly and renders the model's feedback inline. Prompts for an API key on first use (or after a rejected key) via `promptForApiKey()`. Added `manageApiKey()` behind a new "🔑 API key" button to update or clear the stored key. Clears any AI review panel when switching lessons or resetting answers. Renders the streak on every full render and after each answer keystroke.
+- `js/view.js` — Added `renderStreak()`. Added `renderAIReviewPending()`, `renderAIReviewResult()`, and `renderAIReviewError()` to show inline loading/result/error states, plus `clearAIReview()` to reset the panel. Reused the existing `.completion-results` styling, so no new CSS was needed.
+- `index.html` — Added the `#aiReviewResults` panel and the `🔑 API key` button. Changed the streak's static fallback text from `1` to `0` to match a learner who hasn't practiced yet.
+
+## Verification completed
+
+- `node --check` passed for `app.js`, `js/state.js`, `js/view.js`, and `js/ai.js`.
+- Streak logic was exercised with a mocked `localStorage` and a mocked `Date`: first activity on a day sets the streak to 1; further activity the same day does not double-count; activity the next calendar day increments it; a skipped day resets it to 1; starring a favorite alone does not move it; and the value persists correctly to a fresh store instance reading the same storage.
+- The AI-review request/response cycle was exercised with a mocked `fetch`: confirmed the request URL, headers (`x-api-key`, `anthropic-version`, `anthropic-dangerous-direct-browser-access`), and body shape; confirmed a successful text response is extracted correctly; confirmed a rejected (401) key surfaces its status and message; confirmed an empty response is treated as an error rather than shown as blank feedback.
