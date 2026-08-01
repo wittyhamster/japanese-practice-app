@@ -16,6 +16,13 @@ function normalizeLesson(raw = {}) {
   };
 }
 
+function normalizeStreak(raw = {}) {
+  return {
+    count: Number.isInteger(raw.count) && raw.count >= 0 ? raw.count : 0,
+    lastActiveDate: typeof raw.lastActiveDate === 'string' ? raw.lastActiveDate : null
+  };
+}
+
 function normalize(raw = {}) {
   const lessons = raw.lessons && typeof raw.lessons === 'object' && !Array.isArray(raw.lessons)
     ? Object.fromEntries(Object.entries(raw.lessons).map(([id, lessonState]) => [id, normalizeLesson(lessonState)]))
@@ -24,6 +31,7 @@ function normalize(raw = {}) {
   return {
     theme: raw.theme === 'dark' ? 'dark' : 'light',
     lastViewedLesson: typeof raw.lastViewedLesson === 'string' ? raw.lastViewedLesson : null,
+    streak: normalizeStreak(raw.streak),
     lessons
   };
 }
@@ -35,6 +43,21 @@ function read() {
     try { localStorage.removeItem(STORAGE_KEY); } catch { /* Storage may be unavailable. */ }
     return normalize();
   }
+}
+
+// Local calendar date as "YYYY-MM-DD", so the streak follows the learner's
+// own day/night rather than UTC (which would flip at odd local hours).
+function todayKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function daysBetween(fromKey, toKey) {
+  const oneDay = 24 * 60 * 60 * 1000;
+  return Math.round((new Date(`${toKey}T00:00:00`) - new Date(`${fromKey}T00:00:00`)) / oneDay);
 }
 
 export function createStateStore() {
@@ -69,8 +92,8 @@ export function createStateStore() {
       return questionCount > 0 && Object.values(lessonState.answers).filter(value => value.trim()).length >= questionCount
         && Object.values(lessonState.productionAnswers).filter(value => value.trim()).length >= productionQuestionCount;
     },
-    setAnswer(id, value) { currentLesson().answers[id] = value; save(); },
-    setProductionAnswer(id, value) { currentLesson().productionAnswers[id] = value; save(); },
+    setAnswer(id, value) { currentLesson().answers[id] = value; this.recordActivity(); save(); },
+    setProductionAnswer(id, value) { currentLesson().productionAnswers[id] = value; this.recordActivity(); save(); },
     resetAnswers() { currentLesson().answers = {}; currentLesson().productionAnswers = {}; save(); },
     toggleFavorite(id) {
       const lessonState = currentLesson();
@@ -84,12 +107,24 @@ export function createStateStore() {
       lessonState.reviewed = lessonState.reviewed.includes(id)
         ? lessonState.reviewed.filter(item => item !== id)
         : [...lessonState.reviewed, id];
+      this.recordActivity();
       save();
     },
     toggleTheme() {
       state.theme = state.theme === 'dark' ? 'light' : 'dark';
       save();
       return state.theme;
-    }
+    },
+    // Call this whenever the learner does something that counts as "practice"
+    // (answering a question, marking a word reviewed). Opening the app or
+    // just starring something does not count, on purpose.
+    recordActivity() {
+      const today = todayKey();
+      if (state.streak.lastActiveDate === today) return;
+      const diff = state.streak.lastActiveDate ? daysBetween(state.streak.lastActiveDate, today) : null;
+      state.streak = { count: diff === 1 ? state.streak.count + 1 : 1, lastActiveDate: today };
+      save();
+    },
+    getStreak: () => state.streak.count
   };
 }

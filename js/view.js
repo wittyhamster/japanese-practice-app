@@ -13,6 +13,10 @@ export function applyTheme(theme) {
   button.setAttribute('aria-label', isDark ? 'Use light theme' : 'Use dark theme');
 }
 
+export function renderStreak(count) {
+  $('#streakCount').textContent = count;
+}
+
 export function renderLesson(lesson, state) {
   $('#keywordList').innerHTML = lesson.keywords.map(item => {
     const favoriteId = `word:${item.id}`;
@@ -145,6 +149,35 @@ export function clearCompletion() {
   results.classList.add('hidden');
   results.innerHTML = '';
   $('#checkAnswers').setAttribute('aria-expanded', 'false');
+}
+
+export function renderAIReviewPending() {
+  const panel = $('#aiReviewResults');
+  panel.classList.remove('hidden');
+  panel.innerHTML = '<div class="empty-card">Asking Claude for feedback on your answers…</div>';
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+export function renderAIReviewError(message) {
+  const panel = $('#aiReviewResults');
+  panel.classList.remove('hidden');
+  panel.innerHTML = `<div class="empty-card">${escapeHtml(message)}</div>`;
+}
+
+export function renderAIReviewResult(text) {
+  const panel = $('#aiReviewResults');
+  panel.classList.remove('hidden');
+  const paragraphs = text.split(/\n{2,}/)
+    .map(paragraph => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`).join('');
+  panel.innerHTML = `<div class="completion-heading"><p class="eyebrow">AI review</p><h3>Feedback on your answers</h3></div>${paragraphs}`;
+  panel.focus({ preventScroll: true });
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+export function clearAIReview() {
+  const panel = $('#aiReviewResults');
+  panel.classList.add('hidden');
+  panel.innerHTML = '';
 }
 
 export function showLoadError() {
