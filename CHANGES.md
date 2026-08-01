@@ -167,3 +167,17 @@ This document tracks the production changes made to the Sensei application.
 - `node --check` passed for `app.js`, `js/state.js`, `js/view.js`, and `js/ai.js`.
 - Streak logic was exercised with a mocked `localStorage` and a mocked `Date`: first activity on a day sets the streak to 1; further activity the same day does not double-count; activity the next calendar day increments it; a skipped day resets it to 1; starring a favorite alone does not move it; and the value persists correctly to a fresh store instance reading the same storage.
 - The AI-review request/response cycle was exercised with a mocked `fetch`: confirmed the request URL, headers (`x-api-key`, `anthropic-version`, `anthropic-dangerous-direct-browser-access`), and body shape; confirmed a successful text response is extracted correctly; confirmed a rejected (401) key surfaces its status and message; confirmed an empty response is treated as an error rather than shown as blank feedback.
+
+# Pause API-backed AI review to avoid usage charges
+
+While refining the app further, paused the paid API-backed AI review to guarantee zero Anthropic API spend, without losing the work already done.
+
+- `app.js` — Removed the `js/ai.js` import and the API-key prompt/manage/`runAIReview` flow. Restored `copyToClipboard()` and `deliverAIReview()`, so `Review with AI` once again copies the review prompt and opens ChatGPT in a new tab — free, no API key required. The day-streak fix from the previous change is untouched.
+- `index.html` — Removed the `🔑 API key` button and the now-unused `#aiReviewResults` panel.
+- `js/view.js` — Removed `renderAIReviewPending()`, `renderAIReviewError()`, `renderAIReviewResult()`, and `clearAIReview()`, since nothing calls them anymore.
+- `js/ai.js` — Left in place, untouched, and unused. It is not imported by anything, so it cannot run or cause any charge. Re-enabling the API-backed review later only requires re-adding the import, the button, and the click-handler branch that were removed here — the request/response logic itself does not need to change.
+
+## Verification completed
+
+- `node --check` passed for `app.js` and `js/view.js`.
+- Confirmed by search that neither `app.js`, `js/view.js`, nor `index.html` reference `aiReviewResults`, `manageApiKey`, `js/ai.js`, `runAIReview`, or any `renderAIReview*` function.
