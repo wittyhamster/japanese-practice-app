@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-07",
+  "activeLesson": "lesson-08",
   "lessons": [
     {
       "id": "lesson-01",
@@ -66,6 +66,16 @@
       "questionCount": 4,
       "productionQuestionCount": 4,
       "file": "lesson-07.json"
+    },
+    {
+      "id": "lesson-08",
+      "contentId": "core-expression-sasuga",
+      "title": "Understanding さすが",
+      "subtitle": "Next lesson",
+      "expression": "さすが",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-08.json"
     }
   ]
 }

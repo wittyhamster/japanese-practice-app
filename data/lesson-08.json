@@ -1,0 +1,45 @@
+{
+  "id": "core-expression-sasuga",
+  "title": "Understanding さすが",
+  "subtitle": "Next lesson",
+  "keywords": [{
+    "id": "sasuga",
+    "word": "さすが",
+    "reading": "さすが",
+    "meaning": "as expected; impressive; just what I'd expect",
+    "nuance": "さすが expresses admiration when someone or something lives up to an existing reputation, expectation, or known ability. It often feels like 'that's exactly what I'd expect from someone like you.'",
+    "example": "さすが先生ですね。",
+    "exampleTranslation": "Just what I'd expect from a teacher."
+  }],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Do not confuse さすが with やっぱり. やっぱり means that your expectation was confirmed: 'I knew it.' さすが expresses admiration because someone or something lived up to a reputation or known ability: 'That's exactly what I'd expect.'"
+  },
+  "questions": [
+    {"id":"lesson-08-q1","prompt":"さすが日本ですね。","hint":"The speaker is impressed because Japan lived up to an expectation or reputation.","answer":"That's Japan for you. / Just what I'd expect from Japan."},
+    {"id":"lesson-08-q2","prompt":"さすが先生、よく知っていますね。","hint":"The teacher knows a lot, as expected.","answer":"As expected of a teacher, you really know a lot. / That's a teacher for you."},
+    {"id":"lesson-08-q3","prompt":"難しい試験だったけど、彼は合格した。さすがだね。","hint":"The person succeeded in a way that matches their reputation or ability.","answer":"It was a difficult exam, but he passed. That's impressive. / Just what I'd expect from him."},
+    {"id":"lesson-08-q4","prompt":"彼女は毎日練習している。さすがだ。","hint":"The speaker admires her effort or ability.","answer":"She practices every day. That's impressive."}
+  ],
+  "productionQuestions": [
+    {
+      "id":"lesson-08-prod-1","prompt":"As expected of a professional, he finished the work quickly.","keyword":"さすが","hint":"Use さすが to praise someone for living up to their professional reputation.",
+      "helpfulVocabulary":[{"jp":"プロ","reading":"プロ","en":"professional"},{"jp":"仕事","reading":"しごと","en":"work"},{"jp":"早い","reading":"はやい","en":"fast / quick"}],
+      "referenceAnswers":[{"answer":"さすがプロですね。仕事が早いです。","level":"Recommended","note":"Very natural praise. Japanese often splits the idea into two short sentences."},{"answer":"さすがプロです。仕事を早く終わらせました。","level":"Natural variation","note":"More explicit about finishing the work quickly."}]
+    },
+    {
+      "id":"lesson-08-prod-2","prompt":"I knew you could do it. That's impressive.","keyword":"さすが","hint":"Combine an expectation with admiration.",
+      "helpfulVocabulary":[{"jp":"できる","reading":"できる","en":"can do"},{"jp":"思う","reading":"おもう","en":"think"}],
+      "referenceAnswers":[{"answer":"できると思ってたよ。さすが！","level":"Recommended","note":"Natural casual Japanese: first the expectation, then the admiration."},{"answer":"やっぱりできたね。さすが！","level":"Natural variation","note":"This naturally contrasts やっぱり ('I knew it') with さすが ('Impressive')."}]
+    },
+    {
+      "id":"lesson-08-prod-3","prompt":"That's exactly what I'd expect from you.","keyword":"さすが","hint":"Japanese can often express this with さすが alone.","helpfulVocabulary":[],
+      "referenceAnswers":[{"answer":"さすがですね。","level":"Recommended","note":"Very natural. The person being praised is understood from context."},{"answer":"さすがだね。","level":"Casual","note":"A casual version used with someone you know well."}]
+    },
+    {
+      "id":"lesson-08-prod-4","prompt":"She's an amazing cook, just as expected.","keyword":"さすが","hint":"Use 料理が上手 or 料理上手.",
+      "helpfulVocabulary":[{"jp":"料理","reading":"りょうり","en":"cooking"},{"jp":"上手","reading":"じょうず","en":"skilled"}],
+      "referenceAnswers":[{"answer":"さすがですね。料理が本当に上手です。","level":"Recommended","note":"Natural and clear praise."},{"answer":"料理が本当に上手ですね。さすがです。","level":"Natural variation","note":"Equally natural with さすが placed after the praise."}]
+    }
+  ]
+}

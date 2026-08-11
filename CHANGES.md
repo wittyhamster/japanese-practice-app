@@ -181,3 +181,8 @@ While refining the app further, paused the paid API-backed AI review to guarante
 
 - `node --check` passed for `app.js` and `js/view.js`.
 - Confirmed by search that neither `app.js`, `js/view.js`, nor `index.html` reference `aiReviewResults`, `manageApiKey`, `js/ai.js`, `runAIReview`, or any `renderAIReview*` function.
+
+# Add Lesson 8: さすが
+
+- `data/lesson-08.json` — Added the さすが lesson with learning content, pitfall guidance, practice, optional vocabulary hints, and multiple natural production references.
+- `data/lessons.json` — Added Lesson 8 to the curriculum manifest and made it the active lesson.
