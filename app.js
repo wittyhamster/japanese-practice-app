@@ -147,7 +147,7 @@ document.addEventListener('click', async event => {
     showToast('Answers reset');
   } else if (button.id === 'aiReview' && lesson) {
     deliverAIReview(buildAIReviewPayload(lesson, store.get()));
-  } else if (button.id === 'checkAnswers' && lesson) {
+  } else if ((button.id === 'checkAnswers' || button.id === 'checkProductionAnswers') && lesson) {
     renderCompletion(createReferenceFeedback(lesson, store.get()));
   } else if (button.dataset.favorite && lesson) {
     store.toggleFavorite(button.dataset.favorite);

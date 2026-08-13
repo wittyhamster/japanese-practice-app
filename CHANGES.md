@@ -186,3 +186,9 @@ While refining the app further, paused the paid API-backed AI review to guarante
 
 - `data/lesson-08.json` — Added the さすが lesson with learning content, pitfall guidance, practice, optional vocabulary hints, and multiple natural production references.
 - `data/lessons.json` — Added Lesson 8 to the curriculum manifest and made it the active lesson.
+
+# Production practice answer-review access
+
+- `index.html` — Added a Check Answers control at the end of English → Japanese production practice.
+- `app.js` — Routed both practice-section controls through the same complete lesson-review action.
+- `js/view.js` — Keeps both controls' expanded/disabled states synchronized.

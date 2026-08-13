@@ -140,6 +140,7 @@ export function renderCompletion(feedback) {
     </article>`).join('')}</div>${productionReview}`;
   results.classList.remove('hidden');
   $('#checkAnswers').setAttribute('aria-expanded', 'true');
+  $('#checkProductionAnswers')?.setAttribute('aria-expanded', 'true');
   results.focus({ preventScroll: true });
   results.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -149,6 +150,7 @@ export function clearCompletion() {
   results.classList.add('hidden');
   results.innerHTML = '';
   $('#checkAnswers').setAttribute('aria-expanded', 'false');
+  $('#checkProductionAnswers')?.setAttribute('aria-expanded', 'false');
 }
 
 export function renderAIReviewPending() {
@@ -185,6 +187,7 @@ export function showLoadError() {
   $('#aiReview').disabled = true;
   $('#resetAnswers').disabled = true;
   $('#checkAnswers').disabled = true;
+  $('#checkProductionAnswers').disabled = true;
 }
 
 export function showToast(message) {
