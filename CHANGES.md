@@ -192,3 +192,19 @@ While refining the app further, paused the paid API-backed AI review to guarante
 - `index.html` — Added a Check Answers control at the end of English → Japanese production practice.
 - `app.js` — Routed both practice-section controls through the same complete lesson-review action.
 - `js/view.js` — Keeps both controls' expanded/disabled states synchronized.
+
+# Inline production reference answers
+
+- `js/view.js` — Added per-question “Show possible answers” controls for English → Japanese practice, supporting both multiple `referenceAnswers` and legacy `sampleAnswer` data.
+
+# Add recognition phase to Lesson 8 (Sprint: Next-Phase Practice)
+
+- `data/lesson-08.json` — Added `recognitionQuestions` for short contextual interpretation checks in the first recognition-enabled lesson.
+- `data/lessons.json` — Added `recognitionQuestionCount` for Lesson 8 so completion and library status include recognition progress.
+- `js/state.js` — Added `recognitionAnswers` persistence and completion accounting for recognition questions.
+- `js/feedback.js` — Added recognition review items with expected answer index, user answer text, and explanatory notes.
+- `js/lesson.js` — Added schema validation for optional `recognitionQuestions` and optional `recognitionQuestionCount` in the manifest.
+- `js/view.js` — Added a new optional recognition section with radio-choice questions, goal/progress tracking, completion review, and hidden-by-default behavior when absent.
+- `app.js` — Routed recognition answer input and check-button flow into existing review and progress paths.
+- `index.html` — Added the Recognition practice section and check action in the lesson page flow.
+- `styles.css` — Added compact, mobile-friendly styling for recognition options and completion blocks.

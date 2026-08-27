@@ -41,5 +41,58 @@
       "helpfulVocabulary":[{"jp":"料理","reading":"りょうり","en":"cooking"},{"jp":"上手","reading":"じょうず","en":"skilled"}],
       "referenceAnswers":[{"answer":"さすがですね。料理が本当に上手です。","level":"Recommended","note":"Natural and clear praise."},{"answer":"料理が本当に上手ですね。さすがです。","level":"Natural variation","note":"Equally natural with さすが placed after the praise."}]
     }
+  ],
+  "recognitionQuestions": [
+    {
+      "id": "lesson-08-rec-1",
+      "prompt": "さすが、あの選手はプレッシャーの中でも冷静だった。",
+      "options": [
+        "The player was nervous and made many mistakes.",
+        "The player was disappointing in a difficult moment.",
+        "The player stayed calm in a way that matched expectations.",
+        "The player was afraid of pressure."
+      ],
+      "answer": 2,
+      "explanation": "「さすが」は、相手の実力や印象が当たり前のように出ていることを称賛します。",
+      "hint": "Look for the meaning closest to admiration and expectation."
+    },
+    {
+      "id": "lesson-08-rec-2",
+      "prompt": "彼は料理を覚えたくて英語を毎日勉強している。さすが先生の指導があったから、上達が早い。",
+      "options": [
+        "She says this is a small mistake.",
+        "This means the result is worse than expected.",
+        "This means it happened faster than expected.",
+        "It highlights that the improvement matches the quality of the teacher's guidance."
+      ],
+      "answer": 3,
+      "explanation": "ここでは、努力をしてきた結果が先生の指導にふさわしく進んでいることをほめているため「さすが」です。",
+      "hint": "Think of the idea of living up to a known standard."
+    },
+    {
+      "id": "lesson-08-rec-3",
+      "prompt": "さすが、最近練習していたせいか、ステージで自然に話せた。",
+      "options": [
+        "It's not true that they practiced.",
+        "The speaker regretted practicing.",
+        "The speaker is pleasantly surprised by expected skill.",
+        "This sentence means the opposite of expected."
+      ],
+      "answer": 2,
+      "explanation": "Practice helped the speaker perform in a way that feels natural for someone with that effort—praising the expected result.",
+      "hint": "Pick the option that says their preparation paid off naturally."
+    },
+    {
+      "id": "lesson-08-rec-4",
+      "prompt": "さすが、毎日練習している彼女は、今日も準備が完璧だった。",
+      "options": [
+        "She was unlucky not to practice.",
+        "Her preparation met high expectations.",
+        "She forgot what she practiced.",
+        "The comment is unrelated to her study habit."
+      ],
+      "answer": 1,
+      "explanation": "この文では、彼女の習慣や実力が結果として自然に現れたことを「さすが」と褒めています。"
+    }
   ]
 }

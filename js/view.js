@@ -49,14 +49,41 @@ export function renderLesson(lesson, state) {
   const production = lesson.productionQuestions || [];
   const productionSection = $('#productionPractice');
   productionSection.classList.toggle('hidden', !production.length);
-  $('#productionList').innerHTML = production.map((item, index) => `<article class="question-card production-card">
+  $('#productionList').innerHTML = production.map((item, index) => {
+    const references = item.referenceAnswers || (item.sampleAnswer ? [{ answer: item.sampleAnswer, note: 'A natural way to express the idea.' }] : []);
+    const markers = ['①', '②', '③', '④', '⑤'];
+    return `<article class="question-card production-card">
     <div class="question-header"><span class="question-number">Question ${index + 1}</span></div>
     <p class="production-label">English</p><p class="prompt">${escapeHtml(item.prompt)}</p>
     <p class="production-target">Target expression: <strong>${escapeHtml(item.keyword)}</strong></p>
     <textarea data-production-answer="${escapeHtml(item.id)}" aria-label="Japanese answer for production question ${index + 1}" placeholder="Write your Japanese answer...">${escapeHtml(state.productionAnswers[item.id] || '')}</textarea>
     ${item.hint ? `<div class="question-actions"><button class="small-button" data-toggle="production-hint-${escapeHtml(item.id)}" aria-expanded="false">Hint</button></div><div id="production-hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Hint:</strong> ${escapeHtml(item.hint)}</div>` : ''}
     ${item.helpfulVocabulary?.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-vocab-${escapeHtml(item.id)}" aria-expanded="false">Need a hint?</button></div><div id="production-vocab-${escapeHtml(item.id)}" class="reveal hidden"><strong>Helpful vocabulary</strong><table class="vocabulary-table"><thead><tr><th>Japanese</th><th>Reading</th><th>Meaning</th></tr></thead><tbody>${item.helpfulVocabulary.map(word => `<tr><td>${escapeHtml(word.jp)}</td><td>${escapeHtml(word.reading)}</td><td>${escapeHtml(word.en)}</td></tr>`).join('')}</tbody></table></div>` : ''}
-  </article>`).join('');
+    ${references.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-answers-${escapeHtml(item.id)}" aria-expanded="false">Show possible answers</button></div><div id="production-answers-${escapeHtml(item.id)}" class="reveal hidden"><strong>Possible natural answers</strong>${references.map((reference, answerIndex) => `<div class="reference-answer"><p><strong>${markers[answerIndex] || `${answerIndex + 1}.`}</strong> ${escapeHtml(reference.answer)}</p>${reference.level ? `<p class="reference-level">${escapeHtml(reference.level)}</p>` : ''}<p class="reference-note">Why this works: ${escapeHtml(reference.note)}</p></div>`).join('')}</div>` : ''}
+  </article>`;
+  }).join('');
+
+  const recognition = lesson.recognitionQuestions || [];
+  const recognitionSection = $('#recognitionPractice');
+  if (recognitionSection) {
+    recognitionSection.classList.toggle('hidden', !recognition.length);
+    $('#recognitionList').innerHTML = recognition.map((item, index) => {
+      const selected = state.recognitionAnswers[item.id];
+      return `<article class="question-card recognition-card">
+        <div class="question-header"><span class="question-number">Question ${index + 1}</span></div>
+        <p class="prompt">${escapeHtml(item.prompt)}</p>
+        <div class="recognition-options">${item.options.map((option, optionIndex) => {
+          const id = `recognition-${escapeHtml(item.id)}-${optionIndex}`;
+          const checked = String(selected ?? '') === String(optionIndex);
+          return `<label class="recognition-option">
+            <input type="radio" name="recognition-${escapeHtml(item.id)}" value="${optionIndex}" id="${id}" data-recognition-answer="${escapeHtml(item.id)}" ${checked ? 'checked' : ''} />
+            <span>${escapeHtml(option)}</span>
+          </label>`;
+        }).join('')}</div>
+        ${item.hint ? `<div class="question-actions"><button class="small-button" data-toggle="recognition-hint-${escapeHtml(item.id)}" aria-expanded="false">Hint</button></div><div id="recognition-hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Hint:</strong> ${escapeHtml(item.hint)}</div>` : ''}
+      </article>`;
+    }).join('');
+  }
 
   renderReview(lesson, state);
   updateProgress(lesson, state);
@@ -79,7 +106,7 @@ export function renderPitfall(lesson) {
 export function renderLessonLibrary(manifest, currentLessonId, store) {
   $('#lessonLibraryList').innerHTML = manifest.lessons.map(entry => {
     const current = entry.id === currentLessonId;
-    const complete = store.isLessonComplete(entry.contentId, entry.questionCount, entry.productionQuestionCount || 0);
+    const complete = store.isLessonComplete(entry.contentId, entry.questionCount, entry.productionQuestionCount || 0, entry.recognitionQuestionCount || 0);
     const status = current ? `● Current${complete ? ' · Completed' : ''}` : complete ? '✓ Completed' : '○ Not completed';
     return `<button class="lesson-entry ${current ? 'current' : ''}" data-lesson-id="${escapeHtml(entry.id)}" ${current ? 'aria-current="page"' : ''}>
       <span class="lesson-entry-meta"><span>${escapeHtml(entry.subtitle)}</span><strong>${escapeHtml(entry.expression)}</strong></span>
@@ -117,30 +144,33 @@ export function updateProgress(lesson, state) {
   const answered = lesson.questions.filter(item => (state.answers[item.id] || '').trim()).length;
   const production = lesson.productionQuestions || [];
   const productionAnswered = production.filter(item => (state.productionAnswers[item.id] || '').trim()).length;
-  const total = lesson.keywords.length + lesson.questions.length + production.length;
-  const percent = total ? Math.round(((reviewed + answered + productionAnswered) / total) * 100) : 0;
+  const recognition = lesson.recognitionQuestions || [];
+  const recognitionAnswered = recognition.filter(item => (String(state.recognitionAnswers[item.id] || '').trim())).length;
+  const total = lesson.keywords.length + lesson.questions.length + production.length + recognition.length;
+  const percent = total ? Math.round(((reviewed + answered + productionAnswered + recognitionAnswered) / total) * 100) : 0;
   const expressionLabel = lesson.keywords.length === 1 ? 'expression' : 'expressions';
   $('#progressText').textContent = `${percent}%`;
   $('#progressBar').style.width = `${percent}%`;
   $('#learnedStat').textContent = reviewed;
-  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}`;
+  const recognitionGoals = recognition.length ? `<div class="goal-item"><span>${recognitionAnswered === recognition.length ? '✓' : '○'}</span> Recognize ${recognition.length} moments where it applies</div>` : '';
+  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}${recognitionGoals}`;
 }
 
 export function renderCompletion(feedback) {
   const results = $('#completionResults');
   const marker = ['①', '②', '③', '④', '⑤'];
+  const recognitionReview = feedback.recognitionItems?.length ? `<div class="completion-list recognition-feedback">${feedback.recognitionItems.map(item => {
+    const userAnswerText = item.userAnswerText || 'No answer selected.';
+    const resultLabel = item.isCorrect ? '✓ Correct' : '✗ Review';
+    return `<article class="feedback-card recognition-card"><div class="feedback-number">${resultLabel}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswerText ? '' : 'unanswered'}">${escapeHtml(userAnswerText)}</p></div><div class="feedback-field"><span>Expected answer</span><p>${escapeHtml(item.correctText)}</p></div><div class="feedback-field"><span>Why</span><p>${escapeHtml(item.explanation)}</p></div></article>`;
+    }).join('')}</div>` : '';
   const productionReview = feedback.productionItems?.length ? `<div class="completion-list production-feedback"><h4>English → Japanese</h4>${feedback.productionItems.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Possible natural answers</span>${item.referenceAnswers.map((reference, index) => `<div class="reference-answer"><p><strong>${marker[index] || `${index + 1}.`}</strong> ${escapeHtml(reference.answer)}</p>${reference.level ? `<p class="reference-level">${escapeHtml(reference.level)}</p>` : ''}<p class="reference-note">Why this works: ${escapeHtml(reference.note)}</p></div>`).join('')}</div><div class="feedback-field"><span>Target expression</span><p>${escapeHtml(item.keyword)}</p></div></article>`).join('')}</div>` : '';
-  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">Practice complete</p><h3>Review your answers</h3><p>Compare your translation with the reference. Natural wording can vary, so focus on meaning and nuance.</p></div>
-    <div class="completion-list">${feedback.items.map(item => `<article class="feedback-card">
-      <div class="feedback-number">Question ${item.number}</div>
-      <p class="feedback-prompt">${escapeHtml(item.prompt)}</p>
-      <div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div>
-      <div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div>
-      <div class="feedback-field"><span>Explanation</span><p>${escapeHtml(item.explanation)}</p></div>
-    </article>`).join('')}</div>${productionReview}`;
+  const translationReview = feedback.items.length ? `<div class="completion-list"><h4>Japanese → English</h4>${feedback.items.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div><div class="feedback-field"><span>Explanation</span><p>${escapeHtml(item.explanation)}</p></div></article>`).join('')}</div>` : '';
+  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">Practice complete</p><h3>Review your answers</h3><p>Compare your answers with reference and confirm whether meaning is preserved.</p></div>${translationReview}${productionReview}${recognitionReview}`;
   results.classList.remove('hidden');
   $('#checkAnswers').setAttribute('aria-expanded', 'true');
   $('#checkProductionAnswers')?.setAttribute('aria-expanded', 'true');
+  $('#checkRecognitionAnswers')?.setAttribute('aria-expanded', 'true');
   results.focus({ preventScroll: true });
   results.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -151,6 +181,7 @@ export function clearCompletion() {
   results.innerHTML = '';
   $('#checkAnswers').setAttribute('aria-expanded', 'false');
   $('#checkProductionAnswers')?.setAttribute('aria-expanded', 'false');
+  $('#checkRecognitionAnswers')?.setAttribute('aria-expanded', 'false');
 }
 
 export function renderAIReviewPending() {
@@ -188,6 +219,7 @@ export function showLoadError() {
   $('#resetAnswers').disabled = true;
   $('#checkAnswers').disabled = true;
   $('#checkProductionAnswers').disabled = true;
+  $('#checkRecognitionAnswers').disabled = true;
 }
 
 export function showToast(message) {

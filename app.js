@@ -94,7 +94,14 @@ async function selectLesson(requestedId, { historyMode = 'push', focusTitle = tr
 export function buildAIReviewPayload(currentLesson, state) {
   const answers = currentLesson.questions.map((item, index) => `${index + 1}. ${item.prompt}\nMy answer: ${state.answers[item.id] || '(blank)'}`).join('\n\n');
   const production = (currentLesson.productionQuestions || []).map((item, index) => `${index + 1}. ${item.prompt}\nTarget expression: ${item.keyword}\nMy answer: ${state.productionAnswers[item.id] || '(blank)'}`).join('\n\n');
-  return `Please review my Japanese translation practice.\n\nLesson:\n${currentLesson.title}\n\nTarget expression:\n${currentLesson.keywords.map(item => item.word).join('、')}\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}\n\nPlease evaluate:\n\n• grammar\n• naturalness\n• vocabulary\n• recurring mistakes\n• overall score\n• encouragement\n• suggestions for improvement`;
+  const recognition = (currentLesson.recognitionQuestions || []).map((item, index) => {
+    const selected = state.recognitionAnswers[item.id];
+    const selectedText = selected !== undefined && selected !== null && selected !== '' && Number.isInteger(Number(selected))
+      ? item.options[Number(selected)]
+      : '(blank)';
+    return `${index + 1}. ${item.prompt}\nMy selected option: ${selectedText || '(blank)'}`;
+  }).join('\n\n');
+  return `Please review my Japanese translation practice.\n\nLesson:\n${currentLesson.title}\n\nTarget expression:\n${currentLesson.keywords.map(item => item.word).join('、')}\n\nJapanese → English\n\n${answers}${production ? `\n\nEnglish → Japanese\n\n${production}` : ''}${recognition.length ? `\n\nRecognition\n\n${recognition}` : ''}\n\nPlease evaluate:\n\n• grammar\n• naturalness\n• vocabulary\n• recurring mistakes\n• overall score\n• encouragement\n• suggestions for improvement`;
 }
 
 async function copyToClipboard(payload) {
@@ -147,7 +154,7 @@ document.addEventListener('click', async event => {
     showToast('Answers reset');
   } else if (button.id === 'aiReview' && lesson) {
     deliverAIReview(buildAIReviewPayload(lesson, store.get()));
-  } else if ((button.id === 'checkAnswers' || button.id === 'checkProductionAnswers') && lesson) {
+  } else if ((button.id === 'checkAnswers' || button.id === 'checkProductionAnswers' || button.id === 'checkRecognitionAnswers') && lesson) {
     renderCompletion(createReferenceFeedback(lesson, store.get()));
   } else if (button.dataset.favorite && lesson) {
     store.toggleFavorite(button.dataset.favorite);
@@ -165,8 +172,9 @@ document.addEventListener('click', async event => {
 });
 
 document.addEventListener('input', event => {
-  if (!lesson || !event.target.matches('[data-answer], [data-production-answer]')) return;
+  if (!lesson || !event.target.matches('[data-answer], [data-production-answer], [data-recognition-answer]')) return;
   if (event.target.matches('[data-production-answer]')) store.setProductionAnswer(event.target.dataset.productionAnswer, event.target.value);
+  else if (event.target.matches('[data-recognition-answer]')) store.setRecognitionAnswer(event.target.dataset.recognitionAnswer, event.target.value);
   else store.setAnswer(event.target.dataset.answer, event.target.value);
   updateProgress(lesson, store.get());
   renderLessonLibrary(manifest, currentEntry.id, store);

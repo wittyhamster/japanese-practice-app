@@ -17,16 +17,23 @@ export async function loadLesson(url) {
   }
   const validKeywords = lesson.keywords.every(item => hasTextFields(item, ['word', 'reading', 'meaning', 'nuance', 'example', 'exampleTranslation']));
   const validQuestions = lesson.questions.every(item => hasTextFields(item, ['prompt', 'hint', 'answer']));
-  const validProduction = lesson.productionQuestions === undefined || (Array.isArray(lesson.productionQuestions)
+const validProduction = lesson.productionQuestions === undefined || (Array.isArray(lesson.productionQuestions)
     && lesson.productionQuestions.every(item => hasTextFields(item, ['prompt', 'keyword'])
       && (typeof item.sampleAnswer === 'string' || (Array.isArray(item.referenceAnswers) && item.referenceAnswers.length > 0
         && item.referenceAnswers.every(reference => reference && typeof reference === 'object'
           && typeof reference.answer === 'string' && typeof reference.note === 'string'
           && (reference.level === undefined || typeof reference.level === 'string'))))
       && (item.hint === undefined || typeof item.hint === 'string')));
-  const validVocabulary = lesson.productionQuestions === undefined || lesson.productionQuestions.every(item => item.helpfulVocabulary === undefined
+const validVocabulary = lesson.productionQuestions === undefined || lesson.productionQuestions.every(item => item.helpfulVocabulary === undefined
     || (Array.isArray(item.helpfulVocabulary) && item.helpfulVocabulary.every(word => word && typeof word === 'object'
       && typeof word.jp === 'string' && typeof word.reading === 'string' && typeof word.en === 'string')));
+const validRecognition = lesson.recognitionQuestions === undefined || (Array.isArray(lesson.recognitionQuestions)
+  && lesson.recognitionQuestions.every(item => isLessonItem(item)
+    && typeof item.id === 'string' && typeof item.prompt === 'string' && Array.isArray(item.options)
+    && item.options.length >= 2 && item.options.every(option => typeof option === 'string')
+    && Number.isInteger(item.answer) && item.answer >= 0 && item.answer < item.options.length
+    && typeof item.explanation === 'string'
+    && (item.hint === undefined || typeof item.hint === 'string')));
   const validPitfall = lesson.commonPitfall === undefined
     || (lesson.commonPitfall && typeof lesson.commonPitfall === 'object'
       && typeof lesson.commonPitfall.title === 'string' && typeof lesson.commonPitfall.body === 'string');
@@ -46,7 +53,8 @@ function validateManifest(manifest) {
     && typeof entry.title === 'string' && typeof entry.subtitle === 'string'
     && typeof entry.expression === 'string' && typeof entry.file === 'string'
     && Number.isInteger(entry.questionCount) && entry.questionCount >= 0
-    && (entry.productionQuestionCount === undefined || (Number.isInteger(entry.productionQuestionCount) && entry.productionQuestionCount >= 0)));
+    && (entry.productionQuestionCount === undefined || (Number.isInteger(entry.productionQuestionCount) && entry.productionQuestionCount >= 0))
+    && (entry.recognitionQuestionCount === undefined || (Number.isInteger(entry.recognitionQuestionCount) && entry.recognitionQuestionCount >= 0)));
   const uniqueIds = new Set(manifest.lessons.map(entry => entry.id));
   const uniqueContentIds = new Set(manifest.lessons.map(entry => entry.contentId));
   if (!validEntries || uniqueIds.size !== manifest.lessons.length || uniqueContentIds.size !== manifest.lessons.length) {
@@ -73,5 +81,11 @@ export async function loadManifestLesson(manifest, manifestUrl, lessonId) {
   const lesson = await loadLesson(lessonUrl);
   if (lesson.id !== entry.contentId) throw new Error(`Lesson ID mismatch: ${entry.id}`);
   if (lesson.questions.length !== entry.questionCount) throw new Error(`Lesson question count mismatch: ${entry.id}`);
+  if (entry.productionQuestionCount !== undefined && lesson.productionQuestions?.length !== entry.productionQuestionCount) {
+    throw new Error(`Production question count mismatch: ${entry.id}`);
+  }
+  if (entry.recognitionQuestionCount !== undefined && lesson.recognitionQuestions?.length !== entry.recognitionQuestionCount) {
+    throw new Error(`Recognition question count mismatch: ${entry.id}`);
+  }
   return lesson;
 }

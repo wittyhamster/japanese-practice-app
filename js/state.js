@@ -8,9 +8,13 @@ function normalizeLesson(raw = {}) {
   const productionAnswers = raw.productionAnswers && typeof raw.productionAnswers === 'object' && !Array.isArray(raw.productionAnswers)
     ? Object.fromEntries(Object.entries(raw.productionAnswers).filter(([, value]) => typeof value === 'string'))
     : {};
+  const recognitionAnswers = raw.recognitionAnswers && typeof raw.recognitionAnswers === 'object' && !Array.isArray(raw.recognitionAnswers)
+    ? Object.fromEntries(Object.entries(raw.recognitionAnswers).filter(([, value]) => typeof value === 'string'))
+    : {};
 
   return {
     answers, productionAnswers,
+    recognitionAnswers,
     favorites: Array.isArray(raw.favorites) ? raw.favorites.filter(item => typeof item === 'string') : [],
     reviewed: Array.isArray(raw.reviewed) ? raw.reviewed.filter(item => typeof item === 'string') : []
   };
@@ -87,14 +91,16 @@ export function createStateStore() {
     get: () => ({ theme: state.theme, ...currentLesson() }),
     getLastViewedLesson: () => state.lastViewedLesson,
     setLastViewedLesson(id) { state.lastViewedLesson = id; save(); },
-    isLessonComplete(id, questionCount, productionQuestionCount = 0) {
+    isLessonComplete(id, questionCount, productionQuestionCount = 0, recognitionQuestionCount = 0) {
       const lessonState = state.lessons[id] || normalizeLesson();
       return questionCount > 0 && Object.values(lessonState.answers).filter(value => value.trim()).length >= questionCount
-        && Object.values(lessonState.productionAnswers).filter(value => value.trim()).length >= productionQuestionCount;
+        && Object.values(lessonState.productionAnswers).filter(value => value.trim()).length >= productionQuestionCount
+        && Object.values(lessonState.recognitionAnswers).filter(value => String(value || '').trim()).length >= recognitionQuestionCount;
     },
     setAnswer(id, value) { currentLesson().answers[id] = value; this.recordActivity(); save(); },
     setProductionAnswer(id, value) { currentLesson().productionAnswers[id] = value; this.recordActivity(); save(); },
-    resetAnswers() { currentLesson().answers = {}; currentLesson().productionAnswers = {}; save(); },
+    setRecognitionAnswer(id, value) { currentLesson().recognitionAnswers[id] = value; this.recordActivity(); save(); },
+    resetAnswers() { currentLesson().answers = {}; currentLesson().productionAnswers = {}; currentLesson().recognitionAnswers = {}; save(); },
     toggleFavorite(id) {
       const lessonState = currentLesson();
       lessonState.favorites = lessonState.favorites.includes(id)
