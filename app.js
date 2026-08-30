@@ -167,15 +167,8 @@ async function deliverAIReview(payload) {
     return;
   }
 
-  let reviewTab = null;
-  try {
-    reviewTab = window.open('https://chatgpt.com/', '_blank', 'noopener');
-  } catch { /* Popup opening can fail in some browser settings. */ }
-
-  const actionHint = reviewTab
-    ? 'A new ChatGPT tab is open. Paste the prompt there and send it.'
-    : 'Your browser blocked the popup. Open ChatGPT and paste this prompt manually.';
-  showToast(reviewTab ? 'Review prompt copied. Paste it into ChatGPT.' : 'Review prompt copied. Open ChatGPT and paste it.');
+  const actionHint = 'Your prompt is ready to paste. Open ChatGPT and paste it.';
+  showToast('Review prompt copied. Open ChatGPT and paste it.');
   renderAIReviewPanel({
     statusMessage: 'Review prompt copied.',
     actionHint,

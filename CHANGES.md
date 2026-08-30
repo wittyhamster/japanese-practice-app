@@ -17,6 +17,7 @@ This document tracks the production changes made to the Sensei application.
 - Added a deterministic “Check Answers” completion flow that shows each response beside the lesson’s reference answer and explanation.
 - Added `js/feedback.js` as a feedback-model boundary that can support a future AI feedback provider without changing the completion UI.
 - Improved the **Review with AI** flow to make the copy-and-paste handoff explicit when opening ChatGPT does not auto-fill.
+- Disabled automatic popup opening in the AI review flow so the app always shows a reliable manual-paste handoff in popup-restricted environments.
 
 ## Modified files
 
@@ -30,6 +31,7 @@ This document tracks the production changes made to the Sensei application.
 - Consolidated dynamic controls under delegated click and input handlers so re-rendered buttons continue to work reliably.
 - Preserved the existing answer reset, favorite, review, hint, model-answer, theme, and progress behavior.
 - Improved the AI-review handoff with explicit success/failure messaging and a visible prompt panel for manual paste.
+- Removed automatic ChatGPT popup attempts from `Review with AI` to keep the workflow predictable in restricted environments.
 
 ### `index.html`
 
