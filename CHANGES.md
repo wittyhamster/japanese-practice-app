@@ -16,6 +16,7 @@ This document tracks the production changes made to the Sensei application.
 - Namespaced answers, favorites, and reviewed state by lesson, including migration of existing Lesson 1 data.
 - Added a deterministic “Check Answers” completion flow that shows each response beside the lesson’s reference answer and explanation.
 - Added `js/feedback.js` as a feedback-model boundary that can support a future AI feedback provider without changing the completion UI.
+- Improved the **Review with AI** flow to make the copy-and-paste handoff explicit when opening ChatGPT does not auto-fill.
 
 ## Modified files
 
@@ -28,6 +29,7 @@ This document tracks the production changes made to the Sensei application.
 - Added a clipboard fallback so the existing copy action works when the modern Clipboard API is unavailable.
 - Consolidated dynamic controls under delegated click and input handlers so re-rendered buttons continue to work reliably.
 - Preserved the existing answer reset, favorite, review, hint, model-answer, theme, and progress behavior.
+- Improved the AI-review handoff with explicit success/failure messaging and a visible prompt panel for manual paste.
 
 ### `index.html`
 
@@ -37,6 +39,7 @@ This document tracks the production changes made to the Sensei application.
 - Added an explicit loading state while `data/lesson-01.json` is being fetched.
 - Added accessible state to the dark-mode button.
 - Removed the reference to the nonexistent `manifest.json`, eliminating an unnecessary GitHub Pages request error.
+- Added an in-page AI-review status panel so users can confirm the review prompt was copied and paste it into ChatGPT.
 
 ### `styles.css`
 
@@ -46,6 +49,7 @@ This document tracks the production changes made to the Sensei application.
 - Added nonvisual positioning for the clipboard fallback element.
 - Ensured the loading/error card spans the lesson grid and remains clean on desktop and mobile.
 - Added a scroll offset for the Home anchor so the sticky header does not cover the welcome heading on mobile.
+- Added AI review action panel styling (status message, collapsible prompt preview, and mobile-safe formatting) so users can clearly paste into ChatGPT even when popup behavior differs.
 
 ## New modules
 

@@ -220,6 +220,11 @@ export function showLoadError() {
   $('#checkAnswers').disabled = true;
   $('#checkProductionAnswers').disabled = true;
   $('#checkRecognitionAnswers').disabled = true;
+  const aiReviewPanel = $('#aiReviewPanel');
+  if (aiReviewPanel) {
+    aiReviewPanel.classList.add('hidden');
+    aiReviewPanel.innerHTML = '';
+  }
 }
 
 export function showToast(message) {

@@ -54,6 +54,38 @@ function render() {
   renderStreak(store.getStreak());
 }
 
+function escapeForRender(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+}
+
+function clearAIReviewPanel() {
+  const panel = document.querySelector('#aiReviewPanel');
+  if (!panel) return;
+  panel.classList.add('hidden');
+  panel.innerHTML = '';
+}
+
+function renderAIReviewPanel({ statusMessage, actionHint, payload }) {
+  const panel = document.querySelector('#aiReviewPanel');
+  if (!panel) return;
+  panel.innerHTML = `
+    <p class="eyebrow">AI review</p>
+    <p>${escapeForRender(statusMessage)}</p>
+    <details>
+      <summary>Show review prompt</summary>
+      <pre>${escapeForRender(payload)}</pre>
+    </details>
+    <p>${escapeForRender(actionHint)}</p>
+  `;
+  panel.classList.remove('hidden');
+}
+
 async function selectLesson(requestedId, { historyMode = 'push', focusTitle = true } = {}) {
   const requestedEntry = entryFor(requestedId);
   const candidates = [...new Set([requestedEntry, fallbackEntry(), ...manifest.lessons].filter(Boolean))];
@@ -80,6 +112,7 @@ async function selectLesson(requestedId, { historyMode = 'push', focusTitle = tr
   store.setLastViewedLesson(currentEntry.id);
   updateUrl(currentEntry.id, historyMode);
   clearCompletion();
+  clearAIReviewPanel();
   setLibraryOpen(false);
   render();
 
@@ -123,11 +156,31 @@ async function copyToClipboard(payload) {
 }
 
 async function deliverAIReview(payload) {
-  let reviewTab = null;
-  try { reviewTab = window.open('https://chatgpt.com/', '_blank', 'noopener'); } catch { /* Clipboard delivery still works. */ }
   const copied = await copyToClipboard(payload);
-  if (copied) showToast(reviewTab ? 'Review prompt copied. Paste it into ChatGPT.' : 'Review prompt copied. Open ChatGPT and paste it.');
-  else showToast('Could not copy the review prompt. Please try again.');
+  if (!copied) {
+    showToast('Could not copy the review prompt. Please try again.');
+    renderAIReviewPanel({
+      statusMessage: 'Clipboard copy failed.',
+      actionHint: 'Please copy this prompt manually and paste it into ChatGPT.',
+      payload
+    });
+    return;
+  }
+
+  let reviewTab = null;
+  try {
+    reviewTab = window.open('https://chatgpt.com/', '_blank', 'noopener');
+  } catch { /* Popup opening can fail in some browser settings. */ }
+
+  const actionHint = reviewTab
+    ? 'A new ChatGPT tab is open. Paste the prompt there and send it.'
+    : 'Your browser blocked the popup. Open ChatGPT and paste this prompt manually.';
+  showToast(reviewTab ? 'Review prompt copied. Paste it into ChatGPT.' : 'Review prompt copied. Open ChatGPT and paste it.');
+  renderAIReviewPanel({
+    statusMessage: 'Review prompt copied.',
+    actionHint,
+    payload
+  });
 }
 
 document.addEventListener('click', async event => {
@@ -151,6 +204,7 @@ document.addEventListener('click', async event => {
     store.resetAnswers();
     render();
     clearCompletion();
+    clearAIReviewPanel();
     showToast('Answers reset');
   } else if (button.id === 'aiReview' && lesson) {
     deliverAIReview(buildAIReviewPayload(lesson, store.get()));
