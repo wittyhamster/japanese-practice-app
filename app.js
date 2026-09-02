@@ -201,8 +201,12 @@ document.addEventListener('click', async event => {
     showToast('Answers reset');
   } else if (button.id === 'aiReview' && lesson) {
     deliverAIReview(buildAIReviewPayload(lesson, store.get()));
-  } else if ((button.id === 'checkAnswers' || button.id === 'checkProductionAnswers' || button.id === 'checkRecognitionAnswers') && lesson) {
-    renderCompletion(createReferenceFeedback(lesson, store.get()));
+  } else if (button.id === 'checkAnswers' && lesson) {
+    renderCompletion(createReferenceFeedback(lesson, store.get()), 'translation');
+  } else if (button.id === 'checkProductionAnswers' && lesson) {
+    renderCompletion(createReferenceFeedback(lesson, store.get()), 'production');
+  } else if (button.id === 'checkRecognitionAnswers' && lesson) {
+    renderCompletion(createReferenceFeedback(lesson, store.get()), 'recognition');
   } else if (button.dataset.favorite && lesson) {
     store.toggleFavorite(button.dataset.favorite);
     render();

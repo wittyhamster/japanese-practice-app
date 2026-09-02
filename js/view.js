@@ -156,21 +156,48 @@ export function updateProgress(lesson, state) {
   $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}${recognitionGoals}`;
 }
 
-export function renderCompletion(feedback) {
+export function renderCompletion(feedback, section = 'all') {
   const results = $('#completionResults');
   const marker = ['①', '②', '③', '④', '⑤'];
-  const recognitionReview = feedback.recognitionItems?.length ? `<div class="completion-list recognition-feedback">${feedback.recognitionItems.map(item => {
-    const userAnswerText = item.userAnswerText || 'No answer selected.';
-    const resultLabel = item.isCorrect ? '✓ Correct' : '✗ Review';
-    return `<article class="feedback-card recognition-card"><div class="feedback-number">${resultLabel}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswerText ? '' : 'unanswered'}">${escapeHtml(userAnswerText)}</p></div><div class="feedback-field"><span>Expected answer</span><p>${escapeHtml(item.correctText)}</p></div><div class="feedback-field"><span>Why</span><p>${escapeHtml(item.explanation)}</p></div></article>`;
-    }).join('')}</div>` : '';
-  const productionReview = feedback.productionItems?.length ? `<div class="completion-list production-feedback"><h4>English → Japanese</h4>${feedback.productionItems.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Possible natural answers</span>${item.referenceAnswers.map((reference, index) => `<div class="reference-answer"><p><strong>${marker[index] || `${index + 1}.`}</strong> ${escapeHtml(reference.answer)}</p>${reference.level ? `<p class="reference-level">${escapeHtml(reference.level)}</p>` : ''}<p class="reference-note">Why this works: ${escapeHtml(reference.note)}</p></div>`).join('')}</div><div class="feedback-field"><span>Target expression</span><p>${escapeHtml(item.keyword)}</p></div></article>`).join('')}</div>` : '';
-  const translationReview = feedback.items.length ? `<div class="completion-list"><h4>Japanese → English</h4>${feedback.items.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div><div class="feedback-field"><span>Explanation</span><p>${escapeHtml(item.explanation)}</p></div></article>`).join('')}</div>` : '';
-  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">Practice complete</p><h3>Review your answers</h3><p>Compare your answers with reference and confirm whether meaning is preserved.</p></div>${translationReview}${productionReview}${recognitionReview}`;
+
+  const showTranslation = section === 'all' || section === 'translation';
+  const showProduction = section === 'all' || section === 'production';
+  const showRecognition = section === 'all' || section === 'recognition';
+
+  const translationReview = showTranslation && feedback.items.length
+    ? `<div class="completion-list"><h4>Japanese → English</h4>${feedback.items.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Reference answer</span><p>${escapeHtml(item.referenceAnswer)}</p></div><div class="feedback-field"><span>Explanation</span><p>${escapeHtml(item.explanation)}</p></div></article>`).join('')}</div>`
+    : '';
+
+  const productionReview = showProduction && feedback.productionItems?.length
+    ? `<div class="completion-list production-feedback"><h4>English → Japanese</h4>${feedback.productionItems.map(item => `<article class="feedback-card"><div class="feedback-number">Question ${item.number}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${item.userAnswer ? '' : 'unanswered'}">${escapeHtml(item.userAnswer || 'No answer entered.')}</p></div><div class="feedback-field reference-field"><span>Possible natural answers</span>${item.referenceAnswers.map((reference, index) => `<div class="reference-answer"><p><strong>${marker[index] || `${index + 1}.`}</strong> ${escapeHtml(reference.answer)}</p>${reference.level ? `<p class="reference-level">${escapeHtml(reference.level)}</p>` : ''}<p class="reference-note">Why this works: ${escapeHtml(reference.note)}</p></div>`).join('')}</div><div class="feedback-field"><span>Target expression</span><p>${escapeHtml(item.keyword)}</p></div></article>`).join('')}</div>`
+    : '';
+
+  const recognitionReview = showRecognition && feedback.recognitionItems?.length
+    ? `<div class="completion-list recognition-feedback">${feedback.recognitionItems.map(item => {
+      const userAnswerText = item.userAnswerText || 'No answer selected.';
+      const resultLabel = item.isCorrect ? '✓ Correct' : '✗ Review';
+      return `<article class="feedback-card recognition-card"><div class="feedback-number">${resultLabel}</div><p class="feedback-prompt">${escapeHtml(item.prompt)}</p><div class="feedback-field"><span>Your answer</span><p class="${userAnswerText ? '' : 'unanswered'}">${escapeHtml(userAnswerText)}</p></div><div class="feedback-field"><span>Expected answer</span><p>${escapeHtml(item.correctText)}</p></div><div class="feedback-field"><span>Why</span><p>${escapeHtml(item.explanation)}</p></div></article>`;
+    }).join('')}</div>`
+    : '';
+
+  const noResults = !(translationReview || productionReview || recognitionReview);
+  const noResultsMessage = noResults ? '<p class="empty-card">Nothing to review for this section yet.</p>' : '';
+
+  const heading = section === 'all'
+    ? 'Review your answers'
+    : section === 'production'
+      ? 'Review production answers'
+      : section === 'recognition'
+        ? 'Review recognition answers'
+        : 'Review translation answers';
+
+  const eyebrow = section === 'all' ? 'Practice complete' : 'Practice review';
+
+  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">${eyebrow}</p><h3>${heading}</h3><p>Compare your answers with reference and confirm whether meaning is preserved.</p></div>${translationReview}${productionReview}${recognitionReview}${noResultsMessage}`;
   results.classList.remove('hidden');
-  $('#checkAnswers').setAttribute('aria-expanded', 'true');
-  $('#checkProductionAnswers')?.setAttribute('aria-expanded', 'true');
-  $('#checkRecognitionAnswers')?.setAttribute('aria-expanded', 'true');
+  $('#checkAnswers').setAttribute('aria-expanded', String(section === 'all' || section === 'translation'));
+  $('#checkProductionAnswers')?.setAttribute('aria-expanded', String(section === 'all' || section === 'production'));
+  $('#checkRecognitionAnswers')?.setAttribute('aria-expanded', String(section === 'all' || section === 'recognition'));
   results.focus({ preventScroll: true });
   results.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
