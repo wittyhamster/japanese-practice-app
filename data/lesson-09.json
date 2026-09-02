@@ -1,0 +1,183 @@
+{
+  "id": "core-expression-kekkyoku",
+  "title": "Understanding 結局",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "kekkyoku",
+      "word": "結局",
+      "reading": "けっきょく",
+      "meaning": "in the end; after all; ultimately",
+      "nuance": "結局 is used when talking about the final result after uncertainty, discussion, effort, or several possibilities. It often means 'when all was said and done' or 'after everything, this is what happened.'",
+      "example": "いろいろ考えたけど、結局行かなかった。",
+      "exampleTranslation": "I thought about it a lot, but in the end I didn't go."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Don't treat 結局 as simply another word for 'finally.' やっと focuses on relief after waiting or effort. 結局 focuses on the final outcome after considering different possibilities or going through a process."
+  },
+  "questions": [
+    {
+      "id": "kekkyoku-q1",
+      "prompt": "いろいろ考えたけど、結局行かなかった。",
+      "hint": "There were different possibilities, but this was the final decision.",
+      "answer": "I thought about it a lot, but in the end I didn't go."
+    },
+    {
+      "id": "kekkyoku-q2",
+      "prompt": "結局、誰が勝ったの？",
+      "hint": "The speaker wants to know the final result.",
+      "answer": "So who won in the end?"
+    },
+    {
+      "id": "kekkyoku-q3",
+      "prompt": "朝から探していたけど、結局見つからなかった。",
+      "hint": "The search continued for a while, but the final result was unsuccessful.",
+      "answer": "I had been looking since this morning, but in the end I couldn't find it."
+    },
+    {
+      "id": "kekkyoku-q4",
+      "prompt": "結局、家で映画を見ることにした。",
+      "hint": "After considering options, the speaker settled on this choice.",
+      "answer": "In the end, I decided to watch a movie at home."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "kekkyoku-prod-1",
+      "prompt": "We talked about it for a long time, but in the end we didn't decide anything.",
+      "keyword": "結局",
+      "hint": "Use 結局 for the final outcome after a long discussion.",
+      "helpfulVocabulary": [
+        {
+          "jp": "長い間",
+          "reading": "ながいあいだ",
+          "en": "for a long time"
+        },
+        {
+          "jp": "話す",
+          "reading": "はなす",
+          "en": "to talk"
+        },
+        {
+          "jp": "何も",
+          "reading": "なにも",
+          "en": "nothing"
+        },
+        {
+          "jp": "決める",
+          "reading": "きめる",
+          "en": "to decide"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "長い間話したけど、結局何も決めなかった。",
+          "level": "Recommended",
+          "note": "Simple and natural. 結局 clearly introduces the final result."
+        },
+        {
+          "answer": "ずっと話し合ったけど、結局何も決まらなかった。",
+          "level": "Natural variation",
+          "note": "話し合う emphasizes discussing something together, and 決まる presents the decision as something that never got settled."
+        }
+      ]
+    },
+    {
+      "id": "kekkyoku-prod-2",
+      "prompt": "I was going to buy it, but in the end I changed my mind.",
+      "keyword": "結局",
+      "hint": "First express the original intention, then use 結局 for the final decision.",
+      "helpfulVocabulary": [
+        {
+          "jp": "買うつもり",
+          "reading": "かうつもり",
+          "en": "intending to buy"
+        },
+        {
+          "jp": "気が変わる",
+          "reading": "きがかわる",
+          "en": "to change one's mind"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "買うつもりだったけど、結局気が変わった。",
+          "level": "Recommended",
+          "note": "A direct and natural way to describe changing your mind."
+        },
+        {
+          "answer": "買おうと思っていたけど、結局やめた。",
+          "level": "Natural variation",
+          "note": "やめた means you ultimately decided not to do it."
+        }
+      ]
+    },
+    {
+      "id": "kekkyoku-prod-3",
+      "prompt": "After all that studying, I ended up forgetting everything.",
+      "keyword": "結局",
+      "hint": "Use 結局 to emphasize the disappointing final result.",
+      "helpfulVocabulary": [
+        {
+          "jp": "たくさん勉強する",
+          "reading": "たくさんべんきょうする",
+          "en": "to study a lot"
+        },
+        {
+          "jp": "全部",
+          "reading": "ぜんぶ",
+          "en": "everything"
+        },
+        {
+          "jp": "忘れる",
+          "reading": "わすれる",
+          "en": "to forget"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "たくさん勉強したけど、結局全部忘れてしまった。",
+          "level": "Recommended",
+          "note": "しまった adds a sense of regret about the result."
+        },
+        {
+          "answer": "あんなに勉強したのに、結局全部忘れた。",
+          "level": "Natural variation",
+          "note": "あんなに emphasizes how much effort was made."
+        }
+      ]
+    },
+    {
+      "id": "kekkyoku-prod-4",
+      "prompt": "In the end, we decided to stay home.",
+      "keyword": "結局",
+      "hint": "Use ～ことにした for 'decided to.'",
+      "helpfulVocabulary": [
+        {
+          "jp": "家にいる",
+          "reading": "いえにいる",
+          "en": "to stay home"
+        },
+        {
+          "jp": "～ことにする",
+          "reading": "～ことにする",
+          "en": "to decide to do"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "結局、家にいることにした。",
+          "level": "Recommended",
+          "note": "Very natural and concise."
+        },
+        {
+          "answer": "いろいろ考えたけど、結局家にいることにした。",
+          "level": "Natural variation",
+          "note": "Adds the sense that several options were considered first."
+        }
+      ]
+    }
+  ]
+}

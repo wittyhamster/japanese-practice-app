@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-08",
+  "activeLesson": "lesson-09",
   "lessons": [
     {
       "id": "lesson-01",
@@ -77,6 +77,16 @@
       "productionQuestionCount": 4,
       "recognitionQuestionCount": 4,
       "file": "lesson-08.json"
+    },
+    {
+      "id": "lesson-09",
+      "contentId": "core-expression-kekkyoku",
+      "title": "Understanding 結局",
+      "subtitle": "Next lesson",
+      "expression": "結局",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-09.json"
     }
   ]
 }

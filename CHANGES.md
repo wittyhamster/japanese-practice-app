@@ -4,6 +4,10 @@ This document tracks the production changes made to the Sensei application.
 
 ## Unreleased
 
+- Added Lesson 9 (`data/lesson-09.json`) for **結局** with Japanese → English practice, English → Japanese production prompts, helpful vocabulary, and multiple natural reference answers.
+- Updated `data/lessons.json` to add Lesson 9 (`core-expression-kekkyoku`) and make it the active lesson.
+- Kept the existing lesson architecture and feature behavior unchanged (progress, favorites, reviewed state, AI review, dark mode, mobile/desktop layout, and module-driven loading).
+
 - Added a responsive, manifest-driven lesson library with accessible open/close behavior, current/completed status text, and immediate lesson switching.
 - Added previous/next controls, bookmarkable lesson URLs, browser history support, safe invalid-ID fallbacks, and last-viewed lesson persistence.
 - Added optional common-pitfall cards and lesson-specific notes for Lessons 2–4 while leaving Lesson 1 without an empty placeholder.
