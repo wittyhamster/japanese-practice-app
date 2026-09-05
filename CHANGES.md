@@ -4,6 +4,7 @@ This document tracks the production changes made to the Sensei application.
 
 ## Unreleased
 
+- Added `data/lesson-10.json` for the new **どうせ** lesson with translation and production practice, and updated `data/lessons.json` to make it the active lesson.
 - Added Lesson 9 (`data/lesson-09.json`) for **結局** with Japanese → English practice, English → Japanese production prompts, helpful vocabulary, and multiple natural reference answers.
 - Updated `data/lessons.json` to add Lesson 9 (`core-expression-kekkyoku`) and make it the active lesson.
 - Kept the existing lesson architecture and feature behavior unchanged (progress, favorites, reviewed state, AI review, dark mode, mobile/desktop layout, and module-driven loading).

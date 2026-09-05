@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-douse",
+  "title": "Understanding どうせ",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "douse",
+      "word": "どうせ",
+      "reading": "どうせ",
+      "meaning": "anyway; in any case; if all goes according to plan",
+      "nuance": "どうせ often introduces a statement that is treated as inevitable or likely to happen anyway. It can soften an action ('let’s do it anyway') or express resignation ('it won’t matter anyway').",
+      "example": "どうせ明日は暇だから、今日はゆっくりしよう。",
+      "exampleTranslation": "Since I'll be free anyway tomorrow, let's take it easy today."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Don't overuse どうせ as a strong 'because' meaning. It usually frames something as expected, inevitable, or acceptable to do in spite of the outcome, and often carries a pragmatic tone."
+  },
+  "questions": [
+    {
+      "id": "douse-q1",
+      "prompt": "どうせこのアプリは毎回難しいです。",
+      "hint": "The speaker is expressing an expectation or tendency; it’s not a positive recommendation.",
+      "answer": "This app is hard anyway."
+    },
+    {
+      "id": "douse-q2",
+      "prompt": "どうせ行くなら、早めに行こう。",
+      "hint": "Since we’re going anyway, suggest doing it soon.",
+      "answer": "If we’re going anyway, let’s go early."
+    },
+    {
+      "id": "douse-q3",
+      "prompt": "どうせ暇な時に、片づけよう。",
+      "hint": "Use どうせ to indicate you’re making use of available time.",
+      "answer": "Since I’m free anyway, I’ll clean up."
+    },
+    {
+      "id": "douse-q4",
+      "prompt": "どうせ明日には雨が降ると思う。",
+      "hint": "The speaker anticipates a likely outcome.",
+      "answer": "I think it’ll probably rain tomorrow anyway."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "douse-prod-1",
+      "prompt": "It’s not going to work out anyway, so let’s stop trying.",
+      "keyword": "どうせ",
+      "hint": "Use どうせ to express a resigned expectation.",
+      "helpfulVocabulary": [
+        {
+          "jp": "無理",
+          "reading": "むり",
+          "en": "impossible; not feasible"
+        },
+        {
+          "jp": "諦める",
+          "reading": "あきらめる",
+          "en": "to give up"
+        },
+        {
+          "jp": "もう",
+          "reading": "もう",
+          "en": "already"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "どうせ無理だと思うから、もうやめよう。",
+          "level": "Recommended",
+          "note": "Directly frames the idea as an expected outcome."
+        },
+        {
+          "answer": "どうせできないと思うので、もう諦めよう。",
+          "level": "Natural variation",
+          "note": "Uses an explicit thought phrase before giving up."
+        }
+      ]
+    },
+    {
+      "id": "douse-prod-2",
+      "prompt": "Since we’re already going, we might as well get snacks.",
+      "keyword": "どうせ",
+      "hint": "This uses どうせ for doing something anyway because the trip is already happening.",
+      "helpfulVocabulary": [
+        {
+          "jp": "もう",
+          "reading": "もう",
+          "en": "already; any and all"
+        },
+        {
+          "jp": "買う",
+          "reading": "かう",
+          "en": "to buy"
+        },
+        {
+          "jp": "おやつ",
+          "reading": "おやつ",
+          "en": "snack"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "どうせ行くなら、ついでにおやつを買っておこう。",
+          "level": "Recommended",
+          "note": "Common and natural way to show we might as well do it while doing something."
+        },
+        {
+          "answer": "どうせ行くんだから、ついでにおやつを買っておこう。",
+          "level": "Natural variation",
+          "note": "Adds んだから for a slightly more spoken, causal flavor."
+        }
+      ]
+    },
+    {
+      "id": "douse-prod-3",
+      "prompt": "It’s already going to rain, so either way I’ll bring a coat.",
+      "keyword": "どうせ",
+      "hint": "You can use どうせ when the outcome is likely and you accept it as a given.",
+      "helpfulVocabulary": [
+        {
+          "jp": "雨",
+          "reading": "あめ",
+          "en": "rain"
+        },
+        {
+          "jp": "傘",
+          "reading": "かさ",
+          "en": "umbrella"
+        },
+        {
+          "jp": "着る",
+          "reading": "きる",
+          "en": "to wear"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "どうせ雨が降るので、コートを着ていこう。",
+          "level": "Recommended",
+          "note": "Directly ties どうせ to the expected weather condition."
+        },
+        {
+          "answer": "どうせ雨は降ると思うから、コートを持っていこう。",
+          "level": "Natural variation",
+          "note": "Uses と思う to frame expected likelihood before action."
+        }
+      ]
+    },
+    {
+      "id": "douse-prod-4",
+      "prompt": "There’s a lot to do, but I’ll do the basic parts anyway.",
+      "keyword": "どうせ",
+      "hint": "This has a resigned acceptance tone plus choosing an achievable path.",
+      "helpfulVocabulary": [
+        {
+          "jp": "たくさん",
+          "reading": "たくさん",
+          "en": "many; a lot"
+        },
+        {
+          "jp": "基本",
+          "reading": "きほん",
+          "en": "basic"
+        },
+        {
+          "jp": "やる",
+          "reading": "やる",
+          "en": "to do"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "やることはたくさんあるけど、どうせ、基本の部分だけやろう。",
+          "level": "Recommended",
+          "note": "Keeps the contrast between lots of tasks and the pragmatic minimal goal."
+        },
+        {
+          "answer": "とにかく時間はかかるけど、どうせ基本だけ終わらせておく。",
+          "level": "Natural variation",
+          "note": "Uses どうせ to justify a practical partial completion."
+        }
+      ]
+    }
+  ]
+}

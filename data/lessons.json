@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-09",
+  "activeLesson": "lesson-10",
   "lessons": [
     {
       "id": "lesson-01",
@@ -87,6 +87,16 @@
       "questionCount": 4,
       "productionQuestionCount": 4,
       "file": "lesson-09.json"
+    },
+    {
+      "id": "lesson-10",
+      "contentId": "core-expression-douse",
+      "title": "Understanding どうせ",
+      "subtitle": "Next lesson",
+      "expression": "どうせ",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-10.json"
     }
   ]
 }
