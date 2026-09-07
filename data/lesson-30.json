@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-yahari",
+  "title": "Understanding やはり",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "yahari",
+      "word": "やはり",
+      "reading": "やはり",
+      "meaning": "as expected; after all",
+      "nuance": "やはり is used when a result matches intuition, expectation, or a pattern already known. It can also soften confirmation.",
+      "example": "やっぱり、彼は来ました。",
+      "exampleTranslation": "As expected, he came."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "やはり is close to やっぱり, but slightly more formal and often used in writing or neutral speech."
+  },
+  "questions": [
+    {
+      "id": "yahari-q1",
+      "prompt": "やはり、彼は時間を守ります。",
+      "hint": "Natural confirmation based on known reliability.",
+      "answer": "As expected, he is punctual."
+    },
+    {
+      "id": "yahari-q2",
+      "prompt": "最初は不安だった。やはり簡単でした。",
+      "hint": "A feeling gets revised by a better outcome.",
+      "answer": "At first I was worried, but it turned out to be easy, as expected."
+    },
+    {
+      "id": "yahari-q3",
+      "prompt": "この店は静かでした。やはり落ち着いた雰囲気です。",
+      "hint": "Reinforce confirmed expectation.",
+      "answer": "This place was quiet. After all, it has a calm atmosphere."
+    },
+    {
+      "id": "yahari-q4",
+      "prompt": "新しい先生は優しい。やはり授業が聞きやすいです。",
+      "hint": "Use to confirm consistency from prior assumption.",
+      "answer": "The new teacher is kind; therefore, the class is easy to follow."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "yahari-prod-1",
+      "prompt": "As I expected, he is still very patient.",
+      "keyword": "やはり",
+      "hint": "Use やはり to confirm a known trait.",
+      "helpfulVocabulary": [
+        {
+          "jp": "優しい",
+          "reading": "やさしい",
+          "en": "kind"
+        },
+        {
+          "jp": "先生",
+          "reading": "せんせい",
+          "en": "teacher"
+        },
+        {
+          "jp": "我慢",
+          "reading": "がまん",
+          "en": "patience"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "やはり、あの先生はとても我慢強いです。",
+          "level": "Recommended",
+          "note": "Directly confirms the known trait."
+        },
+        {
+          "answer": "やはり彼は相変わらず忍耐強いですね。",
+          "level": "Natural variation",
+          "note": "Same meaning with a natural colloquial flavor."
+        }
+      ]
+    },
+    {
+      "id": "yahari-prod-2",
+      "prompt": "I knew this place would be quiet, and it was.",
+      "keyword": "やはり",
+      "hint": "Use やはり to confirm an expectation about place.",
+      "helpfulVocabulary": [
+        {
+          "jp": "場所",
+          "reading": "ばしょ",
+          "en": "place"
+        },
+        {
+          "jp": "静か",
+          "reading": "しずか",
+          "en": "quiet"
+        },
+        {
+          "jp": "図書館",
+          "reading": "としょかん",
+          "en": "library"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "やはり図書館は静かでした。",
+          "level": "Recommended",
+          "note": "Simple confirmation of expected quality."
+        },
+        {
+          "answer": "やはり予想どおり、ここはとても静かです。",
+          "level": "Natural variation",
+          "note": "Uses 予想どおり with same meaning."
+        }
+      ]
+    },
+    {
+      "id": "yahari-prod-3",
+      "prompt": "You see, it turned out to be difficult, as you said.",
+      "keyword": "やはり",
+      "hint": "Use afterthought confirmation.",
+      "helpfulVocabulary": [
+        {
+          "jp": "難しい",
+          "reading": "むずかしい",
+          "en": "difficult"
+        },
+        {
+          "jp": "言う",
+          "reading": "いう",
+          "en": "to say"
+        },
+        {
+          "jp": "そう",
+          "reading": "そう",
+          "en": "so"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "やはり、これは難しかったです。",
+          "level": "Recommended",
+          "note": "Valid conversational confirmation."
+        },
+        {
+          "answer": "やはりあなたの言ったとおりでした。",
+          "level": "Natural variation",
+          "note": "Confirms previous prediction."
+        }
+      ]
+    },
+    {
+      "id": "yahari-prod-4",
+      "prompt": "He kept coming on time, as expected.",
+      "keyword": "やはり",
+      "hint": "Reinforce consistency over time.",
+      "helpfulVocabulary": [
+        {
+          "jp": "時間通り",
+          "reading": "じかんどおり",
+          "en": "on time"
+        },
+        {
+          "jp": "来る",
+          "reading": "くる",
+          "en": "to come"
+        },
+        {
+          "jp": "継続",
+          "reading": "けいぞく",
+          "en": "consistency"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "やはり彼は時間通りに来ています。",
+          "level": "Recommended",
+          "note": "Natural repeated-confirmation with やはり."
+        },
+        {
+          "answer": "やはりいつも通り、時間通りです。",
+          "level": "Natural variation",
+          "note": "Conversational variant for daily habit confirmation."
+        }
+      ]
+    }
+  ]
+}

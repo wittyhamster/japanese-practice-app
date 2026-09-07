@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-sorede",
+  "title": "Understanding それで",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "sorede",
+      "word": "それで",
+      "reading": "それで",
+      "meaning": "and then; because of that; therefore",
+      "nuance": "それで links a preceding cause or previous statement to the next result. In conversation, it can feel like \"so.\"",
+      "example": "財布を忘れた。それで、困りました。",
+      "exampleTranslation": "I forgot my wallet. So, I was in trouble."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "It can be causal (so/therefore) or sequential (and then). Don't confuse it with そして, which is more purely additive."
+  },
+  "questions": [
+    {
+      "id": "sorede-q1",
+      "prompt": "電車が遅れた。それで、会社に遅刻しました。",
+      "hint": "A cause-and-effect link is made with それで.",
+      "answer": "The train was late, so I was late for work."
+    },
+    {
+      "id": "sorede-q2",
+      "prompt": "まず申請を書きます。それで、上司に提出します。",
+      "hint": "Two steps in order.",
+      "answer": "First I write the application, then I submit it to my boss."
+    },
+    {
+      "id": "sorede-q3",
+      "prompt": "お腹が空いた。それで、外食します。",
+      "hint": "Use it like “so,” introducing consequence.",
+      "answer": "I’m hungry, so I’ll eat out."
+    },
+    {
+      "id": "sorede-q4",
+      "prompt": "彼はまだ寝ています。それで、まだ電話に出ません。",
+      "hint": "The second sentence follows from the first condition.",
+      "answer": "He is still sleeping, so he hasn't answered the phone yet."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "sorede-prod-1",
+      "prompt": "The train was late, so I arrived late.",
+      "keyword": "それで",
+      "hint": "Use it as a result marker after a cause.",
+      "helpfulVocabulary": [
+        {
+          "jp": "電車",
+          "reading": "でんしゃ",
+          "en": "train"
+        },
+        {
+          "jp": "遅れる",
+          "reading": "おくれる",
+          "en": "to be late"
+        },
+        {
+          "jp": "到着",
+          "reading": "とうちゃく",
+          "en": "arrival"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "電車が遅れて、それで到着も遅れた。",
+          "level": "Recommended",
+          "note": "Very direct causal chain."
+        },
+        {
+          "answer": "電車の遅れで、私も遅刻した。",
+          "level": "Natural variation",
+          "note": "Natural shorthand replacing explicit それで."
+        }
+      ]
+    },
+    {
+      "id": "sorede-prod-2",
+      "prompt": "I forgot my wallet, so I couldn't buy lunch.",
+      "keyword": "それで",
+      "hint": "Show why the outcome happened.",
+      "helpfulVocabulary": [
+        {
+          "jp": "財布",
+          "reading": "さいふ",
+          "en": "wallet"
+        },
+        {
+          "jp": "買う",
+          "reading": "かう",
+          "en": "to buy"
+        },
+        {
+          "jp": "昼ごはん",
+          "reading": "ひるごはん",
+          "en": "lunch"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "財布を忘れたので、それで昼ごはんを買えなかった。",
+          "level": "Recommended",
+          "note": "Natural and very common conversational framing."
+        },
+        {
+          "answer": "財布をなくしてしまったから、昼ごはんは買えませんでした。",
+          "level": "Natural variation",
+          "note": "Equivalent causality with から."
+        }
+      ]
+    },
+    {
+      "id": "sorede-prod-3",
+      "prompt": "She was sick, so she didn't come.",
+      "keyword": "それで",
+      "hint": "Use それで for real-world consequence.",
+      "helpfulVocabulary": [
+        {
+          "jp": "体調",
+          "reading": "たいちょう",
+          "en": "condition"
+        },
+        {
+          "jp": "来る",
+          "reading": "くる",
+          "en": "to come"
+        },
+        {
+          "jp": "欠席",
+          "reading": "けっせき",
+          "en": "absence"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "体調が悪くて、それで来られませんでした。",
+          "level": "Recommended",
+          "note": "Concise consequence sentence."
+        },
+        {
+          "answer": "体調を崩したので、彼女は来られませんでした。",
+          "level": "Natural variation",
+          "note": "Very natural spoken alternative."
+        }
+      ]
+    },
+    {
+      "id": "sorede-prod-4",
+      "prompt": "The line was closed, so we walked back.",
+      "keyword": "それで",
+      "hint": "Keep it conversational and causal.",
+      "helpfulVocabulary": [
+        {
+          "jp": "行列",
+          "reading": "ぎょうれつ",
+          "en": "line/queue"
+        },
+        {
+          "jp": "閉まる",
+          "reading": "しまる",
+          "en": "to close"
+        },
+        {
+          "jp": "帰る",
+          "reading": "かえる",
+          "en": "to return"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "店が閉まっていたので、それで帰りました。",
+          "level": "Recommended",
+          "note": "Common and natural in conversation."
+        },
+        {
+          "answer": "列が塞がっていて、それで引き返した。",
+          "level": "Natural variation",
+          "note": "More narrative style."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-sarani",
+  "title": "Understanding さらに",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "sarani",
+      "word": "さらに",
+      "reading": "さらに",
+      "meaning": "furthermore; even more",
+      "nuance": "さらに adds extra information or introduces an additional degree, often stronger than 「また」.",
+      "example": "雨が強くなりました。さらに、風も強いです。",
+      "exampleTranslation": "The rain got stronger. What's more, the wind is also strong."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Use さらに for extra addition or escalation, not to start a story like それから."
+  },
+  "questions": [
+    {
+      "id": "sarani-q1",
+      "prompt": "その料理は美味しい。さらに、安いです。",
+      "hint": "Another positive point is being added.",
+      "answer": "That dish is delicious. On top of that, it's cheap."
+    },
+    {
+      "id": "sarani-q2",
+      "prompt": "彼は丁寧です。さらに、時間も守ります。",
+      "hint": "The second clause adds extra praise.",
+      "answer": "He is polite. He is also punctual."
+    },
+    {
+      "id": "sarani-q3",
+      "prompt": "雨が降っています。さらに、気温も下がります。",
+      "hint": "Something worsens with an additional effect.",
+      "answer": "It is raining, and the temperature is dropping further."
+    },
+    {
+      "id": "sarani-q4",
+      "prompt": "この辞書は役に立つ。さらに、例文がたくさんあります。",
+      "hint": "The second feature strengthens value.",
+      "answer": "This dictionary is useful. In addition, it has many example sentences."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "sarani-prod-1",
+      "prompt": "The meal was good, and on top of that, the service was excellent.",
+      "keyword": "さらに",
+      "hint": "Use さらに to add a second positive point.",
+      "helpfulVocabulary": [
+        {
+          "jp": "料理",
+          "reading": "りょうり",
+          "en": "meal"
+        },
+        {
+          "jp": "サービス",
+          "reading": "さーびす",
+          "en": "service"
+        },
+        {
+          "jp": "優れる",
+          "reading": "すぐれる",
+          "en": "to excel"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "料理がおいしくて、さらにサービスもとても良かった。",
+          "level": "Recommended",
+          "note": "Adds an extra praise point with さらに."
+        },
+        {
+          "answer": "食事は良かったです。さらに対応も丁寧でした。",
+          "level": "Natural variation",
+          "note": "Uses さらに with a pause between clauses."
+        }
+      ]
+    },
+    {
+      "id": "sarani-prod-2",
+      "prompt": "His plan is clear, and it even has a backup.",
+      "keyword": "さらに",
+      "hint": "Use さらに for another supporting feature.",
+      "helpfulVocabulary": [
+        {
+          "jp": "計画",
+          "reading": "けいかく",
+          "en": "plan"
+        },
+        {
+          "jp": "予備",
+          "reading": "よび",
+          "en": "backup"
+        },
+        {
+          "jp": "明確",
+          "reading": "めいかく",
+          "en": "clear"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "計画は明確で、さらに予備案もあります。",
+          "level": "Recommended",
+          "note": "Natural and explicit structure."
+        },
+        {
+          "answer": "計画は分かりやすい。さらに、代替案も準備しました。",
+          "level": "Natural variation",
+          "note": "Conversational with two short sentences."
+        }
+      ]
+    },
+    {
+      "id": "sarani-prod-3",
+      "prompt": "The problem was fixed, and even harder cases are now possible.",
+      "keyword": "さらに",
+      "hint": "Use the addition of extra difficulty.",
+      "helpfulVocabulary": [
+        {
+          "jp": "問題",
+          "reading": "もんだい",
+          "en": "problem"
+        },
+        {
+          "jp": "修正",
+          "reading": "しゅうせい",
+          "en": "fix"
+        },
+        {
+          "jp": "難しい",
+          "reading": "むずかしい",
+          "en": "difficult"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "問題は直って、さらに難しいケースにも対応できます。",
+          "level": "Recommended",
+          "note": "Natural business style use of さらに."
+        },
+        {
+          "answer": "修正できたので、さらに難しい条件にも進めます。",
+          "level": "Natural variation",
+          "note": "Adds implied continuation."
+        }
+      ]
+    },
+    {
+      "id": "sarani-prod-4",
+      "prompt": "The hotel is clean, and the location is also very convenient.",
+      "keyword": "さらに",
+      "hint": "Use さらに to stack positives.",
+      "helpfulVocabulary": [
+        {
+          "jp": "ホテル",
+          "reading": "ほてる",
+          "en": "hotel"
+        },
+        {
+          "jp": "便利",
+          "reading": "べんり",
+          "en": "convenient"
+        },
+        {
+          "jp": "立地",
+          "reading": "りっち",
+          "en": "location"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "このホテルは清潔で、さらに立地もとても便利です。",
+          "level": "Recommended",
+          "note": "Most direct positive stack."
+        },
+        {
+          "answer": "部屋はきれいで、それに立地もとてもよいです。",
+          "level": "Natural variation",
+          "note": "Another natural way to add another quality."
+        }
+      ]
+    }
+  ]
+}

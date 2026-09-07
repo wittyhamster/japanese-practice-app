@@ -1,0 +1,184 @@
+{
+  "id": "core-expression-sonotame",
+  "title": "Understanding そのため",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "sonotame",
+      "word": "そのため",
+      "reading": "そのため",
+      "meaning": "for that reason; therefore",
+      "nuance": "そのため is slightly formal and is often used in explanations, writing, and polite speech.",
+      "example": "会議が長引いた。そのため、資料をもう一度確認します。",
+      "exampleTranslation": "The meeting was long, so I will check the materials again."
+    }
+  ],
+  "questions": [
+    {
+      "id": "sonotame-q1",
+      "prompt": "飛行機が遅れた。そのため、空港に長くいました。",
+      "hint": "A concrete result from a delay.",
+      "answer": "The plane was late, and therefore I stayed at the airport for a long time."
+    },
+    {
+      "id": "sonotame-q2",
+      "prompt": "新しい資料が必要です。そのため、印刷します。",
+      "hint": "Cause leading to a specific action.",
+      "answer": "We need new materials, so we will print them."
+    },
+    {
+      "id": "sonotame-q3",
+      "prompt": "予定が重なった。そのため、会議を延期します。",
+      "hint": "Use it for planned consequence.",
+      "answer": "The schedule conflicted, so we will postpone the meeting."
+    },
+    {
+      "id": "sonotame-q4",
+      "prompt": "データが不足した。そのため、もう一度調査します。",
+      "hint": "Action decision based on insufficiency.",
+      "answer": "There was insufficient data, so I will investigate again."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "sonotame-prod-1",
+      "prompt": "The train was delayed, therefore we will miss the connection.",
+      "keyword": "そのため",
+      "hint": "Use formal causal linking.",
+      "helpfulVocabulary": [
+        {
+          "jp": "電車",
+          "reading": "でんしゃ",
+          "en": "train"
+        },
+        {
+          "jp": "乗り継ぐ",
+          "reading": "のりつぐ",
+          "en": "to connect (transit)"
+        },
+        {
+          "jp": "乗り継ぎ",
+          "reading": "のりつぎ",
+          "en": "transfer"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "電車の遅れのため、乗り継ぎに間に合いません。",
+          "level": "Recommended",
+          "note": "Direct and natural polite style."
+        },
+        {
+          "answer": "そのため、次の接続電車を逃してしまいます。",
+          "level": "Natural variation",
+          "note": "A slightly more formal alternative."
+        }
+      ]
+    },
+    {
+      "id": "sonotame-prod-2",
+      "prompt": "We are missing data, so we should conduct another survey.",
+      "keyword": "そのため",
+      "hint": "Use it to justify a next action.",
+      "helpfulVocabulary": [
+        {
+          "jp": "データ",
+          "reading": "でーた",
+          "en": "data"
+        },
+        {
+          "jp": "調査",
+          "reading": "ちょうさ",
+          "en": "survey"
+        },
+        {
+          "jp": "必要",
+          "reading": "ひつよう",
+          "en": "necessary"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "データが不足しているため、そのため追加調査が必要です。",
+          "level": "Recommended",
+          "note": "Very explicit and formal reasoning."
+        },
+        {
+          "answer": "データが足りないので、もう一度調べます。",
+          "level": "Natural variation",
+          "note": "Polished everyday explanation."
+        }
+      ]
+    },
+    {
+      "id": "sonotame-prod-3",
+      "prompt": "The meeting was cancelled, therefore I stayed home and worked.",
+      "keyword": "そのため",
+      "hint": "Keep the flow concise and causal.",
+      "helpfulVocabulary": [
+        {
+          "jp": "中止",
+          "reading": "ちゅうし",
+          "en": "cancellation"
+        },
+        {
+          "jp": "在宅",
+          "reading": "ざいたく",
+          "en": "working from home"
+        },
+        {
+          "jp": "作業",
+          "reading": "さぎょく",
+          "en": "work"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "会議が中止されたため、そのため在宅で作業しました。",
+          "level": "Recommended",
+          "note": "Clear cause-result structure."
+        },
+        {
+          "answer": "会議がなかったので、家で仕事をしました。",
+          "level": "Natural variation",
+          "note": "Equivalent, slightly more natural rhythm."
+        }
+      ]
+    },
+    {
+      "id": "sonotame-prod-4",
+      "prompt": "They requested revision, therefore I updated all slides.",
+      "keyword": "そのため",
+      "hint": "Use a polite explanatory style.",
+      "helpfulVocabulary": [
+        {
+          "jp": "修正",
+          "reading": "しゅうせい",
+          "en": "revision"
+        },
+        {
+          "jp": "全て",
+          "reading": "すべて",
+          "en": "all"
+        },
+        {
+          "jp": "更新",
+          "reading": "こうしん",
+          "en": "update"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "修正の依頼があったため、そのため全てのスライドを更新しました。",
+          "level": "Recommended",
+          "note": "Very natural professional phrasing."
+        },
+        {
+          "answer": "修正指示があったので、すべてのスライドを直しました。",
+          "level": "Natural variation",
+          "note": "Equivalent spoken business style."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-shikashi",
+  "title": "Understanding しかし",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "shikashi",
+      "word": "しかし",
+      "reading": "しかし",
+      "meaning": "however; but",
+      "nuance": "しかし introduces a contrast or an exception, usually in more formal or written-style contrast.",
+      "example": "雨が降っています。ですが、行かなければなりません。",
+      "exampleTranslation": "It is raining; however, I have to go."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "In informal conversation, でも is more common than しかし, but both work. しかし is often less casual."
+  },
+  "questions": [
+    {
+      "id": "shikashi-q1",
+      "prompt": "行きたかった。 しかし、時間がありません。",
+      "hint": "A wish is followed by a blocking condition.",
+      "answer": "I wanted to go; however, there is no time."
+    },
+    {
+      "id": "shikashi-q2",
+      "prompt": "彼は優しい。 しかし、少し短気です。",
+      "hint": "Second quality partly contrasts first.",
+      "answer": "He is kind. However, he is a little short-tempered."
+    },
+    {
+      "id": "shikashi-q3",
+      "prompt": "この店は安い。 しかし、少し遠いです。",
+      "hint": "Introduce a drawback to the first positive claim.",
+      "answer": "This store is cheap. But it's a little far."
+    },
+    {
+      "id": "shikashi-q4",
+      "prompt": "気持ちは同じです。 しかし、方法が違います。",
+      "hint": "Use しかし for a difference, not for similarity.",
+      "answer": "The feelings are the same. But the methods are different."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "shikashi-prod-1",
+      "prompt": "I want to study tonight, but my internet is down.",
+      "keyword": "しかし",
+      "hint": "Contrast wish with obstruction.",
+      "helpfulVocabulary": [
+        {
+          "jp": "勉強する",
+          "reading": "べんきょうする",
+          "en": "to study"
+        },
+        {
+          "jp": "インターネット",
+          "reading": "いんたーねっと",
+          "en": "internet"
+        },
+        {
+          "jp": "今日",
+          "reading": "きょう",
+          "en": "today"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "今夜は勉強したい。しかし、インターネットが落ちています。",
+          "level": "Recommended",
+          "note": "Direct contrast between intention and obstacle."
+        },
+        {
+          "answer": "勉強したいんだけど、今日はネットが使えない。",
+          "level": "Natural variation",
+          "note": "Natural spoken version with けど."
+        }
+      ]
+    },
+    {
+      "id": "shikashi-prod-2",
+      "prompt": "The place is cheap, however the quality is not bad.",
+      "keyword": "しかし",
+      "hint": "Use しかし for balancing two related facts.",
+      "helpfulVocabulary": [
+        {
+          "jp": "安い",
+          "reading": "やすい",
+          "en": "cheap"
+        },
+        {
+          "jp": "質",
+          "reading": "しつ",
+          "en": "quality"
+        },
+        {
+          "jp": "悪い",
+          "reading": "わるい",
+          "en": "bad"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "その店は安い。しかし、質は悪くないです。",
+          "level": "Recommended",
+          "note": "Common evaluative contrast."
+        },
+        {
+          "answer": "安い反面、品質も悪くありません。",
+          "level": "Natural variation",
+          "note": "Uses 反面 as a similar contrasting pattern."
+        }
+      ]
+    },
+    {
+      "id": "shikashi-prod-3",
+      "prompt": "He is helpful, but he is very strict.",
+      "keyword": "しかし",
+      "hint": "Introduce a counterpoint.",
+      "helpfulVocabulary": [
+        {
+          "jp": "親切",
+          "reading": "しんせつ",
+          "en": "helpful"
+        },
+        {
+          "jp": "厳しい",
+          "reading": "きびしい",
+          "en": "strict"
+        },
+        {
+          "jp": "両方",
+          "reading": "りょうほう",
+          "en": "both"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "彼は親切だ。しかし、かなり厳しいです。",
+          "level": "Recommended",
+          "note": "Balanced contrast with two qualities."
+        },
+        {
+          "answer": "親切なのに、かなり厳しいタイプです。",
+          "level": "Natural variation",
+          "note": "Uses なのに for contrast nuance."
+        }
+      ]
+    },
+    {
+      "id": "shikashi-prod-4",
+      "prompt": "The ticket is available, however seats are almost sold out.",
+      "keyword": "しかし",
+      "hint": "Show the limiting condition.",
+      "helpfulVocabulary": [
+        {
+          "jp": "予約",
+          "reading": "よやく",
+          "en": "reservation"
+        },
+        {
+          "jp": "空席",
+          "reading": "くうせき",
+          "en": "empty seat"
+        },
+        {
+          "jp": "残り",
+          "reading": "のこり",
+          "en": "remaining"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "チケットはあります。しかし、空席はほとんど残っていません。",
+          "level": "Recommended",
+          "note": "Straightforward contrast with a limitation."
+        },
+        {
+          "answer": "予約自体は可能です。ですが、ほとんど満席です。",
+          "level": "Natural variation",
+          "note": "Uses ですが with similar nuance."
+        }
+      ]
+    }
+  ]
+}

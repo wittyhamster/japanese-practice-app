@@ -4,6 +4,22 @@ This document tracks the production changes made to the Sensei application.
 
 ## Unreleased
 
+- Added lessons 21–30 to the lesson library (`lesson-21.json` through `lesson-30.json`) using the existing lesson schema and review architecture:
+  - 21: まず
+  - 22: そして
+  - 23: それで
+  - 24: それから
+  - 25: さらに
+  - 26: しかし
+  - 27: だから
+  - 28: そのため
+  - 29: ただし
+  - 30: やはり
+- Added all new lesson files to `data/lessons.json` with the required `questionCount` and `productionQuestionCount` metadata so no application code changes were required.
+- No code-path changes were made in the app modules; this batch is curriculum expansion only and keeps existing lesson and review behavior unchanged.
+
+- Fixed JSON field errors in new production prompts before validation (removed malformed separators in lesson 27/29 entries).
+
 - Added `data/lesson-10.json` for the new **どうせ** lesson with translation and production practice, and updated `data/lessons.json` to make it the active lesson.
 - Added Lesson 9 (`data/lesson-09.json`) for **結局** with Japanese → English practice, English → Japanese production prompts, helpful vocabulary, and multiple natural reference answers.
 - Updated `data/lessons.json` to add Lesson 9 (`core-expression-kekkyoku`) and make it the active lesson.

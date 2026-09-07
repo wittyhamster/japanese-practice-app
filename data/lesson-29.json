@@ -1,0 +1,184 @@
+{
+  "id": "core-expression-tadashi",
+  "title": "Understanding ただし",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "tadashi",
+      "word": "ただし",
+      "reading": "ただし",
+      "meaning": "however; provided that; in that case",
+      "nuance": "ただし adds a condition or exception, often in notes, rules, or instructions.",
+      "example": "先着順で受付します。追加料金は、ただし事前申請の場合に限ります。",
+      "exampleTranslation": "Check-in is by order of arrival. Additional charges are only for prior applications."
+    }
+  ],
+  "questions": [
+    {
+      "id": "tadashi-q1",
+      "prompt": "参加は可能です。ただし、登録は先にしてください。",
+      "hint": "Express a main rule plus a condition.",
+      "answer": "Participation is possible. However, please register in advance."
+    },
+    {
+      "id": "tadashi-q2",
+      "prompt": "この機能は使えます。ただし、管理者のみです。",
+      "hint": "Not all users, only a specific group can use it.",
+      "answer": "This feature is available, but only for administrators."
+    },
+    {
+      "id": "tadashi-q3",
+      "prompt": "今日は店が空いている。ただし、金曜だけです。",
+      "hint": "A condition restricts the statement.",
+      "answer": "The store is open today, but only on Fridays."
+    },
+    {
+      "id": "tadashi-q4",
+      "prompt": "このメニューはお薦めです。ただし、辛いです。",
+      "hint": "A general recommendation with a warning condition.",
+      "answer": "This menu is recommended, but it's spicy."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "tadashi-prod-1",
+      "prompt": "You can join, but registration is required.",
+      "keyword": "ただし",
+      "hint": "Use ただし to mark an exception/condition.",
+      "helpfulVocabulary": [
+        {
+          "jp": "参加",
+          "reading": "さんか",
+          "en": "participation"
+        },
+        {
+          "jp": "登録",
+          "reading": "とうろく",
+          "en": "registration"
+        },
+        {
+          "jp": "必要",
+          "reading": "ひつよう",
+          "en": "necessary"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "参加できます。ただし、登録は必要です。",
+          "level": "Recommended",
+          "note": "Direct conditional phrasing."
+        },
+        {
+          "answer": "参加可能ですが、事前登録が必要です。",
+          "level": "Natural variation",
+          "note": "More formal with same meaning."
+        }
+      ]
+    },
+    {
+      "id": "tadashi-prod-2",
+      "prompt": "This app is available, but only to premium users.",
+      "keyword": "ただし",
+      "hint": "Keep it condition-based.",
+      "helpfulVocabulary": [
+        {
+          "jp": "アプリ",
+          "reading": "あぷり",
+          "en": "app"
+        },
+        {
+          "jp": "有料",
+          "reading": "ゆうりょう",
+          "en": "paid"
+        },
+        {
+          "jp": "限定",
+          "reading": "げんてい",
+          "en": "limited to"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "このアプリは使えます。ただし、有料会員限定です。",
+          "level": "Recommended",
+          "note": "Clear and natural restriction statement."
+        },
+        {
+          "answer": "使えるのは有料ユーザーのみです。",
+          "level": "Natural variation",
+          "note": "Concise elliptical alternative."
+        }
+      ]
+    },
+    {
+      "id": "tadashi-prod-3",
+      "prompt": "We can order now, but only after I finish this report.",
+      "keyword": "ただし",
+      "hint": "Condition in a practical workflow.",
+      "helpfulVocabulary": [
+        {
+          "jp": "注文",
+          "reading": "ちゅうもん",
+          "en": "order"
+        },
+        {
+          "jp": "報告書",
+          "reading": "ほうこくしょ",
+          "en": "report"
+        },
+        {
+          "jp": "完了",
+          "reading": "かんりょう",
+          "en": "completion"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "今は注文できます。ただし、この報告書が終わってからです。",
+          "level": "Recommended",
+          "note": "Natural rule-like condition."
+        },
+        {
+          "answer": "先にこの報告書を仕上げてから、注文しましょう。",
+          "level": "Natural variation",
+          "note": "Uses first/then structure while keeping 条件 feel."
+        }
+      ]
+    },
+    {
+      "id": "tadashi-prod-4",
+      "prompt": "The restaurant is open, but not on holidays.",
+      "keyword": "ただし",
+      "hint": "Limit the general statement with a time-based exception.",
+      "helpfulVocabulary": [
+        {
+          "jp": "休業",
+          "reading": "きゅうぎょう",
+          "en": "closed"
+        },
+        {
+          "jp": "休日",
+          "reading": "きゅうじつ",
+          "en": "holiday"
+        },
+        {
+          "jp": "営業",
+          "reading": "えいぎょう",
+          "en": "operation"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "この店は営業しています。ただし、休日は休みです。",
+          "level": "Recommended",
+          "note": "Natural, common informational tone."
+        },
+        {
+          "answer": "開いていますが、休みは祝日だけです。",
+          "level": "Natural variation",
+          "note": "Uses が to mark limitation."
+        }
+      ]
+    }
+  ]
+}

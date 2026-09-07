@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-soshite",
+  "title": "Understanding そして",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "soshite",
+      "word": "そして",
+      "reading": "そして",
+      "meaning": "and then; and moreover",
+      "nuance": "そして links events in sequence and is often used between statements to add related information.",
+      "example": "朝ごはんを食べて、そして会社に行きました。",
+      "exampleTranslation": "I ate breakfast, and then I went to work."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Don't use そして for strong contrast. It's additive and sequential, not concessive."
+  },
+  "questions": [
+    {
+      "id": "soshite-q1",
+      "prompt": "朝、資料をまとめました。そして、同僚と確認しました。",
+      "hint": "Sequence of two related actions.",
+      "answer": "I organized the documents in the morning. And then I reviewed them with my coworker."
+    },
+    {
+      "id": "soshite-q2",
+      "prompt": "彼は遅刻しました。そして、会議は始まりました。",
+      "hint": "Two events: delay then start.",
+      "answer": "He was late, and then the meeting started."
+    },
+    {
+      "id": "soshite-q3",
+      "prompt": "まず計画を作る。そして、共有しましょう。",
+      "hint": "順序が重要。",
+      "answer": "First make a plan. And then let's share it."
+    },
+    {
+      "id": "soshite-q4",
+      "prompt": "彼は優しくだった。だからではなく、彼はただ丁寧です。",
+      "hint": "Replace the first with the correct sequential connector.",
+      "answer": "He was kind, and actually that's just how polite he is."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "soshite-prod-1",
+      "prompt": "I finished preparing the file. Then I emailed it.",
+      "keyword": "そして",
+      "hint": "Join two actions in order.",
+      "helpfulVocabulary": [
+        {
+          "jp": "準備",
+          "reading": "じゅんび",
+          "en": "preparation"
+        },
+        {
+          "jp": "メール",
+          "reading": "めーる",
+          "en": "email"
+        },
+        {
+          "jp": "送る",
+          "reading": "おくる",
+          "en": "to send"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "ファイルを準備して、そしてメールしました。",
+          "level": "Recommended",
+          "note": "Clear sequencing with と and そして."
+        },
+        {
+          "answer": "準備が終わったので、そしてメールを送った。",
+          "level": "Natural variation",
+          "note": "Uses ので to connect cause and sequence naturally."
+        }
+      ]
+    },
+    {
+      "id": "soshite-prod-2",
+      "prompt": "Let's review the notes first, and then we can start.",
+      "keyword": "そして",
+      "hint": "Add a second action after an ordered first one.",
+      "helpfulVocabulary": [
+        {
+          "jp": "確認",
+          "reading": "かくにん",
+          "en": "check/review"
+        },
+        {
+          "jp": "開始",
+          "reading": "かいし",
+          "en": "start"
+        },
+        {
+          "jp": "メモ",
+          "reading": "めも",
+          "en": "notes"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "ノートを確認して、そして始めましょう。",
+          "level": "Recommended",
+          "note": "Very natural instructional sequence."
+        },
+        {
+          "answer": "まずメモを見て、それから始めます。",
+          "level": "Natural variation",
+          "note": "Uses それから instead of そして but equivalent in meaning."
+        }
+      ]
+    },
+    {
+      "id": "soshite-prod-3",
+      "prompt": "The rain stopped, then we went outside.",
+      "keyword": "そして",
+      "hint": "Express one event followed by another.",
+      "helpfulVocabulary": [
+        {
+          "jp": "雨",
+          "reading": "あめ",
+          "en": "rain"
+        },
+        {
+          "jp": "止む",
+          "reading": "やむ",
+          "en": "to stop"
+        },
+        {
+          "jp": "外",
+          "reading": "そと",
+          "en": "outside"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "雨が止んで、そして外に出ました。",
+          "level": "Recommended",
+          "note": "Simple and natural timeline expression."
+        },
+        {
+          "answer": "雨がやんだので、外へ出ました。",
+          "level": "Natural variation",
+          "note": "Equivalent meaning using causal flow."
+        }
+      ]
+    },
+    {
+      "id": "soshite-prod-4",
+      "prompt": "She said hello, and then introduced everyone.",
+      "keyword": "そして",
+      "hint": "Use そして to add consecutive social actions.",
+      "helpfulVocabulary": [
+        {
+          "jp": "挨拶",
+          "reading": "あいさつ",
+          "en": "greeting"
+        },
+        {
+          "jp": "紹介",
+          "reading": "しょうかい",
+          "en": "introduction"
+        },
+        {
+          "jp": "皆",
+          "reading": "みな",
+          "en": "everyone"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まずあいさつして、そしてみんなを紹介しました。",
+          "level": "Recommended",
+          "note": "Explicit sequential order."
+        },
+        {
+          "answer": "挨拶してから、全員に自己紹介しました。",
+          "level": "Natural variation",
+          "note": "Uses から to show sequence."
+        }
+      ]
+    }
+  ]
+}

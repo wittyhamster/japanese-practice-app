@@ -1,0 +1,184 @@
+{
+  "id": "core-expression-sorekara",
+  "title": "Understanding それから",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "sorekara",
+      "word": "それから",
+      "reading": "それから",
+      "meaning": "after that; and then",
+      "nuance": "それから links one activity to the next in sequence.",
+      "example": "コンビニでおにぎりを買った。それから、家に帰りました。",
+      "exampleTranslation": "I bought an onigiri at the convenience store. Then I went home."
+    }
+  ],
+  "questions": [
+    {
+      "id": "sorekara-q1",
+      "prompt": "まず玄関を出ました。それから、電車に乗りました。",
+      "hint": "The second action follows the first.",
+      "answer": "I first left the house, and then I took the train."
+    },
+    {
+      "id": "sorekara-q2",
+      "prompt": "資料を提出しました。それから、確認を待っています。",
+      "hint": "The flow is a straightforward sequence.",
+      "answer": "I submitted the documents, and then I’m waiting for confirmation."
+    },
+    {
+      "id": "sorekara-q3",
+      "prompt": "コーヒーを飲んだ。それから、資料を読みました。",
+      "hint": "Natural everyday sequence.",
+      "answer": "I drank coffee and then read the documents."
+    },
+    {
+      "id": "sorekara-q4",
+      "prompt": "ご飯を食べた。それから、少しだけ休みました。",
+      "hint": "Use it to move from one action to another.",
+      "answer": "I ate, and after that, I took a short break."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "sorekara-prod-1",
+      "prompt": "I finished my dinner, and then I brushed my teeth.",
+      "keyword": "それから",
+      "hint": "Show the follow-up action directly.",
+      "helpfulVocabulary": [
+        {
+          "jp": "夕食",
+          "reading": "ゆうしょく",
+          "en": "dinner"
+        },
+        {
+          "jp": "歯を磨く",
+          "reading": "はをみがく",
+          "en": "to brush teeth"
+        },
+        {
+          "jp": "終える",
+          "reading": "おえる",
+          "en": "to finish"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "夕食を食べて、それから歯を磨きました。",
+          "level": "Recommended",
+          "note": "Very natural and direct sequence."
+        },
+        {
+          "answer": "晩ご飯を終えて、それから歯を磨きます。",
+          "level": "Natural variation",
+          "note": "Tense-neutral and equally natural."
+        }
+      ]
+    },
+    {
+      "id": "sorekara-prod-2",
+      "prompt": "I saw the email first, and then I called her.",
+      "keyword": "それから",
+      "hint": "Connect email and follow-up action.",
+      "helpfulVocabulary": [
+        {
+          "jp": "メール",
+          "reading": "めーる",
+          "en": "email"
+        },
+        {
+          "jp": "電話",
+          "reading": "でんわ",
+          "en": "phone call"
+        },
+        {
+          "jp": "確認",
+          "reading": "かくにん",
+          "en": "to check"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "メールを見て、それから彼女に電話しました。",
+          "level": "Recommended",
+          "note": "Clear, natural action chain."
+        },
+        {
+          "answer": "先にメールを確認してから、電話しました。",
+          "level": "Natural variation",
+          "note": "Natural alternate sequence form."
+        }
+      ]
+    },
+    {
+      "id": "sorekara-prod-3",
+      "prompt": "We bought groceries, then we cooked dinner.",
+      "keyword": "それから",
+      "hint": "Use it for everyday planning flow.",
+      "helpfulVocabulary": [
+        {
+          "jp": "買い物",
+          "reading": "かいもの",
+          "en": "shopping"
+        },
+        {
+          "jp": "料理",
+          "reading": "りょうり",
+          "en": "cooking"
+        },
+        {
+          "jp": "夕食",
+          "reading": "ゆうしょく",
+          "en": "dinner"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "食料品を買って、それから夕食を作りました。",
+          "level": "Recommended",
+          "note": "Very common household sequence expression."
+        },
+        {
+          "answer": "買い物して、それから料理に取りかかりました。",
+          "level": "Natural variation",
+          "note": "Uses 取りかかる for starting the next step."
+        }
+      ]
+    },
+    {
+      "id": "sorekara-prod-4",
+      "prompt": "I studied one chapter, then I practiced speaking.",
+      "keyword": "それから",
+      "hint": "Show two study steps in order.",
+      "helpfulVocabulary": [
+        {
+          "jp": "章",
+          "reading": "しょう",
+          "en": "chapter"
+        },
+        {
+          "jp": "勉強する",
+          "reading": "べんきょうする",
+          "en": "to study"
+        },
+        {
+          "jp": "練習",
+          "reading": "れんしゅう",
+          "en": "practice"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "1 章を勉強して、それから会話を練習しました。",
+          "level": "Recommended",
+          "note": "Clean transition with それから."
+        },
+        {
+          "answer": "一章勉強したあとで、会話練習をしました。",
+          "level": "Natural variation",
+          "note": "Equivalent sequencing with あとで."
+        }
+      ]
+    }
+  ]
+}

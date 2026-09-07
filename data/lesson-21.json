@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-mazu",
+  "title": "Understanding まず",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "mazu",
+      "word": "まず",
+      "reading": "まず",
+      "meaning": "first; to begin with",
+      "nuance": "まず introduces the first step or priority in a sequence of actions. It marks what should be done before other things.",
+      "example": "まず、資料を読んでから話します。",
+      "exampleTranslation": "First, I'll read the materials and then talk."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Do not use まず when there is no sequence. Use it to set an order or to describe the first action."
+  },
+  "questions": [
+    {
+      "id": "mazu-q1",
+      "prompt": "まず、資料を読んでから話します。",
+      "hint": "The speaker is explaining the first action.",
+      "answer": "I will read the documents first, then talk."
+    },
+    {
+      "id": "mazu-q2",
+      "prompt": "まずは軽く休んだほうがいい。",
+      "hint": "A helpful first step before continuing.",
+      "answer": "You should take a short break first."
+    },
+    {
+      "id": "mazu-q3",
+      "prompt": "その前に、まず道具をそろえよう。",
+      "hint": "The sentence emphasizes the priority action before anything else.",
+      "answer": "Before that, let's first prepare the tools."
+    },
+    {
+      "id": "mazu-q4",
+      "prompt": "まず何をするべきかわからない。",
+      "hint": "No clear first action has been decided.",
+      "answer": "I don't know what to do first."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "mazu-prod-1",
+      "prompt": "First, let's confirm the meeting time.",
+      "keyword": "まず",
+      "hint": "Begin with a clearly first action.",
+      "helpfulVocabulary": [
+        {
+          "jp": "確認する",
+          "reading": "かくにんする",
+          "en": "to confirm"
+        },
+        {
+          "jp": "会議",
+          "reading": "かいぎ",
+          "en": "meeting"
+        },
+        {
+          "jp": "時間",
+          "reading": "じかん",
+          "en": "time"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まず、会議の時間を確認しよう。",
+          "level": "Recommended",
+          "note": "Directly uses まず to mark the first priority."
+        },
+        {
+          "answer": "まずは会議の時間を決めます。",
+          "level": "Natural variation",
+          "note": "A natural variant with は for emphasis."
+        }
+      ]
+    },
+    {
+      "id": "mazu-prod-2",
+      "prompt": "Let me start with the most important thing.",
+      "keyword": "まず",
+      "hint": "Use まず before the priority task.",
+      "helpfulVocabulary": [
+        {
+          "jp": "最も",
+          "reading": "もっとも",
+          "en": "most"
+        },
+        {
+          "jp": "重要",
+          "reading": "じゅうよう",
+          "en": "important"
+        },
+        {
+          "jp": "始める",
+          "reading": "はじめる",
+          "en": "to start"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まず一番大事なことから始めます。",
+          "level": "Recommended",
+          "note": "A common and natural way to indicate first priority."
+        },
+        {
+          "answer": "まず最も重要な順に進めます。",
+          "level": "Natural variation",
+          "note": "Uses priority wording instead of が starts."
+        }
+      ]
+    },
+    {
+      "id": "mazu-prod-3",
+      "prompt": "Let's first gather everyone, then begin.",
+      "keyword": "まず",
+      "hint": "Use まず to set what happens at the start.",
+      "helpfulVocabulary": [
+        {
+          "jp": "集める",
+          "reading": "あつめる",
+          "en": "to gather"
+        },
+        {
+          "jp": "みんな",
+          "reading": "みんな",
+          "en": "everyone"
+        },
+        {
+          "jp": "始める",
+          "reading": "はじめる",
+          "en": "to begin"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まずみんなを集めてから始めよう。",
+          "level": "Recommended",
+          "note": "Very natural with a clear sequence."
+        },
+        {
+          "answer": "まず全員を集めるね。",
+          "level": "Natural variation",
+          "note": "Shorter planning-style version."
+        }
+      ]
+    },
+    {
+      "id": "mazu-prod-4",
+      "prompt": "First, we should write down the plan.",
+      "keyword": "まず",
+      "hint": "Introduce the first step before other actions.",
+      "helpfulVocabulary": [
+        {
+          "jp": "書く",
+          "reading": "かく",
+          "en": "to write"
+        },
+        {
+          "jp": "計画",
+          "reading": "けいかく",
+          "en": "plan"
+        },
+        {
+          "jp": "必要",
+          "reading": "ひつよう",
+          "en": "necessary"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まず、計画を紙に書くべきです。",
+          "level": "Recommended",
+          "note": "Direct and natural in advice form."
+        },
+        {
+          "answer": "まずは計画をメモしておきます。",
+          "level": "Natural variation",
+          "note": "Colloquial and equally common."
+        }
+      ]
+    }
+  ]
+}

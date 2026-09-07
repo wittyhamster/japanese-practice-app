@@ -1,0 +1,184 @@
+{
+  "id": "core-expression-dakara",
+  "title": "Understanding だから",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "dakara",
+      "word": "だから",
+      "reading": "だから",
+      "meaning": "therefore; that's why",
+      "nuance": "だから gives a spoken, direct causal result. It often connects a reason to a conclusion or action.",
+      "example": "雨が降っている。だから、傘を持っています。",
+      "exampleTranslation": "It's raining, so I'm carrying an umbrella."
+    }
+  ],
+  "questions": [
+    {
+      "id": "dakara-q1",
+      "prompt": "今日は寒い。だから、コートを着ました。",
+      "hint": "Use だから for a spoken causal result.",
+      "answer": "It is cold today, so I wore a coat."
+    },
+    {
+      "id": "dakara-q2",
+      "prompt": "彼は疲れている。だから、今日は休みます。",
+      "hint": "Cause then a decision.",
+      "answer": "He is tired, so I'm taking a day off."
+    },
+    {
+      "id": "dakara-q3",
+      "prompt": "もう時間がない。だから、先に片付けます。",
+      "hint": "A quick decision follows a limited time condition.",
+      "answer": "There's no time, so I'll clean up first."
+    },
+    {
+      "id": "dakara-q4",
+      "prompt": "電車が止まった。だから、会議に遅れます。",
+      "hint": "Reason and consequence chain.",
+      "answer": "The train stopped, so I will be late to the meeting."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "dakara-prod-1",
+      "prompt": "I forgot my charger, so my phone is dead.",
+      "keyword": "だから",
+      "hint": "Keep it causal and spoken.",
+      "helpfulVocabulary": [
+        {
+          "jp": "充電器",
+          "reading": "じゅうでんき",
+          "en": "charger"
+        },
+        {
+          "jp": "電池",
+          "reading": "でんち",
+          "en": "battery"
+        },
+        {
+          "jp": "死ぬ",
+          "reading": "しぬ",
+          "en": "to die"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "充電器を忘れたから、だからスマホの電池が切れました。",
+          "level": "Recommended",
+          "note": "Very direct spoken causal result."
+        },
+        {
+          "answer": "充電器を忘れて、今はスマホがつかえない状態です。",
+          "level": "Natural variation",
+          "note": "Uses a slightly more natural spoken explanation."
+        }
+      ]
+    },
+    {
+      "id": "dakara-prod-2",
+      "prompt": "My project is not done, so I can't leave yet.",
+      "keyword": "だから",
+      "hint": "Use だから to explain urgency of staying.",
+      "helpfulVocabulary": [
+        {
+          "jp": "宿題",
+          "reading": "しゅくだい",
+          "en": "homework"
+        },
+        {
+          "jp": "終わる",
+          "reading": "おわる",
+          "en": "to finish"
+        },
+        {
+          "jp": "帰る",
+          "reading": "かえる",
+          "en": "to leave"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "仕事がまだ終わっていないから、だからまだ帰れない。",
+          "level": "Recommended",
+          "note": "Very direct and conversational."
+        },
+        {
+          "answer": "まだ終わってないので、帰るのはまだ早いです。",
+          "level": "Natural variation",
+          "note": "Equivalent result phrasing with ので."
+        }
+      ]
+    },
+    {
+      "id": "dakara-prod-3",
+      "prompt": "I am hungry, so let's go to a restaurant.",
+      "keyword": "だから",
+      "hint": "Let hunger trigger an action.",
+      "helpfulVocabulary": [
+        {
+          "jp": "空腹",
+          "reading": "くうふく",
+          "en": "hunger"
+        },
+        {
+          "jp": "外食",
+          "reading": "がいしょく",
+          "en": "eat out"
+        },
+        {
+          "jp": "行く",
+          "reading": "いく",
+          "en": "to go"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "お腹がすいたから、だから外食しましょう。",
+          "level": "Recommended",
+          "note": "Natural and direct."
+        },
+        {
+          "answer": "お腹が空いたので、外でご飯にしましょう。",
+          "level": "Natural variation",
+          "note": "Common spoken alternative with ので."
+        }
+      ]
+    },
+    {
+      "id": "dakara-prod-4",
+      "prompt": "I missed the alarm, so I got up late.",
+      "keyword": "だから",
+      "hint": "Cause-effect in daily narration.",
+      "helpfulVocabulary": [
+        {
+          "jp": "目覚まし",
+          "reading": "めざまし",
+          "en": "alarm"
+        },
+        {
+          "jp": "寝坊",
+          "reading": "ねぼう",
+          "en": "oversleeping"
+        },
+        {
+          "jp": "遅刻",
+          "reading": "ちこく",
+          "en": "late"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "目覚ましに気づかなかったから、だから寝坊してしまいました。",
+          "level": "Recommended",
+          "note": "Simple causal narrative."
+        },
+        {
+          "answer": "アラームを聞き逃したので、遅刻しました。",
+          "level": "Natural variation",
+          "note": "More concise with ので."
+        }
+      ]
+    }
+  ]
+}
