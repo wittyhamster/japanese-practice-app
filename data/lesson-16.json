@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-marudake",
+  "title": "Understanding まるで",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "marudake",
+      "word": "まるで",
+      "reading": "まるで",
+      "meaning": "just like; completely; as if",
+      "nuance": "まるで often introduces vivid comparison. It usually appears with negative verbs like ない in expressive comparisons.",
+      "example": "まるで夢みたい。",
+      "exampleTranslation": "It feels just like a dream."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Do not overuse まるで with plain affirmative statements. In many natural patterns it appears before negative forms to express a stronger contrast."
+  },
+  "questions": [
+    {
+      "id": "marudake-q1",
+      "prompt": "この景色はまるで絵みたいです。",
+      "hint": "A vivid comparison.",
+      "answer": "This view is just like a painting."
+    },
+    {
+      "id": "marudake-q2",
+      "prompt": "まるで何も起きていないみたいです。",
+      "hint": "The speaker emphasizes the feel of 'as if nothing happened.'",
+      "answer": "It's as if nothing happened."
+    },
+    {
+      "id": "marudake-q3",
+      "prompt": "彼はまるで忘れられないです。",
+      "hint": "This sentence is slightly awkward and needs comparison context.",
+      "answer": "I can’t forget it at all."
+    },
+    {
+      "id": "marudake-q4",
+      "prompt": "まるで夢の中にいるようです。",
+      "hint": "The scene feels unreal.",
+      "answer": "It feels like I am in a dream."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "marudake-prod-1",
+      "prompt": "The room was so quiet, it was like a library.",
+      "keyword": "まるで",
+      "hint": "Use まるで for a strong simile.",
+      "helpfulVocabulary": [
+        {
+          "jp": "静か",
+          "reading": "しずか",
+          "en": "quiet"
+        },
+        {
+          "jp": "図書館",
+          "reading": "としょかん",
+          "en": "library"
+        },
+        {
+          "jp": "音",
+          "reading": "おと",
+          "en": "sound"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まるで図書館のように静かだった。",
+          "level": "Recommended",
+          "note": "Very natural comparison with 〜のように."
+        },
+        {
+          "answer": "まるで図書館みたいに静かだった。",
+          "level": "Natural variation",
+          "note": "Colloquial, equally common in conversation."
+        }
+      ]
+    },
+    {
+      "id": "marudake-prod-2",
+      "prompt": "He looked so tired, as if he had not slept at all.",
+      "keyword": "まるで",
+      "hint": "Strong negative comparison is common.",
+      "helpfulVocabulary": [
+        {
+          "jp": "眠れない",
+          "reading": "ねむれない",
+          "en": "couldn't sleep"
+        },
+        {
+          "jp": "疲れる",
+          "reading": "つかれる",
+ "en": "to get tired"
+        },
+        {
+          "jp": "顔",
+          "reading": "かお",
+          "en": "face"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "彼はまるで眠れなかったみたいに疲れていた。",
+          "level": "Recommended",
+          "note": "Natural sentence with as-if meaning."
+        },
+        {
+          "answer": "顔を見ると、まるで徹夜したみたい。",
+          "level": "Natural variation",
+          "note": "More spoken and natural to learners."
+        }
+      ]
+    },
+    {
+      "id": "marudake-prod-3",
+      "prompt": "It looked like everyone was surprised for the same reason.",
+      "keyword": "まるで",
+      "hint": "Use まるで to describe a shared expression.",
+      "helpfulVocabulary": [
+        {
+          "jp": "皆",
+          "reading": "みな",
+          "en": "everyone"
+        },
+        {
+          "jp": "驚く",
+          "reading": "おどろく",
+          "en": "to be surprised"
+        },
+        {
+          "jp": "同じ",
+          "reading": "おなじ",
+          "en": "same"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "まるで全員が同じ理由で驚いているみたいだった。",
+          "level": "Recommended",
+          "note": "Uses みたい with まるで to emphasize shared reaction."
+        },
+        {
+          "answer": "まるで皆、一つの理由で驚いたようだった。",
+          "level": "Natural variation",
+          "note": "Literary-feeling but still valid."
+        }
+      ]
+    },
+    {
+      "id": "marudake-prod-4",
+      "prompt": "The old train station felt like a scene from a movie.",
+      "keyword": "まるで",
+      "hint": "Anchor image-based comparison.",
+      "helpfulVocabulary": [
+        {
+          "jp": "古い",
+          "reading": "ふるい",
+          "en": "old"
+        },
+        {
+          "jp": "映画",
+          "reading": "えいが",
+          "en": "movie"
+        },
+        {
+          "jp": "駅",
+          "reading": "えき",
+          "en": "station"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "その古い駅はまるで映画のワンシーンみたいだった。",
+          "level": "Recommended",
+          "note": "Very natural and concrete image-based expression."
+        },
+        {
+          "answer": "まるで映画に出てくるような古い駅だった。",
+          "level": "Natural variation",
+          "note": "Keeps cinematic comparison while changing structure."
+        }
+      ]
+    }
+  ]
+}

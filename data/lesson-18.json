@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-seie",
+  "title": "Understanding せいぜい",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "seizei",
+      "word": "せいぜい",
+      "reading": "せいぜい",
+      "meaning": "at best; at most; anyway",
+      "nuance": "せいぜい sets a boundary or realistic upper limit. It can also be used to imply a mild complaint: 'if anything, at minimum.'",
+      "example": "せいぜい十分休んでください。",
+      "exampleTranslation": "Take at least a decent amount of rest, at any rate."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "せいぜい is often misunderstood as only negative. It can be gentle suggestion ('at least do this') as well as a limit ('no more than this')."
+  },
+  "questions": [
+    {
+      "id": "seizei-q1",
+      "prompt": "せいぜい明日の朝まで待って。",
+      "hint": "Boundary setting with urgency.",
+      "answer": "At the latest, wait until tomorrow morning."
+    },
+    {
+      "id": "seizei-q2",
+      "prompt": "せいぜい三時間です。",
+      "hint": "Upper limit in an estimate.",
+      "answer": "At most three hours."
+    },
+    {
+      "id": "seizei-q3",
+      "prompt": "せいぜいのことは助けるよ。",
+      "hint": "At least we can do something.",
+      "answer": "I can help as much as I can."
+    },
+    {
+      "id": "seizei-q4",
+      "prompt": "せいぜいこれくらいで十分でしょう。",
+      "hint": "Expressing a practical minimum/limit.",
+      "answer": "This much should be enough, at least."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "seizei-prod-1",
+      "prompt": "At most, stay for one hour.",
+      "keyword": "せいぜい",
+      "hint": "Limit the amount of time with せいぜい.",
+      "helpfulVocabulary": [
+        {
+          "jp": "一時間",
+          "reading": "いちじかん",
+          "en": "one hour"
+        },
+        {
+          "jp": "留まる",
+          "reading": "とどまる",
+          "en": "to stay"
+        },
+        {
+          "jp": "最大",
+          "reading": "さいだい",
+          "en": "maximum"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "せいぜい1時間だけいて。",
+          "level": "Recommended",
+          "note": "Simple and clear limit statement."
+        },
+        {
+          "answer": "せいぜい一時間くらいで大丈夫です。",
+          "level": "Natural variation",
+          "note": "More polite and softens the limit."
+        }
+      ]
+    },
+    {
+      "id": "seizei-prod-2",
+      "prompt": "At best, I can review two pages.",
+      "keyword": "せいぜい",
+      "hint": "Use せいぜい to express realistic minimum support.",
+      "helpfulVocabulary": [
+        {
+          "jp": "ページ",
+          "reading": "ぺーじ",
+          "en": "page"
+        },
+        {
+          "jp": "復習",
+          "reading": "ふくしゅう",
+          "en": "review"
+        },
+        {
+          "jp": "多い",
+          "reading": "おおい",
+          "en": "many"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "せいぜい2ページしか見直せます。",
+          "level": "Recommended",
+          "note": "Directly expresses 'only this much is possible.'"
+        },
+        {
+          "answer": "せいぜい二ページまでしか復習できる。",
+          "level": "Natural variation",
+          "note": "Uses explicit scope with までまで."
+        }
+      ]
+    },
+    {
+      "id": "seizei-prod-3",
+      "prompt": "Do at least this much; more is impossible anyway.",
+      "keyword": "せいぜい",
+      "hint": "Use せいぜい as best-effort framing.",
+      "helpfulVocabulary": [
+        {
+          "jp": "今は",
+          "reading": "いまは",
+          "en": "for now"
+        },
+        {
+          "jp": "不可能",
+          "reading": "ふかのう",
+          "en": "impossible"
+        },
+        {
+          "jp": "以上",
+          "reading": "いじょう",
+          "en": "more than this"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "せいぜいこれだけでいい、それ以上は難しい。",
+          "level": "Recommended",
+          "note": "Very natural when setting practical limits."
+        },
+        {
+          "answer": "せいぜいこのくらいまでが限界です。",
+          "level": "Natural variation",
+          "note": "More structured phrasing with 限界."
+        }
+      ]
+    },
+    {
+      "id": "seizei-prod-4",
+      "prompt": "At most, he could only stay five minutes.",
+      "keyword": "せいぜい",
+      "hint": "Quantify the maximum with せいぜい.",
+      "helpfulVocabulary": [
+        {
+          "jp": "五分",
+          "reading": "ごふん",
+          "en": "five minutes"
+        },
+        {
+          "jp": "滞在",
+          "reading": "たいざい",
+          "en": "stay"
+        },
+        {
+          "jp": "短い",
+          "reading": "みじかい",
+          "en": "short"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "せいぜい5分しか滞在できなかった。",
+          "level": "Recommended",
+          "note": "Direct upper-limit expression."
+        },
+        {
+          "answer": "せいぜい、彼は5分程度しかいられなかった。",
+          "level": "Natural variation",
+          "note": "More formal but still natural."
+        }
+      ]
+    }
+  ]
+}

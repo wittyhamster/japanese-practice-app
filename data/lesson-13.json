@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-tonikaku",
+  "title": "Understanding とにかく",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "tonikaku",
+      "word": "とにかく",
+      "reading": "とにかく",
+      "meaning": "anyway; in any case; anyway, let's do it",
+      "nuance": "とにかく is used to shift focus from uncertainty to action, often to stop overthinking or to move forward practically.",
+      "example": "とにかく、今夜は寝よう。",
+      "exampleTranslation": "Anyway, let's sleep tonight."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "とにかく does not always mean 'of course.' It often pushes the conversation forward: first stop deliberating, then act."
+  },
+  "questions": [
+    {
+      "id": "tonikaku-q1",
+      "prompt": "とにかく今は休もう。",
+      "hint": "Speaker chooses a practical action now.",
+      "answer": "Anyway, let's rest now."
+    },
+    {
+      "id": "tonikaku-q2",
+      "prompt": "とにかく、気にしないでください。",
+      "hint": "A calming move from worrying.",
+      "answer": "Anyway, please don't worry."
+    },
+    {
+      "id": "tonikaku-q3",
+      "prompt": "雨が降っても、とにかく行きます。",
+      "hint": "The action proceeds regardless of weather.",
+      "answer": "Even if it rains, we’ll go anyway."
+    },
+    {
+      "id": "tonikaku-q4",
+      "prompt": "とにかくまずは、質問を聞いてみます。",
+      "hint": "Action-first framing after uncertainty.",
+      "answer": "Anyway, I’ll ask first."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "tonikaku-prod-1",
+      "prompt": "Let's just go ahead and order, no matter what.",
+      "keyword": "とにかく",
+      "hint": "Use とにかく to indicate moving on.",
+      "helpfulVocabulary": [
+        {
+          "jp": "まず",
+          "reading": "まず",
+          "en": "first"
+        },
+        {
+          "jp": "注文する",
+          "reading": "ちゅうもんする",
+          "en": "to order"
+        },
+        {
+          "jp": "とにかく",
+          "reading": "とにかく",
+          "en": "anyway"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "とにかく、まず注文しよう。",
+          "level": "Recommended",
+          "note": "Very common and natural phrasing."
+        },
+        {
+          "answer": "どうせならとにかく注文してしまおう。",
+          "level": "Natural variation",
+          "note": "Moves toward action with a subtle resignation-like feel."
+        }
+      ]
+    },
+    {
+      "id": "tonikaku-prod-2",
+      "prompt": "No matter how tired, let's just stay calm and continue.",
+      "keyword": "とにかく",
+      "hint": "Focus on continuing action despite difficulty.",
+      "helpfulVocabulary": [
+        {
+          "jp": "疲れる",
+          "reading": "つかれる",
+          "en": "to get tired"
+        },
+        {
+          "jp": "落ち着く",
+          "reading": "おちつく",
+          "en": "to calm down"
+        },
+        {
+          "jp": "続ける",
+          "reading": "つづける",
+          "en": "to continue"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "とにかく、疲れていても落ち着いて続けよう。",
+          "level": "Recommended",
+          "note": "Keeps a motivational tone while using とにかく naturally."
+        },
+        {
+          "answer": "とにかくまずは落ち着いて、続けていこう。",
+          "level": "Natural variation",
+          "note": "Reorders the idea to emphasize emotional control first."
+        }
+      ]
+    },
+    {
+      "id": "tonikaku-prod-3",
+      "prompt": "It's raining, but anyway let's get to the station soon.",
+      "keyword": "とにかく",
+      "hint": "Use とにかく when a plan continues regardless of conditions.",
+      "helpfulVocabulary": [
+        {
+          "jp": "雨",
+          "reading": "あめ",
+          "en": "rain"
+        },
+        {
+          "jp": "駅",
+          "reading": "えき",
+          "en": "station"
+        },
+        {
+          "jp": "急ぐ",
+          "reading": "いそぐ",
+          "en": "to hurry"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "雨が降っているけど、とにかく急いで駅へ行こう。",
+          "level": "Recommended",
+          "note": "Directly shows action regardless of rain."
+        },
+        {
+          "answer": "雨が降っても、とにかく駅に向かおう。",
+          "level": "Natural variation",
+          "note": "Simple clause order but same pragmatic meaning."
+        }
+      ]
+    },
+    {
+      "id": "tonikaku-prod-4",
+      "prompt": "Before overthinking everything, just start writing your answer.",
+      "keyword": "とにかく",
+      "hint": "用とにかく + start now.",
+      "helpfulVocabulary": [
+        {
+          "jp": "考えすぎる",
+          "reading": "かんがえすぎる",
+          "en": "to overthink"
+        },
+        {
+          "jp": "答え",
+          "reading": "こたえ",
+          "en": "answer"
+        },
+        {
+          "jp": "書く",
+          "reading": "かく",
+          "en": "to write"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "考えすぎずに、とにかく答えを書き始めよう。",
+          "level": "Recommended",
+          "note": "A very natural study-oriented phrase."
+        },
+        {
+          "answer": "とにかくまず書き始めて、あとで直そう。",
+          "level": "Natural variation",
+          "note": "Action-first structure with improvement allowed later."
+        }
+      ]
+    }
+  ]
+}

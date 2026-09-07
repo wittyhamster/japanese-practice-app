@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-mochiron",
+  "title": "Understanding もちろん",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "mochiron",
+      "word": "もちろん",
+      "reading": "もちろん",
+      "meaning": "of course; naturally; certainly",
+      "nuance": "もちろん confirms an expectation and can also mean 'not a problem' in responses.",
+      "example": "もちろん、わかります。",
+      "exampleTranslation": "Of course, I understand."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Don't use もちろん when you are uncertain. It is used for something already considered normal or highly likely, not a guess."
+  },
+  "questions": [
+    {
+      "id": "mochiron-q1",
+      "prompt": "これはもちろん簡単です。",
+      "hint": "The statement is obvious to the speaker.",
+      "answer": "Of course, this is easy."
+    },
+    {
+      "id": "mochiron-q2",
+      "prompt": "もちろん、私は行きます。",
+      "hint": "The speaker confirms attendance.",
+      "answer": "Of course, I will go."
+    },
+    {
+      "id": "mochiron-q3",
+      "prompt": "この言い方はもちろん知っています。",
+      "hint": "The speaker is confirming prior knowledge.",
+      "answer": "Of course, I know this expression."
+    },
+    {
+      "id": "mochiron-q4",
+      "prompt": "もちろん、お茶を一緒に飲みませんか。",
+      "hint": "Invitation with polite softness using もちろん.",
+      "answer": "Of course, would you like to have tea together?"
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "mochiron-prod-1",
+      "prompt": "Of course I can help you.",
+      "keyword": "もちろん",
+      "hint": "Use もちろん as an easy response to a request.",
+      "helpfulVocabulary": [
+        {
+          "jp": "手伝う",
+          "reading": "てつだう",
+          "en": "to help"
+        },
+        {
+          "jp": "もちろん",
+          "reading": "もちろん",
+          "en": "of course"
+        },
+        {
+          "jp": "大丈夫",
+          "reading": "だいじょうぶ",
+          "en": "fine; okay"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "もちろん、手伝います。",
+          "level": "Recommended",
+          "note": "Direct and natural."
+        },
+        {
+          "answer": "もちろんです。手伝えますよ。",
+          "level": "Natural variation",
+          "note": "A slightly more polite option."
+        }
+      ]
+    },
+    {
+      "id": "mochiron-prod-2",
+      "prompt": "It's natural that she should know this by now.",
+      "keyword": "もちろん",
+      "hint": "Use もちろん to express an obvious expectation.",
+      "helpfulVocabulary": [
+        {
+          "jp": "当然",
+          "reading": "とうぜん",
+          "en": "naturally"
+        },
+        {
+          "jp": "知っている",
+          "reading": "しっている",
+          "en": "to know"
+        },
+        {
+          "jp": "今",
+          "reading": "いま",
+          "en": "now"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "彼女は今になって、当然/もちろんそれを知っているはずだ。",
+          "level": "Recommended",
+          "note": "Keeps the sentence explicit: knowing it is expected."
+        },
+        {
+          "answer": "もちろん、彼女はもう知っているよね。",
+          "level": "Natural variation",
+          "note": "More conversational framing."
+        }
+      ]
+    },
+    {
+      "id": "mochiron-prod-3",
+      "prompt": "Of course we should review before the test.",
+      "keyword": "もちろん",
+      "hint": "Use もちろん with a recommendation that feels obvious.",
+      "helpfulVocabulary": [
+        {
+          "jp": "復習",
+          "reading": "ふくしゅう",
+          "en": "review"
+        },
+        {
+          "jp": "試験",
+          "reading": "しけん",
+          "en": "exam"
+        },
+        {
+          "jp": "前に",
+          "reading": "まえに",
+          "en": "before"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "試験の前に、もちろん復習するべきです。",
+          "level": "Recommended",
+          "note": "Clear and straightforward for study context."
+        },
+        {
+          "answer": "もちろん、試験前には復習しておくべきだ。",
+          "level": "Natural variation",
+          "note": "Same meaning with a more casual recommendation."
+        }
+      ]
+    },
+    {
+      "id": "mochiron-prod-4",
+      "prompt": "Of course you can take a break if you need it.",
+      "keyword": "もちろん",
+      "hint": "Combine permission and reassurance.",
+      "helpfulVocabulary": [
+        {
+          "jp": "休憩",
+          "reading": "きゅうけい",
+          "en": "break"
+        },
+        {
+          "jp": "必要",
+          "reading": "ひつよう",
+          "en": "necessary"
+        },
+        {
+          "jp": "大丈夫",
+          "reading": "だいじょうぶ",
+          "en": "it's okay"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "必要なら、もちろん休憩していいですよ。",
+          "level": "Recommended",
+          "note": "Natural reassurance and permission."
+        },
+        {
+          "answer": "もちろん、必要なら一休みしていい。",
+          "level": "Natural variation",
+          "note": "Casual form with 休憩の意味 preserved."
+        }
+      ]
+    }
+  ]
+}

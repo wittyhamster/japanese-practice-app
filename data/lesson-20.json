@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-tsumari",
+  "title": "Understanding つまり",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "tsumari",
+      "word": "つまり",
+      "reading": "つまり",
+      "meaning": "in short; that is; in other words",
+      "nuance": "つまり summarizes what was said before or rephrases a point for clarity.",
+      "example": "難しいですね。つまり、時間が足りないんです。",
+      "exampleTranslation": "That's difficult; in other words, there isn't enough time."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "It's common to overuse つまり as a sentence starter. It should usually connect to a previous idea being rephrased."
+  },
+  "questions": [
+    {
+      "id": "tsumari-q1",
+      "prompt": "つまり、明日が締切ということです。",
+      "hint": "Summarize the prior condition into a conclusion.",
+      "answer": "In short, that means tomorrow is the deadline."
+    },
+    {
+      "id": "tsumari-q2",
+      "prompt": "彼は忙しい。つまり、会えない。",
+      "hint": "Logical conclusion from prior fact.",
+      "answer": "He is busy. In other words, he can't meet."
+    },
+    {
+      "id": "tsumari-q3",
+      "prompt": "要するに、計画が必要なんですよね。",
+      "hint": "Synonymic relation with 要するに as summary.",
+      "answer": "In short, we need a plan, right?"
+    },
+    {
+      "id": "tsumari-q4",
+      "prompt": "つまり、あなたは行かないの？",
+      "hint": "Check consistency with restatement style.",
+      "answer": "So, you are not coming, right?"
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "tsumari-prod-1",
+      "prompt": "In short, we need to submit the form today.",
+      "keyword": "つまり",
+      "hint": "Use つまり to summarize urgency clearly.",
+      "helpfulVocabulary": [
+        {
+          "jp": "要約",
+          "reading": "ようやく",
+          "en": "summary"
+        },
+        {
+          "jp": "提出",
+          "reading": "ていしゅつ",
+          "en": "submission"
+        },
+        {
+          "jp": "今日",
+          "reading": "きょう",
+          "en": "today"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "つまり、今日中に申請書を提出する必要がある。",
+          "level": "Recommended",
+          "note": "Clear and natural summary expression."
+        },
+        {
+          "answer": "要するに、今日が提出期限ということです。",
+          "level": "Natural variation",
+          "note": "Uses 同義要するに to restate same meaning."
+        }
+      ]
+    },
+    {
+      "id": "tsumari-prod-2",
+      "prompt": "In other words, he forgot his passport.",
+      "keyword": "つまり",
+      "hint": "Use つまり to paraphrase a prior scenario.",
+      "helpfulVocabulary": [
+        {
+          "jp": "言い換える",
+          "reading": "いいかえる",
+          "en": "to rephrase"
+        },
+        {
+          "jp": "パスポート",
+          "reading": "ぱすぽーと",
+          "en": "passport"
+        },
+        {
+          "jp": "忘れる",
+          "reading": "わすれる",
+          "en": "to forget"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "つまり、彼はパスポートを忘れたということだ。",
+          "level": "Recommended",
+          "note": "Direct restatement with in short."
+        },
+        {
+          "answer": "言い換えると、彼はパスポートを持っていかなかった。",
+          "level": "Natural variation",
+          "note": "Keeps same meaning through 言い換えると."
+        }
+      ]
+    },
+    {
+      "id": "tsumari-prod-3",
+      "prompt": "So, can we say this is the easiest way?",
+      "keyword": "つまり",
+      "hint": "Use as a soft confirmation at the end of reasoning.",
+      "helpfulVocabulary": [
+        {
+          "jp": "一番",
+          "reading": "いちばん",
+          "en": "the most"
+        },
+        {
+          "jp": "簡単",
+          "reading": "かんたん",
+          "en": "easy"
+        },
+        {
+          "jp": "言える",
+          "reading": "いえる",
+          "en": "to be able to say"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "つまり、これが一番簡単と言えるでしょうか。",
+          "level": "Recommended",
+          "note": "Balanced and conversationally natural."
+        },
+        {
+          "answer": "つまり、これが最も簡単ということですか？",
+          "level": "Natural variation",
+          "note": "More concise confirmation."
+        }
+      ]
+    },
+    {
+      "id": "tsumari-prod-4",
+      "prompt": "In short, we should start over from yesterday.",
+      "keyword": "つまり",
+      "hint": "Resets task plan with a summary command.",
+      "helpfulVocabulary": [
+        {
+          "jp": "最初",
+          "reading": "さいしょ",
+          "en": "start"
+        },
+        {
+          "jp": "やり直す",
+          "reading": "やりなおす",
+          "en": "to redo"
+        },
+        {
+          "jp": "昨日",
+          "reading": "きのう",
+          "en": "yesterday"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "つまり、昨日のところからやり直そう。",
+          "level": "Recommended",
+          "note": "Very natural and concise planning conclusion."
+        },
+        {
+          "answer": "言い換えると、昨日のステップに戻って始めるべきです。",
+          "level": "Natural variation",
+          "note": "More explicit but still natural."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-kitto",
+  "title": "Understanding きっと",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "kitto",
+      "word": "きっと",
+      "reading": "きっと",
+      "meaning": "surely; certainly; definitely",
+      "nuance": "きっと expresses strong confidence about a likely future event while still being a prediction.",
+      "example": "明日、きっと晴れる。",
+      "exampleTranslation": "It will surely be sunny tomorrow."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "きっと is stronger than たぶん. たぶん = maybe, きっと = definitely likely."
+  },
+  "questions": [
+    {
+      "id": "kitto-q1",
+      "prompt": "明日、きっと帰れる。",
+      "hint": "The speaker is confident about being able to return.",
+      "answer": "I will definitely be able to go home tomorrow."
+    },
+    {
+      "id": "kitto-q2",
+      "prompt": "彼はきっと来ると思う。",
+      "hint": "A confident forecast.",
+      "answer": "I think he will surely come."
+    },
+    {
+      "id": "kitto-q3",
+      "prompt": "きっとあなたの役に立つでしょう。",
+      "hint": "Positive certainty with polite tone.",
+      "answer": "It will surely be useful to you."
+    },
+    {
+      "id": "kitto-q4",
+      "prompt": "きっと大丈夫です。",
+      "hint": "Reassurance with strong confidence.",
+      "answer": "It will surely be okay."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "kitto-prod-1",
+      "prompt": "He will surely call you tonight.",
+      "keyword": "きっと",
+      "hint": "Predict with confidence using きっと.",
+      "helpfulVocabulary": [
+        {
+          "jp": "今夜",
+          "reading": "こんや",
+          "en": "tonight"
+        },
+        {
+          "jp": "電話",
+          "reading": "でんわ",
+          "en": "phone call"
+        },
+        {
+          "jp": "呼ぶ",
+          "reading": "よぶ",
+          "en": "to call"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "きっと今夜、彼はあなたに電話する。",
+          "level": "Recommended",
+          "note": "Most direct and natural."
+        },
+        {
+          "answer": "今夜はきっと連絡してくるはずです。",
+          "level": "Natural variation",
+          "note": "Husoku version still carries equivalent confidence."
+        }
+      ]
+    },
+    {
+      "id": "kitto-prod-2",
+      "prompt": "I’m sure the lesson will be easy.",
+      "keyword": "きっと",
+      "hint": "Use きっと with confident prediction of ease.",
+      "helpfulVocabulary": [
+        {
+          "jp": "簡単",
+          "reading": "かんたん",
+          "en": "easy"
+        },
+        {
+          "jp": "レッスン",
+          "reading": "れっすん",
+          "en": "lesson"
+        },
+        {
+          "jp": "大丈夫",
+          "reading": "だいじょうぶ",
+          "en": "it will be fine"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "きっと、このレッスンは簡単ですよ。",
+          "level": "Recommended",
+          "note": "Natural, encouraging learner sentence."
+        },
+        {
+          "answer": "きっと大丈夫、これなら簡単だ。",
+          "level": "Natural variation",
+          "note": "More casual and motivational."
+        }
+      ]
+    },
+    {
+      "id": "kitto-prod-3",
+      "prompt": "Don’t worry, this train will surely arrive soon.",
+      "keyword": "きっと",
+      "hint": "Reassuring prediction in context of waiting.",
+      "helpfulVocabulary": [
+        {
+          "jp": "心配",
+          "reading": "しんぱい",
+ "en": "worry"
+        },
+        {
+          "jp": "電車",
+          "reading": "でんしゃ",
+          "en": "train"
+        },
+        {
+          "jp": "到着",
+          "reading": "とうちゃく",
+          "en": "arrival"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "心配しないで。きっともうすぐ電車が到着します。",
+          "level": "Recommended",
+          "note": "Very natural reassurance with きっと."
+        },
+        {
+          "answer": "大丈夫、きっと電車はすぐ来るよ。",
+          "level": "Natural variation",
+          "note": "Casual reassurance using 来る."
+        }
+      ]
+    },
+    {
+      "id": "kitto-prod-4",
+      "prompt": "She will surely pass this level.",
+      "keyword": "きっと",
+      "hint": "Positive prediction with confidence.",
+      "helpfulVocabulary": [
+        {
+          "jp": "合格",
+          "reading": "ごうかく",
+          "en": "pass"
+        },
+        {
+          "jp": "級",
+          "reading": "きゅう",
+          "en": "level"
+        },
+        {
+          "jp": "頑張る",
+          "reading": "がんばる",
+          "en": "to try hard"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "彼女はきっとこの級に合格するはずです。",
+          "level": "Recommended",
+          "note": "Strong expectation plus respectful tone."
+        },
+        {
+          "answer": "きっと彼女、頑張ってこの級を通る。",
+          "level": "Natural variation",
+          "note": "Colloquial phrasing while preserving confidence."
+        }
+      ]
+    }
+  ]
+}

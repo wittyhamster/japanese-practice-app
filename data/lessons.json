@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-10",
+  "activeLesson": "lesson-11",
   "lessons": [
     {
       "id": "lesson-01",
@@ -97,6 +97,106 @@
       "questionCount": 4,
       "productionQuestionCount": 4,
       "file": "lesson-10.json"
+    },
+    {
+      "id": "lesson-11",
+      "contentId": "core-expression-tabun",
+      "title": "Understanding たぶん",
+      "subtitle": "Next lesson",
+      "expression": "たぶん",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-11.json"
+    },
+    {
+      "id": "lesson-12",
+      "contentId": "core-expression-mochiron",
+      "title": "Understanding もちろん",
+      "subtitle": "Next lesson",
+      "expression": "もちろん",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-12.json"
+    },
+    {
+      "id": "lesson-13",
+      "contentId": "core-expression-tonikaku",
+      "title": "Understanding とにかく",
+      "subtitle": "Next lesson",
+      "expression": "とにかく",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-13.json"
+    },
+    {
+      "id": "lesson-14",
+      "contentId": "core-expression-doushite",
+      "title": "Understanding どうして",
+      "subtitle": "Next lesson",
+      "expression": "どうして",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-14.json"
+    },
+    {
+      "id": "lesson-15",
+      "contentId": "core-expression-kitto",
+      "title": "Understanding きっと",
+      "subtitle": "Next lesson",
+      "expression": "きっと",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-15.json"
+    },
+    {
+      "id": "lesson-16",
+      "contentId": "core-expression-marudake",
+      "title": "Understanding まるで",
+      "subtitle": "Next lesson",
+      "expression": "まるで",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-16.json"
+    },
+    {
+      "id": "lesson-17",
+      "contentId": "core-expression-naruhodo",
+      "title": "Understanding なるほど",
+      "subtitle": "Next lesson",
+      "expression": "なるほど",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-17.json"
+    },
+    {
+      "id": "lesson-18",
+      "contentId": "core-expression-seie",
+      "title": "Understanding せいぜい",
+      "subtitle": "Next lesson",
+      "expression": "せいぜい",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-18.json"
+    },
+    {
+      "id": "lesson-19",
+      "contentId": "core-expression-soredemo",
+      "title": "Understanding それでも",
+      "subtitle": "Next lesson",
+      "expression": "それでも",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-19.json"
+    },
+    {
+      "id": "lesson-20",
+      "contentId": "core-expression-tsumari",
+      "title": "Understanding つまり",
+      "subtitle": "Next lesson",
+      "expression": "つまり",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-20.json"
     }
   ]
 }

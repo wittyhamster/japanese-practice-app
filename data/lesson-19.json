@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-soredemo",
+  "title": "Understanding それでも",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "soredemo",
+      "word": "それでも",
+      "reading": "それでも",
+      "meaning": "even so; nevertheless",
+      "nuance": "それでも introduces a contrast where one fact does not cancel the next action, or a result still holds despite difficulty.",
+      "example": "高いですが、それでもいいです。",
+      "exampleTranslation": "It's expensive, but I'll still buy it anyway."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "It is similar to でも, but それでも often sets up a stronger contrast between a real obstacle and a final resilient decision."
+  },
+  "questions": [
+    {
+      "id": "soredemo-q1",
+      "prompt": "雨が降っている。それでも彼は行く。",
+      "hint": "Action continues despite weather.",
+      "answer": "It is raining. Even so, he is going."
+    },
+    {
+      "id": "soredemo-q2",
+      "prompt": "難しいです。それでも続けたい。",
+      "hint": "Effort continues despite difficulty.",
+      "answer": "It's difficult. I still want to continue."
+    },
+    {
+      "id": "soredemo-q3",
+      "prompt": "高い。それでも買った。",
+      "hint": "A choice made despite cost.",
+      "answer": "It was expensive. Still, I bought it."
+    },
+    {
+      "id": "soredemo-q4",
+      "prompt": "時間がない。それでも、まずは提出する。",
+      "hint": "Prioritize completion despite limited time.",
+      "answer": "There is no time. Even so, submit it first."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "soredemo-prod-1",
+      "prompt": "It's complicated, but let's submit it anyway.",
+      "keyword": "それでも",
+      "hint": "Useそれでも before taking action despite obstacles.",
+      "helpfulVocabulary": [
+        {
+          "jp": "複雑",
+          "reading": "ふくざつ",
+          "en": "complex"
+        },
+        {
+          "jp": "提出",
+          "reading": "ていしゅつ",
+          "en": "submit"
+        },
+        {
+          "jp": "行う",
+          "reading": "おこなう",
+          "en": "to do"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "複雑だけど、それでも提出しよう。",
+          "level": "Recommended",
+          "note": "Very common and natural in study/work contexts."
+        },
+        {
+          "answer": "難しいと思う。それでも一応提出する。",
+          "level": "Natural variation",
+          "note": "Adds emotional tone with 一応."
+        }
+      ]
+    },
+    {
+      "id": "soredemo-prod-2",
+      "prompt": "The bus is crowded, but we should still get on.",
+      "keyword": "それでも",
+      "hint": "Use それでも with a practical despite-condition.",
+      "helpfulVocabulary": [
+        {
+          "jp": "混んでいる",
+          "reading": "こんでいる",
+          "en": "crowded"
+        },
+        {
+          "jp": "乗る",
+          "reading": "のる",
+          "en": "to board/get on"
+        },
+        {
+          "jp": "行く",
+          "reading": "いく",
+          "en": "to go"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "バスは混んでいるけど、それでも乗る。",
+          "level": "Recommended",
+          "note": "Direct and practical."
+        },
+        {
+          "answer": "混んでいても、それでも行きたい。",
+          "level": "Natural variation",
+          "note": "Uses even when-cause inversion."
+        }
+      ]
+    },
+    {
+      "id": "soredemo-prod-3",
+      "prompt": "He said no, but I'll try anyway.",
+      "keyword": "それでも",
+      "hint": "Express persistence after a discouraging response.",
+      "helpfulVocabulary": [
+        {
+          "jp": "否定する",
+          "reading": "ひていする",
+          "en": "to refuse"
+        },
+        {
+          "jp": "挑戦",
+          "reading": "ちょうせん",
+          "en": "challenge"
+        },
+        {
+          "jp": "試す",
+          "reading": "ためす",
+          "en": "to try"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "彼に断られた。それでも挑戦してみる。",
+          "level": "Recommended",
+          "note": "Short, natural perseverance statement."
+        },
+        {
+          "answer": "断られても、それでもやってみる。",
+          "level": "Natural variation",
+          "note": "More compact and colloquial."
+        }
+      ]
+    },
+    {
+      "id": "soredemo-prod-4",
+      "prompt": "I was too tired, but I still want to walk.",
+      "keyword": "それでも",
+      "hint": "Use それでも to preserve intention after fatigue.",
+      "helpfulVocabulary": [
+        {
+          "jp": "疲れる",
+          "reading": "つかれる",
+          "en": "to be tired"
+        },
+        {
+          "jp": "歩く",
+          "reading": "あるく",
+          "en": "to walk"
+        },
+        {
+          "jp": "それでも",
+          "reading": "それでも",
+          "en": "nevertheless"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "とても疲れているけど、それでも散歩したい。",
+          "level": "Recommended",
+          "note": "Very natural motivation sentence."
+        },
+        {
+          "answer": "疲れている。それでも歩きたい。",
+          "level": "Natural variation",
+          "note": "Short, direct, and common in spoken language."
+        }
+      ]
+    }
+  ]
+}

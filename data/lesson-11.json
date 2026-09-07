@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-tabun",
+  "title": "Understanding たぶん",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "tabun",
+      "word": "たぶん",
+      "reading": "たぶん",
+      "meaning": "probably; perhaps; maybe",
+      "nuance": "たぶん indicates a degree of uncertainty. It usually reflects a guess based on likely outcomes, not hard certainty.",
+      "example": "たぶん、明日行けると思う。",
+      "exampleTranslation": "I think I can probably go tomorrow."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "Don't use たぶん for facts you know are true. Use it only when you are estimating or guessing."
+  },
+  "questions": [
+    {
+      "id": "tabun-q1",
+      "prompt": "たぶん、彼はもう帰りました。",
+      "hint": "The speaker is making a best guess.",
+      "answer": "He has probably already gone home."
+    },
+    {
+      "id": "tabun-q2",
+      "prompt": "たぶん明日は雨が降るでしょう。",
+      "hint": "There is uncertainty, but a likely expectation.",
+      "answer": "It will probably rain tomorrow."
+    },
+    {
+      "id": "tabun-q3",
+      "prompt": "たぶん、会議は遅れて始まると思う。",
+      "hint": "Use たぶん to soften a prediction.",
+      "answer": "The meeting will probably start late."
+    },
+    {
+      "id": "tabun-q4",
+      "prompt": "たぶん彼女はこのまま辞めない。",
+      "hint": "The speaker is guessing about future action, not certain.",
+      "answer": "She probably won't quit after this."
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "tabun-prod-1",
+      "prompt": "I think we'll probably get an answer by tomorrow.",
+      "keyword": "たぶん",
+      "hint": "Use たぶん + action timeline.",
+      "helpfulVocabulary": [
+        {
+          "jp": "明日",
+          "reading": "あした",
+          "en": "tomorrow"
+        },
+        {
+          "jp": "答え",
+          "reading": "こたえ",
+          "en": "answer"
+        },
+        {
+          "jp": "もらう",
+          "reading": "もらう",
+          "en": "receive"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "たぶん明日までに返事が来ると思う。",
+          "level": "Recommended",
+          "note": "Most natural way to state likely timing."
+        },
+        {
+          "answer": "たぶん、明日には返答が来ると思う。",
+          "level": "Natural variation",
+          "note": "Uses には to highlight the expected time window."
+        }
+      ]
+    },
+    {
+      "id": "tabun-prod-2",
+      "prompt": "She will probably be late, so we should start without her.",
+      "keyword": "たぶん",
+      "hint": "Express uncertainty and planned adjustment.",
+      "helpfulVocabulary": [
+        {
+          "jp": "遅れる",
+          "reading": "おくれる",
+          "en": "to be late"
+        },
+        {
+          "jp": "はじめる",
+          "reading": "はじめる",
+          "en": "to start"
+        },
+        {
+          "jp": "一人で",
+          "reading": "ひとりで",
+          "en": "alone"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "たぶん彼女は遅れるから、彼女なしで始めたほうがいい。",
+          "level": "Recommended",
+          "note": "Natural and practical recommendation with たぶん."
+        },
+        {
+          "answer": "たぶん遅れそうなので、彼女を待たずに始めよう。",
+          "level": "Natural variation",
+          "note": "Uses そう as an intuitive prediction rather than たぶん alone."
+        }
+      ]
+    },
+    {
+      "id": "tabun-prod-3",
+      "prompt": "It might be difficult, but I think we'll probably finish by dinner.",
+      "keyword": "たぶん",
+      "hint": "This blends possibility and a tentative forecast.",
+      "helpfulVocabulary": [
+        {
+          "jp": "難しい",
+          "reading": "むずかしい",
+          "en": "difficult"
+        },
+        {
+          "jp": "夕食",
+          "reading": "ゆうしょく",
+          "en": "dinner"
+        },
+        {
+          "jp": "終わる",
+          "reading": "おわる",
+          "en": "to finish"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "難しそうだけど、たぶん夕方までに終わると思う。",
+          "level": "Recommended",
+          "note": "Clear blend of uncertainty and estimate."
+        },
+        {
+          "answer": "難しいけれど、たぶん夕食までには終わりそうです。",
+          "level": "Natural variation",
+          "note": "Polite style with 〜までには."
+        }
+      ]
+    },
+    {
+      "id": "tabun-prod-4",
+      "prompt": "Probably the store closes early today.",
+      "keyword": "たぶん",
+      "hint": "The key is a guessed schedule detail.",
+      "helpfulVocabulary": [
+        {
+          "jp": "店",
+          "reading": "みせ",
+          "en": "store"
+        },
+        {
+          "jp": "早く閉まる",
+          "reading": "はやくしまる",
+          "en": "close early"
+        },
+        {
+          "jp": "今日",
+          "reading": "きょう",
+          "en": "today"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "たぶん今日は店は早く閉まると思う。",
+          "level": "Recommended",
+          "note": "Direct, natural use of たぶん with today's expectation."
+        },
+        {
+          "answer": "たぶん今日、店は早く終わるだろう。",
+          "level": "Natural variation",
+          "note": "だろう variant is fine in a casual learner-facing context."
+        }
+      ]
+    }
+  ]
+}

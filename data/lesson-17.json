@@ -1,0 +1,188 @@
+{
+  "id": "core-expression-naruhodo",
+  "title": "Understanding なるほど",
+  "subtitle": "Next lesson",
+  "keywords": [
+    {
+      "id": "naruhodo",
+      "word": "なるほど",
+      "reading": "なるほど",
+      "meaning": "I see; I understand now",
+      "nuance": "なるほど marks a moment of understanding or recognition, often after explanation or evidence.",
+      "example": "なるほど、それでその問題が難しかったのですね。",
+      "exampleTranslation": "I see, so that's why that problem was difficult."
+    }
+  ],
+  "commonPitfall": {
+    "title": "Common Pitfall",
+    "body": "なるほど is not always a full sentence answer. It often follows explanation and can be followed by insight, acceptance, or next question."
+  },
+  "questions": [
+    {
+      "id": "naruhodo-q1",
+      "prompt": "なるほど、そういうことだったんですね。",
+      "hint": "Aha, that's how it was.",
+      "answer": "I see, so that's how it was."
+    },
+    {
+      "id": "naruhodo-q2",
+      "prompt": "ああ、なるほど分かりました。",
+      "hint": "The speaker now understands clearly.",
+      "answer": "Ah, now I understand."
+    },
+    {
+      "id": "naruhodo-q3",
+      "prompt": "なるほど、ありがとう。",
+      "hint": "Acknowledgment that the clue made sense.",
+      "answer": "I see, thank you."
+    },
+    {
+      "id": "naruhodo-q4",
+      "prompt": "なるほど、ではやり方はこれでいいですか？",
+      "hint": "Shows realization before confirmation.",
+      "answer": "I see, so is this the right way to do it?"
+    }
+  ],
+  "productionQuestions": [
+    {
+      "id": "naruhodo-prod-1",
+      "prompt": "I see, that's why this was confusing.",
+      "keyword": "なるほど",
+      "hint": "Show understanding of causal reason.",
+      "helpfulVocabulary": [
+        {
+          "jp": "分かる",
+          "reading": "わかる",
+          "en": "to understand"
+        },
+        {
+          "jp": "理由",
+          "reading": "りゆう",
+          "en": "reason"
+        },
+        {
+          "jp": "分かりにくい",
+          "reading": "わかりにくい",
+          "en": "hard to understand"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "なるほど、だから分かりにくかったんですね。",
+          "level": "Recommended",
+          "note": "Very natural with clear causality."
+        },
+        {
+          "answer": "なるほど、そこが分からなかった理由が分かった。",
+          "level": "Natural variation",
+          "note": "Shifts from reaction to explicit realization."
+        }
+      ]
+    },
+    {
+      "id": "naruhodo-prod-2",
+      "prompt": "Ah, now I understand your point.",
+      "keyword": "なるほど",
+      "hint": "Acknowledge understanding with agreement.",
+      "helpfulVocabulary": [
+        {
+          "jp": "意見",
+          "reading": "いけん",
+          "en": "opinion"
+        },
+        {
+          "jp": "要点",
+          "reading": "ようてん",
+ "en": "main point"
+        },
+        {
+          "jp": "伝える",
+          "reading": "つたえる",
+          "en": "to convey"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "なるほど、あなたの言いたいことが分かった。",
+          "level": "Recommended",
+          "note": "Natural conversation-level confirmation."
+        },
+        {
+          "answer": "なるほど、要点がよく分かりました。",
+          "level": "Natural variation",
+          "note": "More formal variant."
+        }
+      ]
+    },
+    {
+      "id": "naruhodo-prod-3",
+      "prompt": "I get it now: we should start earlier.",
+      "keyword": "なるほど",
+      "hint": "Use なるほど before a practical conclusion.",
+      "helpfulVocabulary": [
+        {
+          "jp": "先に",
+          "reading": "さきに",
+          "en": "earlier first"
+        },
+        {
+          "jp": "始める",
+          "reading": "はじめる",
+          "en": "to start"
+        },
+        {
+          "jp": "早く",
+          "reading": "はやく",
+          "en": "early"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "なるほど、じゃあ早く始めたほうがいいんですね。",
+          "level": "Recommended",
+          "note": "Links understanding with recommendation."
+        },
+        {
+          "answer": "なるほど、先に早く始めればいい。",
+          "level": "Natural variation",
+          "note": "Shorter imperative-like style."
+        }
+      ]
+    },
+    {
+      "id": "naruhodo-prod-4",
+      "prompt": "No wonder this happens, I see why.",
+      "keyword": "なるほど",
+      "hint": "Express realization of cause/effect.",
+      "helpfulVocabulary": [
+        {
+          "jp": "納得",
+          "reading": "なっとく",
+          "en": "understanding/acceptance"
+        },
+        {
+          "jp": "因果",
+          "reading": "いんが",
+          "en": "cause and effect"
+        },
+        {
+          "jp": "説明",
+          "reading": "せつめい",
+          "en": "explanation"
+        }
+      ],
+      "referenceAnswers": [
+        {
+          "answer": "なるほど、説明を聞いて納得しました。",
+          "level": "Recommended",
+          "note": "Common learner sentence after receiving a clear explanation."
+        },
+        {
+          "answer": "なるほど、こうして見ると因果が分かる。",
+          "level": "Natural variation",
+          "note": "Explicitly highlights realization chain."
+        }
+      ]
+    }
+  ]
+}
