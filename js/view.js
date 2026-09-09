@@ -149,11 +149,14 @@ export function updateProgress(lesson, state) {
   const total = lesson.keywords.length + lesson.questions.length + production.length + recognition.length;
   const percent = total ? Math.round(((reviewed + answered + productionAnswered + recognitionAnswered) / total) * 100) : 0;
   const expressionLabel = lesson.keywords.length === 1 ? 'expression' : 'expressions';
+  const lessonComplete = reviewed === lesson.keywords.length && answered === lesson.questions.length
+    && productionAnswered === production.length && recognitionAnswered === recognition.length;
   $('#progressText').textContent = `${percent}%`;
   $('#progressBar').style.width = `${percent}%`;
   $('#learnedStat').textContent = reviewed;
   const recognitionGoals = recognition.length ? `<div class="goal-item"><span>${recognitionAnswered === recognition.length ? '✓' : '○'}</span> Recognize ${recognition.length} moments where it applies</div>` : '';
-  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}${recognitionGoals}`;
+  const lessonStatus = lessonComplete ? '<div class="goal-item goal-item-complete"><span>✓</span> Lesson complete</div>' : '<div class="goal-item"><span>○</span> Lesson in progress</div>';
+  $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}${recognitionGoals}${lessonStatus}`;
 }
 
 export function renderCompletion(feedback, section = 'all', lessonComplete = false) {
