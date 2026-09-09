@@ -45,7 +45,11 @@ function setLibraryOpen(open, restoreFocus = false) {
 function render() {
   const state = store.get();
   document.querySelector('#lessonTitle').textContent = lesson.title;
-  document.querySelector('#lessonSubtitle').textContent = lesson.subtitle;
+  const lessonIndex = getCurrentManifestIndex();
+  const isPlaceholderSubtitle = !lesson.subtitle || lesson.subtitle.trim().toLowerCase() === 'next lesson';
+  document.querySelector('#lessonSubtitle').textContent = isPlaceholderSubtitle
+    ? `Lesson ${lessonIndex >= 0 ? lessonIndex + 1 : ''}`.trim()
+    : lesson.subtitle;
   document.querySelector('#questionCount').textContent = `${lesson.questions.length} questions`;
   renderLesson(lesson, state);
   renderPitfall(lesson);

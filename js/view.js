@@ -105,12 +105,14 @@ export function renderPitfall(lesson) {
 }
 
 export function renderLessonLibrary(manifest, currentLessonId, store) {
-  $('#lessonLibraryList').innerHTML = manifest.lessons.map(entry => {
+  $('#lessonLibraryList').innerHTML = manifest.lessons.map((entry, index) => {
     const current = entry.id === currentLessonId;
     const complete = store.isLessonComplete(entry.contentId, entry.questionCount, entry.productionQuestionCount || 0, entry.recognitionQuestionCount || 0);
+    const isPlaceholderSubtitle = !entry.subtitle || entry.subtitle.trim().toLowerCase() === 'next lesson';
+    const displaySubtitle = isPlaceholderSubtitle ? `Lesson ${index + 1}` : entry.subtitle;
     const status = current ? `● Current${complete ? ' · Completed' : ''}` : complete ? '✓ Completed' : '○ Not completed';
     return `<button class="lesson-entry ${current ? 'current' : ''}" data-lesson-id="${escapeHtml(entry.id)}" ${current ? 'aria-current="page"' : ''}>
-      <span class="lesson-entry-meta"><span>${escapeHtml(entry.subtitle)}</span><strong>${escapeHtml(entry.expression)}</strong></span>
+      <span class="lesson-entry-meta"><span>${escapeHtml(displaySubtitle)}</span><strong>${escapeHtml(entry.expression)}</strong></span>
       <span class="lesson-entry-title">${escapeHtml(entry.title)}</span>
       <span class="lesson-entry-status">${status}</span>
     </button>`;
@@ -123,9 +125,9 @@ export function renderLessonNavigation(manifest, currentLessonId, currentContent
   const index = directMatch >= 0 ? directMatch : contentMatch;
   const total = manifest.lessons.length;
   const safeIndex = index < 0 ? 0 : index;
-  $('#lessonNavigation').innerHTML = `<button class="secondary" data-lesson-direction="previous" ${safeIndex <= 0 ? 'disabled' : ''}>← Previous</button>
+  $('#lessonNavigation').innerHTML = `<button class="secondary nav-button" data-lesson-direction="previous" ${safeIndex <= 0 ? 'disabled' : ''}>← Previous lesson</button>
     <span>Lesson ${safeIndex + 1} of ${total}</span>
-    <button class="secondary" data-lesson-direction="next" ${safeIndex >= total - 1 ? 'disabled' : ''}>Next →</button>`;
+    <button class="secondary nav-button" data-lesson-direction="next" ${safeIndex >= total - 1 ? 'disabled' : ''}>Next lesson →</button>`;
 }
 
 function renderReview(lesson, state) {
