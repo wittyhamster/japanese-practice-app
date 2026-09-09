@@ -125,9 +125,18 @@ export function renderLessonNavigation(manifest, currentLessonId, currentContent
   const index = directMatch >= 0 ? directMatch : contentMatch;
   const total = manifest.lessons.length;
   const safeIndex = index < 0 ? 0 : index;
-  $('#lessonNavigation').innerHTML = `<button class="secondary nav-button" data-lesson-direction="previous" ${safeIndex <= 0 ? 'disabled' : ''}>← Previous lesson</button>
+  const hasPrevious = safeIndex > 0;
+  const hasNext = safeIndex < total - 1;
+  const previous = hasPrevious
+    ? `<button class="secondary nav-button" data-lesson-direction="previous">← Previous lesson</button>`
+    : '<span class="lesson-nav-ghost" aria-hidden="true"></span>';
+  const next = hasNext
+    ? `<button class="secondary nav-button" data-lesson-direction="next">Next lesson →</button>`
+    : '<span class="lesson-nav-ghost" aria-hidden="true"></span>';
+
+  $('#lessonNavigation').innerHTML = `${previous}
     <span>Lesson ${safeIndex + 1} of ${total}</span>
-    <button class="secondary nav-button" data-lesson-direction="next" ${safeIndex >= total - 1 ? 'disabled' : ''}>Next lesson →</button>`;
+    ${next}`;
 }
 
 function renderReview(lesson, state) {
