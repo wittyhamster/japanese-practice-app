@@ -198,8 +198,9 @@ document.addEventListener('click', async event => {
     await selectLesson(button.dataset.lessonId);
   } else if (button.dataset.lessonDirection) {
     const currentIndex = manifest.lessons.findIndex(entry => entry.id === currentEntry.id);
+    const safeIndex = currentIndex < 0 ? 0 : currentIndex;
     const offset = button.dataset.lessonDirection === 'previous' ? -1 : 1;
-    const target = manifest.lessons[currentIndex + offset];
+    const target = manifest.lessons[safeIndex + offset];
     if (target) await selectLesson(target.id);
   } else if (button.id === 'resetAnswers' && lesson) {
     store.resetAnswers();

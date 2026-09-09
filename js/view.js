@@ -120,9 +120,10 @@ export function renderLessonLibrary(manifest, currentLessonId, store) {
 export function renderLessonNavigation(manifest, currentLessonId) {
   const index = manifest.lessons.findIndex(entry => entry.id === currentLessonId);
   const total = manifest.lessons.length;
-  $('#lessonNavigation').innerHTML = `<button class="secondary" data-lesson-direction="previous" ${index <= 0 ? 'disabled' : ''}>← Previous</button>
-    <span>Lesson ${index + 1} of ${total}</span>
-    <button class="secondary" data-lesson-direction="next" ${index < 0 || index >= total - 1 ? 'disabled' : ''}>Next →</button>`;
+  const safeIndex = index < 0 ? 0 : index;
+  $('#lessonNavigation').innerHTML = `<button class="secondary" data-lesson-direction="previous" ${safeIndex <= 0 ? 'disabled' : ''}>← Previous</button>
+    <span>Lesson ${safeIndex + 1} of ${total}</span>
+    <button class="secondary" data-lesson-direction="next" ${safeIndex >= total - 1 ? 'disabled' : ''}>Next →</button>`;
 }
 
 function renderReview(lesson, state) {
