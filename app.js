@@ -54,6 +54,14 @@ function render() {
   renderStreak(store.getStreak());
 }
 
+function isCurrentLessonComplete() {
+  if (!lesson) return false;
+  const questionCount = lesson.questions.length;
+  const productionQuestionCount = (lesson.productionQuestions || []).length;
+  const recognitionQuestionCount = (lesson.recognitionQuestions || []).length;
+  return store.isLessonComplete(lesson.id, questionCount, productionQuestionCount, recognitionQuestionCount);
+}
+
 function escapeForRender(value) {
   return String(value ?? '').replace(/[&<>"']/g, char => ({
     '&': '&amp;',
@@ -202,11 +210,11 @@ document.addEventListener('click', async event => {
   } else if (button.id === 'aiReview' && lesson) {
     deliverAIReview(buildAIReviewPayload(lesson, store.get()));
   } else if (button.id === 'checkAnswers' && lesson) {
-    renderCompletion(createReferenceFeedback(lesson, store.get()), 'translation');
+    renderCompletion(createReferenceFeedback(lesson, store.get()), 'translation', isCurrentLessonComplete());
   } else if (button.id === 'checkProductionAnswers' && lesson) {
-    renderCompletion(createReferenceFeedback(lesson, store.get()), 'production');
+    renderCompletion(createReferenceFeedback(lesson, store.get()), 'production', isCurrentLessonComplete());
   } else if (button.id === 'checkRecognitionAnswers' && lesson) {
-    renderCompletion(createReferenceFeedback(lesson, store.get()), 'recognition');
+    renderCompletion(createReferenceFeedback(lesson, store.get()), 'recognition', isCurrentLessonComplete());
   } else if (button.dataset.favorite && lesson) {
     store.toggleFavorite(button.dataset.favorite);
     render();

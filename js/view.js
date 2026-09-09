@@ -156,7 +156,7 @@ export function updateProgress(lesson, state) {
   $('#goalList').innerHTML = `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div><div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}${recognitionGoals}`;
 }
 
-export function renderCompletion(feedback, section = 'all') {
+export function renderCompletion(feedback, section = 'all', lessonComplete = false) {
   const results = $('#completionResults');
   const marker = ['①', '②', '③', '④', '⑤'];
 
@@ -182,6 +182,9 @@ export function renderCompletion(feedback, section = 'all') {
 
   const noResults = !(translationReview || productionReview || recognitionReview);
   const noResultsMessage = noResults ? '<p class="empty-card">Nothing to review for this section yet.</p>' : '';
+  const completionStatus = lessonComplete
+    ? '<p class="completion-status completion-status-complete">Lesson complete</p>'
+    : '<p class="completion-status completion-status-incomplete">Lesson in progress</p>';
 
   const heading = section === 'all'
     ? 'Review your answers'
@@ -193,7 +196,7 @@ export function renderCompletion(feedback, section = 'all') {
 
   const eyebrow = section === 'all' ? 'Practice complete' : 'Practice review';
 
-  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">${eyebrow}</p><h3>${heading}</h3><p>Compare your answers with reference and confirm whether meaning is preserved.</p></div>${translationReview}${productionReview}${recognitionReview}${noResultsMessage}`;
+  results.innerHTML = `<div class="completion-heading"><p class="eyebrow">${eyebrow}</p><h3>${heading}</h3><p>Compare your answers with reference and confirm whether meaning is preserved.</p>${completionStatus}</div>${translationReview}${productionReview}${recognitionReview}${noResultsMessage}`;
   results.classList.remove('hidden');
   $('#checkAnswers').setAttribute('aria-expanded', String(section === 'all' || section === 'translation'));
   $('#checkProductionAnswers')?.setAttribute('aria-expanded', String(section === 'all' || section === 'production'));
