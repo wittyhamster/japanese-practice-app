@@ -93,9 +93,10 @@ export function createStateStore() {
     setLastViewedLesson(id) { state.lastViewedLesson = id; save(); },
     isLessonComplete(id, questionCount, productionQuestionCount = 0, recognitionQuestionCount = 0) {
       const lessonState = state.lessons[id] || normalizeLesson();
-      return questionCount > 0 && Object.values(lessonState.answers).filter(value => value.trim()).length >= questionCount
-        && Object.values(lessonState.productionAnswers).filter(value => value.trim()).length >= productionQuestionCount
-        && Object.values(lessonState.recognitionAnswers).filter(value => String(value || '').trim()).length >= recognitionQuestionCount;
+      const hasText = value => value !== undefined && value !== null && String(value).trim() !== '';
+      return questionCount > 0 && Object.values(lessonState.answers).filter(hasText).length >= questionCount
+        && Object.values(lessonState.productionAnswers).filter(hasText).length >= productionQuestionCount
+        && Object.values(lessonState.recognitionAnswers).filter(hasText).length >= recognitionQuestionCount;
     },
     setAnswer(id, value) { currentLesson().answers[id] = value; this.recordActivity(); save(); },
     setProductionAnswer(id, value) { currentLesson().productionAnswers[id] = value; this.recordActivity(); save(); },

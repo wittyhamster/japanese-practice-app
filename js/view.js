@@ -4,6 +4,7 @@ const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, char => ({
 }[char]));
 
 const isFavorite = (state, id) => state.favorites.includes(id);
+const hasText = value => value !== undefined && value !== null && String(value).trim() !== '';
 
 export function applyTheme(theme) {
   const isDark = theme === 'dark';
@@ -141,11 +142,11 @@ function renderReview(lesson, state) {
 
 export function updateProgress(lesson, state) {
   const reviewed = state.reviewed.filter(id => lesson.keywords.some(item => item.id === id)).length;
-  const answered = lesson.questions.filter(item => (state.answers[item.id] || '').trim()).length;
+  const answered = lesson.questions.filter(item => hasText(state.answers[item.id])).length;
   const production = lesson.productionQuestions || [];
-  const productionAnswered = production.filter(item => (state.productionAnswers[item.id] || '').trim()).length;
+  const productionAnswered = production.filter(item => hasText(state.productionAnswers[item.id])).length;
   const recognition = lesson.recognitionQuestions || [];
-  const recognitionAnswered = recognition.filter(item => (String(state.recognitionAnswers[item.id] || '').trim())).length;
+  const recognitionAnswered = recognition.filter(item => hasText(state.recognitionAnswers[item.id])).length;
   const total = lesson.keywords.length + lesson.questions.length + production.length + recognition.length;
   const percent = total ? Math.round(((reviewed + answered + productionAnswered + recognitionAnswered) / total) * 100) : 0;
   const expressionLabel = lesson.keywords.length === 1 ? 'expression' : 'expressions';
