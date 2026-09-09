@@ -50,8 +50,15 @@ function render() {
   renderLesson(lesson, state);
   renderPitfall(lesson);
   renderLessonLibrary(manifest, currentEntry.id, store);
-  renderLessonNavigation(manifest, currentEntry.id);
+  renderLessonNavigation(manifest, currentEntry.id, lesson.id);
   renderStreak(store.getStreak());
+}
+
+function getCurrentManifestIndex() {
+  const directMatch = manifest.lessons.findIndex(entry => entry.id === currentEntry.id);
+  if (directMatch >= 0) return directMatch;
+  const contentMatch = lesson?.id ? manifest.lessons.findIndex(entry => entry.contentId === lesson.id) : -1;
+  return contentMatch;
 }
 
 function isCurrentLessonComplete() {
@@ -197,7 +204,7 @@ document.addEventListener('click', async event => {
   } else if (button.dataset.lessonId) {
     await selectLesson(button.dataset.lessonId);
   } else if (button.dataset.lessonDirection) {
-    const currentIndex = manifest.lessons.findIndex(entry => entry.id === currentEntry.id);
+    const currentIndex = getCurrentManifestIndex();
     const safeIndex = currentIndex < 0 ? 0 : currentIndex;
     const offset = button.dataset.lessonDirection === 'previous' ? -1 : 1;
     const target = manifest.lessons[safeIndex + offset];

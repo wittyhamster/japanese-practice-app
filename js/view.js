@@ -117,8 +117,10 @@ export function renderLessonLibrary(manifest, currentLessonId, store) {
   }).join('');
 }
 
-export function renderLessonNavigation(manifest, currentLessonId) {
-  const index = manifest.lessons.findIndex(entry => entry.id === currentLessonId);
+export function renderLessonNavigation(manifest, currentLessonId, currentContentId) {
+  const directMatch = manifest.lessons.findIndex(entry => entry.id === currentLessonId);
+  const contentMatch = currentContentId ? manifest.lessons.findIndex(entry => entry.contentId === currentContentId) : -1;
+  const index = directMatch >= 0 ? directMatch : contentMatch;
   const total = manifest.lessons.length;
   const safeIndex = index < 0 ? 0 : index;
   $('#lessonNavigation').innerHTML = `<button class="secondary" data-lesson-direction="previous" ${safeIndex <= 0 ? 'disabled' : ''}>← Previous</button>
