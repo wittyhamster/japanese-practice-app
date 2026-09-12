@@ -1,5 +1,19 @@
 # Sensei usability QA — 2026-09-12
 
+## Dictation follow-up
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Language routing and transcript handling | PASS | `node tests/dictation.mjs`: English en-US and Japanese ja-JP, append without overwriting, no interim-text persistence, duplicate final-event protection. |
+| Stop and cancellation | PASS | Simulated session replacement, manual editing, and explicit cancellation abort recognition and ignore late results. |
+| Errors and unsupported browser | PASS | Simulated permission denial restores the control; absent recognition API gives keyboard-dictation guidance. |
+| Browser rendering | PASS | Local Lesson 8 renders four English and four Japanese microphone buttons; no console errors/warnings observed. |
+| Phone layout | PASS | 390px viewport, 375px content width; Japanese mic and hint controls fit without horizontal overflow. |
+| Existing lesson behavior | PASS | Existing all-ten-lesson regression suite still passes. No schema or saved-answer migration. |
+| Actual speech transcription | NOT TESTED | No microphone recording was started. Recognition events were simulated; English/Japanese speech accuracy and physical phone behavior still need user testing. |
+
+![Phone dictation](qa/screenshots/mobile-dictation.png)
+
 Test environment: local HTTP server, Codex browser, 1440 × 1000 desktop and 390 × 844 phone viewports. Test responses were entered only on localhost; live learner responses were not modified.
 
 | Feature | Result | What was tested |

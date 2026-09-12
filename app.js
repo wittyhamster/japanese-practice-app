@@ -2,6 +2,7 @@ import { loadManifest, loadManifestLesson } from './js/lesson.js';
 import { createStateStore } from './js/state.js';
 import { createReferenceFeedback } from './js/feedback.js';
 import { lessonProgress } from './js/progress.js';
+import { createDictation } from './js/dictation.js';
 import {
   applyTheme, clearCompletion, renderCompletion, renderLesson, renderLessonLibrary,
   renderLessonNavigation, renderLessonFinish, renderSaveStatus, renderPitfall, renderStreak, showLoadError, showToast, updateProgress
@@ -9,6 +10,7 @@ import {
 
 const MANIFEST_URL = './data/lessons.json';
 const store = createStateStore();
+const dictation = createDictation();
 store.onSave(renderSaveStatus);
 let manifest;
 let currentEntry;
@@ -45,6 +47,7 @@ function setLibraryOpen(open, restoreFocus = false) {
 }
 
 function render() {
+  dictation.cancel();
   const state = store.get();
   document.querySelector('#lessonTitle').textContent = lesson.title;
   const lessonIndex = getCurrentManifestIndex();
@@ -104,6 +107,7 @@ function renderAIReviewPanel({ statusMessage, actionHint, payload }) {
 }
 
 async function selectLesson(requestedId, { historyMode = 'push', focusTitle = true } = {}) {
+  dictation.cancel();
   const requestedEntry = entryFor(requestedId);
   const candidates = [...new Set([requestedEntry, fallbackEntry(), ...manifest.lessons].filter(Boolean))];
   const requestId = ++loadSequence;

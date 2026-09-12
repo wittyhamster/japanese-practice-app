@@ -250,3 +250,14 @@ While refining the app further, paused the paid API-backed AI review to guarante
 - `qa/screenshots/desktop-lesson.png`, `qa/screenshots/mobile-review.png`, `qa/screenshots/mobile-completion.png` — Added local QA captures of the major updated screens using test answers only.
 
 The previously committed boundary-navigation fix (`aefc08e`) was already present locally before this sprint; it is preserved and will publish with this update. No lessons were added or removed.
+
+# English and Japanese dictation — 2026-09-12
+
+- `js/dictation.js` — Added reusable browser speech recognition with language routing, final-text append, deduplication, editable transcripts, stop/cancel controls, timeout, permission/network messages, and keyboard-dictation fallback. Cancels stale sessions on manual edits, lesson rerenders, navigation, and hidden pages.
+- `app.js` — Initializes dictation and cancels recording before lesson changes or rerenders; dictated input uses existing persistence/progress handling.
+- `js/view.js` — Adds English microphone controls to translation fields and Japanese controls to production fields, with accessible listening status.
+- `index.html` — Explains dictation, microphone permission, and browser speech-service processing.
+- `styles.css` — Adds responsive dictation controls and listening/help text.
+- `tests/dictation.mjs` — Simulates recognition events to test English/Japanese routing, preserved text, interim/final handling, duplicate and stale events, manual-edit cancellation, errors, and unsupported browsers.
+- `QA_REPORT.md` — Adds dictation checks and the explicit limitation that real speech accuracy and physical mobile microphones are not yet tested.
+- `qa/screenshots/mobile-dictation.png` — Captures the Japanese microphone control at phone width using local test answers.
