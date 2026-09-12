@@ -15,7 +15,7 @@
       <span><small>日本語練習</small><strong>Sensei</strong></span>
     </a>
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#lesson">Lesson</a><a href="#practice">Practice</a><a href="#review">Review</a>
+      <a href="#lesson">Lesson</a><a href="#practice">Practice</a><a href="#review">Saved items</a>
     </nav>
     <button id="themeToggle" class="icon-button" aria-label="Use dark theme" aria-pressed="false">◐</button>
   </header>
@@ -26,10 +26,10 @@
         <p class="eyebrow">今日も頑張ろう</p>
         <h1>Welcome back.</h1>
         <p>Spend a few focused minutes with today’s expression, then test what you remember.</p>
-        <a class="primary button-link" href="#lesson">Start lesson →</a>
+        <a id="resumeLesson" class="primary button-link" href="#lesson">Start lesson →</a>
       </div>
       <div class="goal-panel">
-        <div class="goal-header"><span>Today's goal</span><strong id="progressText">0%</strong></div>
+        <div class="goal-header"><span>Lesson progress</span><strong id="progressText">0%</strong></div>
         <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
         <div id="goalList" class="goal-list"></div>
       </div>
@@ -43,7 +43,7 @@
 
     <section id="lesson" class="content-section">
       <div class="section-heading">
-        <div><p class="eyebrow">Today's lesson</p><h2 id="lessonTitle">Loading lesson…</h2><p>Learn the meaning, nuance, and usage before you practice.</p></div>
+        <div><p class="eyebrow">Your lesson</p><h2 id="lessonTitle">Loading lesson…</h2><p>Learn the meaning, nuance, and usage before you practice.</p></div>
         <div class="lesson-heading-actions">
           <span class="badge" id="lessonSubtitle">—</span>
           <button id="lessonLibraryToggle" class="secondary lessons-button" aria-expanded="false" aria-controls="lessonLibrary">📚 Lessons</button>
@@ -58,16 +58,13 @@
       <nav id="lessonNavigation" class="lesson-navigation" aria-label="Lesson navigation"></nav>
     </section>
 
+    <nav id="phaseNavigation" class="phase-navigation" aria-label="Practice phases"></nav>
+    <p id="saveStatus" class="save-status" role="status">Answers are saved on this device.</p>
     <section id="practice" class="content-section practice-section">
       <div class="section-heading">
-        <div><p class="eyebrow">Quick practice</p><h2>Translate naturally</h2><p>Write what the sentence means—not a rigid word-for-word translation.</p></div>
+        <div><p class="eyebrow">Understand the expression</p><h2>Japanese → English</h2><p>Write what the sentence means—not a rigid word-for-word translation.</p></div>
         <span class="badge" id="questionCount">Loading…</span>
       </div>
-      <div class="practice-toolbar">
-        <button id="aiReview" class="primary">✨ Review with AI</button>
-        <button id="resetAnswers" class="secondary">Reset answers</button>
-      </div>
-      <div id="aiReviewPanel" class="empty-card ai-review-panel hidden" aria-live="polite"></div>
       <div id="questionList" class="stack"></div>
       <div class="completion-action">
         <button id="checkAnswers" class="primary completion-button" aria-controls="completionResults" aria-expanded="false">Check Answers</button>
@@ -79,8 +76,9 @@
       <div class="section-heading"><div><p class="eyebrow">Production practice</p><h2>English → Japanese</h2><p>Translate each sentence into Japanese using the target expression.</p></div></div>
       <div id="productionList" class="stack"></div>
       <div class="completion-action">
-        <button id="checkProductionAnswers" class="primary completion-button" aria-controls="completionResults" aria-expanded="false">Check Answers</button>
+        <button id="checkProductionAnswers" class="primary completion-button" aria-controls="productionResults" aria-expanded="false">Check Answers</button>
       </div>
+      <section id="productionResults" class="completion-results hidden" aria-live="polite" tabindex="-1"></section>
     </section>
 
     <section id="recognitionPractice" class="content-section hidden">
@@ -89,13 +87,32 @@
       </div>
       <div id="recognitionList" class="stack"></div>
       <div class="completion-action">
-        <button id="checkRecognitionAnswers" class="primary completion-button" aria-controls="completionResults" aria-expanded="false">Check Answers</button>
+        <button id="checkRecognitionAnswers" class="primary completion-button" aria-controls="recognitionResults" aria-expanded="false">Check Answers</button>
       </div>
+      <section id="recognitionResults" class="completion-results hidden" aria-live="polite" tabindex="-1"></section>
+    </section>
+
+    <section id="lessonFinish" class="content-section card finish-panel" aria-label="Finish lesson">
+      <div id="lessonCompletion" aria-live="polite"></div>
+      <div class="ai-review-actions">
+        <button id="aiReview" class="primary" aria-describedby="aiReviewHelp">✨ Review with AI</button>
+        <p id="aiReviewHelp">Copies your answers for ChatGPT. Paste the prompt there to get feedback.</p>
+      </div>
+      <div id="aiReviewPanel" class="empty-card ai-review-panel hidden" aria-live="polite"></div>
+      <details class="reset-options"><summary>Reset this lesson’s answers</summary>
+        <p>This clears answers in every practice section of this lesson. Favorites and reviewed words are kept.</p>
+        <button id="resetAnswers" class="secondary">Reset answers…</button>
+        <div id="resetConfirmation" class="hidden" role="group" aria-label="Confirm reset">
+          <p>Clear all answers for this lesson? This cannot be undone.</p>
+          <button id="cancelReset" class="secondary">Keep my answers</button>
+          <button id="confirmReset" class="secondary">Yes, clear answers</button>
+        </div>
+      </details>
     </section>
 
     <section id="review" class="content-section">
       <div class="section-heading">
-        <div><p class="eyebrow">Your review queue</p><h2>Favorites and weak points</h2><p>Star any word or practice sentence you want to revisit.</p></div>
+        <div><p class="eyebrow">Saved from this lesson</p><h2>Saved items</h2><p>Star a word or Japanese → English sentence to revisit it here.</p></div>
         <span class="badge" id="favoriteCount">0 saved</span>
       </div>
       <div id="reviewList" class="stack"></div>
@@ -103,7 +120,7 @@
   </main>
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
-    <a href="#top"><span>⌂</span>Home</a><a href="#lesson"><span>本</span>Lesson</a><a href="#practice"><span>✎</span>Practice</a><a href="#review"><span>★</span>Review</a>
+    <a href="#top"><span>⌂</span>Home</a><a href="#lesson"><span>本</span>Lesson</a><a href="#phaseNavigation"><span>✎</span>Practice</a><a href="#review"><span>★</span>Saved</a>
   </nav>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>

@@ -1,0 +1,42 @@
+# Sensei usability QA — 2026-09-12
+
+Test environment: local HTTP server, Codex browser, 1440 × 1000 desktop and 390 × 844 phone viewports. Test responses were entered only on localhost; live learner responses were not modified.
+
+| Feature | Result | What was tested |
+| --- | --- | --- |
+| Lesson data | PASS | Loaded all ten JSON files through the lesson loader; checked manifest IDs, counts, unique item IDs, and reference feedback generation. |
+| Lesson compatibility | PASS | Browser navigation through the library; separately verified Lesson 1 hides optional phases, Lesson 5 displays production references, Lesson 8 has recognition, and Lesson 10 has no unusable Next control. |
+| JP → EN, EN → JP, recognition | PASS | Entered four answers in each translation direction and selected four recognition choices in Lesson 8. Each Check Answers button showed four feedback cards under its own section. |
+| Independent reviews | PASS | Opened all three reviews simultaneously. Editing a production answer cleared only production feedback; the other two remained open. |
+| Completion and missing answers | PASS | With 11/12 answered, summary showed Recognize: 1 left. Clicking it focused the unanswered fourth recognition question. Answering it showed 12/12 and Next lesson: 結局. Correctness and reviewed-word state are not required. |
+| Next lesson and persistence | PASS | Used the completion button to open Lesson 9, then Previous lesson to return to Lesson 8. Answers remained; Lesson 9 did not inherit them. Reload retained responses and completion. |
+| Phase navigation | PASS | Phone EN → JP shortcut landed with the section heading below the sticky controls. Fixed popstate handling that previously reloaded the lesson on hash jumps. |
+| Hints and reference answers | PASS | Expanded Sentence hint, Vocabulary, and Show possible answers; collapsed Vocabulary again. Confirmed multiple references and notes in production feedback. Automated checks covered legacy sampleAnswer fallback. |
+| Favorites and reviewed words | PASS | Starred さすが and marked it reviewed. Saved items reflected the favorite. Both survived reload, lesson switching, and confirmed answer reset. |
+| Reset safeguards | PASS | Inline reset confirmation opened. Keep my answers preserved the entered test response. Yes, clear answers returned progress to zero while retaining favorites and reviewed words. Replaced a native browser confirmation after it proved awkward in the embedded browser. |
+| AI handoff | PASS | Review with AI copied the learner prompt; clipboard contained the exact Japanese test answer. The panel displayed paste instructions, a manual prompt disclosure, and a direct ChatGPT link. No AI API call or prompt submission was made. |
+| Saving failures | PASS | Automated storage mock rejected writes: status became error and the answer stayed in memory. Successful retry changed status to saved. The UI maps this status to a persistent warning. |
+| Desktop and mobile | PASS | Inspected light desktop and dark phone screenshots; 980px single-word card filled the desktop content area. Phone content width was 375px within a 390px viewport: no horizontal overflow. Phase navigation did not cover the destination heading. |
+| Theme | PASS | Switched light/dark through the UI and reloaded; selected theme persisted. Improved primary-button text contrast. |
+| JavaScript and regression checks | PASS | Node syntax checks, git whitespace check, and tests/usability.mjs passed. Browser error/warning logs were empty during the checked interactions. |
+
+## Test limits
+
+- Phone checks used a resized browser, not a physical iPhone/Android keyboard or screen reader.
+- Browser clipboard denial was not manually forced. The manual-copy fallback remains available and exceptions from the legacy copy method are caught.
+- This is a focused usability/content repair, not a full linguistic audit of every lesson.
+- Answers remain saved in this browser on this device; cross-device sync is not part of this update.
+
+## Screenshots
+
+### Desktop lesson
+
+![Desktop lesson](qa/screenshots/desktop-lesson.png)
+
+### Phone production review
+
+![Phone production review](qa/screenshots/mobile-review.png)
+
+### Phone completion
+
+![Phone completion](qa/screenshots/mobile-completion.png)

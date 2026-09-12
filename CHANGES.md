@@ -235,3 +235,18 @@ While refining the app further, paused the paid API-backed AI review to guarante
 - `app.js` — Routed recognition answer input and check-button flow into existing review and progress paths.
 - `index.html` — Added the Recognition practice section and check action in the lesson page flow.
 - `styles.css` — Added compact, mobile-friendly styling for recognition options and completion blocks.
+
+# Usability pass — 2026-09-12
+
+- `index.html` — Added dedicated feedback containers for production and recognition, phase shortcuts, a save-status message, and an end-of-lesson summary. Moved the AI handoff to the end, clarified Saved items, and added inline reset confirmation.
+- `app.js` — Wired section-local review invalidation, next-lesson completion actions, jumps to unanswered questions, save status, and safe reset confirmation. Added an explicit ChatGPT link and protected clipboard fallback cleanup. Fixed anchor navigation incorrectly reloading the lesson through popstate. Standardized displayed lesson numbers without migrating lesson data.
+- `js/progress.js` — Added a reusable progress calculation that counts current question IDs, identifies missing answers, validates recognition selections, and treats completion as participation.
+- `js/view.js` — Added phase counts, optional reviewed-word labeling, contextual resume links, completion summaries, named next-lesson buttons, and saving messages. Separated review panels and renamed production help to Sentence hint and Vocabulary. Standardized library lesson numbering.
+- `js/state.js` — Added save-status notifications, including failure and recovery, while preserving the existing storage format and in-memory answers.
+- `styles.css` — Added responsive sticky phase shortcuts, summary/reset/save styles, full-width single-expression cards, larger small-button hit areas, vocabulary wrapping, reduced-motion support, and improved primary-button contrast.
+- `data/lesson-08.json` — Repaired the mixed cooking/English recognition scenario and the ambiguous speech scenario; clarified English explanations. Kept question IDs and correct-option indexes stable so saved responses remain compatible.
+- `tests/usability.mjs` — Added regression checks for all ten lesson files, reference formats, progress boundaries, stale IDs, answer persistence, lesson isolation, reset preservation, and storage failure/recovery.
+- `QA_REPORT.md` — Recorded the manual and automated checks, their outcomes, and test limits.
+- `qa/screenshots/desktop-lesson.png`, `qa/screenshots/mobile-review.png`, `qa/screenshots/mobile-completion.png` — Added local QA captures of the major updated screens using test answers only.
+
+The previously committed boundary-navigation fix (`aefc08e`) was already present locally before this sprint; it is preserved and will publish with this update. No lessons were added or removed.

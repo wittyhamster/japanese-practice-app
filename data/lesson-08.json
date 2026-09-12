@@ -53,34 +53,34 @@
         "The player was afraid of pressure."
       ],
       "answer": 2,
-      "explanation": "「さすが」は、相手の実力や印象が当たり前のように出ていることを称賛します。",
+      "explanation": "さすが praises the player's calm performance as something that lives up to their known ability.",
       "hint": "Look for the meaning closest to admiration and expectation."
     },
     {
       "id": "lesson-08-rec-2",
-      "prompt": "彼は料理を覚えたくて英語を毎日勉強している。さすが先生の指導があったから、上達が早い。",
+      "prompt": "あの先生に料理を習い始めてから、彼はとても上手になった。さすが、教え方が上手な先生だね。",
       "options": [
-        "She says this is a small mistake.",
+        "The speaker thinks the teacher made a small mistake.",
         "This means the result is worse than expected.",
         "This means it happened faster than expected.",
         "It highlights that the improvement matches the quality of the teacher's guidance."
       ],
       "answer": 3,
-      "explanation": "ここでは、努力をしてきた結果が先生の指導にふさわしく進んでいることをほめているため「さすが」です。",
+      "explanation": "His cooking improved with this teacher. さすが praises the teacher for living up to their reputation for teaching well.",
       "hint": "Think of the idea of living up to a known standard."
     },
     {
       "id": "lesson-08-rec-3",
-      "prompt": "さすが、最近練習していたせいか、ステージで自然に話せた。",
+      "prompt": "彼はスピーチが得意だ。今日もステージで落ち着いて話していた。さすがだね。",
       "options": [
-        "It's not true that they practiced.",
-        "The speaker regretted practicing.",
-        "The speaker is pleasantly surprised by expected skill.",
-        "This sentence means the opposite of expected."
+        "The speaker doubts that he is good at speeches.",
+        "The speaker thinks he regrets giving the speech.",
+        "The speaker admires a performance that matches his known skill.",
+        "The speaker thinks the speech was disappointing."
       ],
       "answer": 2,
-      "explanation": "Practice helped the speaker perform in a way that feels natural for someone with that effort—praising the expected result.",
-      "hint": "Pick the option that says their preparation paid off naturally."
+      "explanation": "He is known for being good at speeches. さすが expresses admiration when his calm delivery lives up to that ability.",
+      "hint": "Connect the known skill in the first sentence with the praise at the end."
     },
     {
       "id": "lesson-08-rec-4",
@@ -92,7 +92,7 @@
         "The comment is unrelated to her study habit."
       ],
       "answer": 1,
-      "explanation": "この文では、彼女の習慣や実力が結果として自然に現れたことを「さすが」と褒めています。"
+      "explanation": "Her daily practice gives the speaker a reason to expect excellent preparation. さすが praises her for meeting that expectation."
     }
   ]
 }

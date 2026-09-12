@@ -1,3 +1,5 @@
+import { lessonProgress } from './progress.js';
+
 const $ = selector => document.querySelector(selector);
 const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, char => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
@@ -58,8 +60,8 @@ export function renderLesson(lesson, state) {
     <p class="production-label">English</p><p class="prompt">${escapeHtml(item.prompt)}</p>
     <p class="production-target">Target expression: <strong>${escapeHtml(item.keyword)}</strong></p>
     <textarea data-production-answer="${escapeHtml(item.id)}" aria-label="Japanese answer for production question ${index + 1}" placeholder="Write your Japanese answer...">${escapeHtml(state.productionAnswers[item.id] || '')}</textarea>
-    ${item.hint ? `<div class="question-actions"><button class="small-button" data-toggle="production-hint-${escapeHtml(item.id)}" aria-expanded="false">Hint</button></div><div id="production-hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Hint:</strong> ${escapeHtml(item.hint)}</div>` : ''}
-    ${item.helpfulVocabulary?.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-vocab-${escapeHtml(item.id)}" aria-expanded="false">Need a hint?</button></div><div id="production-vocab-${escapeHtml(item.id)}" class="reveal hidden"><strong>Helpful vocabulary</strong><table class="vocabulary-table"><thead><tr><th>Japanese</th><th>Reading</th><th>Meaning</th></tr></thead><tbody>${item.helpfulVocabulary.map(word => `<tr><td>${escapeHtml(word.jp)}</td><td>${escapeHtml(word.reading)}</td><td>${escapeHtml(word.en)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+    ${item.hint ? `<div class="question-actions"><button class="small-button" data-toggle="production-hint-${escapeHtml(item.id)}" aria-expanded="false">Sentence hint</button></div><div id="production-hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Sentence hint:</strong> ${escapeHtml(item.hint)}</div>` : ''}
+    ${item.helpfulVocabulary?.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-vocab-${escapeHtml(item.id)}" aria-expanded="false">Vocabulary</button></div><div id="production-vocab-${escapeHtml(item.id)}" class="reveal hidden"><strong>Helpful vocabulary</strong><table class="vocabulary-table"><thead><tr><th>Japanese</th><th>Reading</th><th>Meaning</th></tr></thead><tbody>${item.helpfulVocabulary.map(word => `<tr><td>${escapeHtml(word.jp)}</td><td>${escapeHtml(word.reading)}</td><td>${escapeHtml(word.en)}</td></tr>`).join('')}</tbody></table></div>` : ''}
     ${references.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-answers-${escapeHtml(item.id)}" aria-expanded="false">Show possible answers</button></div><div id="production-answers-${escapeHtml(item.id)}" class="reveal hidden"><strong>Possible natural answers</strong>${references.map((reference, answerIndex) => `<div class="reference-answer"><p><strong>${markers[answerIndex] || `${answerIndex + 1}.`}</strong> ${escapeHtml(reference.answer)}</p>${reference.level ? `<p class="reference-level">${escapeHtml(reference.level)}</p>` : ''}<p class="reference-note">Why this works: ${escapeHtml(reference.note)}</p></div>`).join('')}</div>` : ''}
   </article>`;
   }).join('');
@@ -108,8 +110,7 @@ export function renderLessonLibrary(manifest, currentLessonId, store) {
   $('#lessonLibraryList').innerHTML = manifest.lessons.map((entry, index) => {
     const current = entry.id === currentLessonId;
     const complete = store.isLessonComplete(entry.contentId, entry.questionCount, entry.productionQuestionCount || 0, entry.recognitionQuestionCount || 0);
-    const isPlaceholderSubtitle = !entry.subtitle || entry.subtitle.trim().toLowerCase() === 'next lesson';
-    const displaySubtitle = isPlaceholderSubtitle ? `Lesson ${index + 1}` : entry.subtitle;
+    const displaySubtitle = `Lesson ${index + 1}`;
     const status = current ? `● Current${complete ? ' · Completed' : ''}` : complete ? '✓ Completed' : '○ Not completed';
     return `<button class="lesson-entry ${current ? 'current' : ''}" data-lesson-id="${escapeHtml(entry.id)}" ${current ? 'aria-current="page"' : ''}>
       <span class="lesson-entry-meta"><span>${escapeHtml(displaySubtitle)}</span><strong>${escapeHtml(entry.expression)}</strong></span>
@@ -155,31 +156,42 @@ function renderReview(lesson, state) {
 }
 
 export function updateProgress(lesson, state) {
-  const reviewed = state.reviewed.filter(id => lesson.keywords.some(item => item.id === id)).length;
-  const answered = lesson.questions.filter(item => hasText(state.answers[item.id])).length;
-  const production = lesson.productionQuestions || [];
-  const productionAnswered = production.filter(item => hasText(state.productionAnswers[item.id])).length;
-  const recognition = lesson.recognitionQuestions || [];
-  const recognitionAnswered = recognition.filter(item => hasText(state.recognitionAnswers[item.id])).length;
-  const requiredTotal = lesson.questions.length + production.length + recognition.length;
-  const requiredCompleted = answered + productionAnswered + recognitionAnswered;
-  const percent = requiredTotal ? Math.round((requiredCompleted / requiredTotal) * 100) : 0;
-  const expressionLabel = lesson.keywords.length === 1 ? 'expression' : 'expressions';
-  const lessonComplete = answered === lesson.questions.length
-    && productionAnswered === production.length && recognitionAnswered === recognition.length;
+  const progress = lessonProgress(lesson, state);
+  const percent = progress.total ? Math.round(progress.answered / progress.total * 100) : 0;
   $('#progressText').textContent = `${percent}%`;
   $('#progressBar').style.width = `${percent}%`;
+  const reviewed = state.reviewed.filter(id => lesson.keywords.some(item => item.id === id)).length;
   $('#learnedStat').textContent = reviewed;
-  const recognitionGoals = recognition.length ? `<div class="goal-item"><span>${recognitionAnswered === recognition.length ? '✓' : '○'}</span> Recognize ${recognition.length} moments where it applies</div>` : '';
-  const lessonStatus = lessonComplete ? '<div class="goal-item goal-item-complete"><span>✓</span> Lesson complete</div>' : '<div class="goal-item"><span>○</span> Lesson in progress</div>';
-  const reviewedGoal = lesson.keywords.length
-    ? `<div class="goal-item"><span>${reviewed === lesson.keywords.length ? '✓' : '○'}</span> Review ${lesson.keywords.length} ${expressionLabel}</div>`
-    : '';
-  $('#goalList').innerHTML = `${reviewedGoal}<div class="goal-item"><span>${answered === lesson.questions.length ? '✓' : '○'}</span> Answer ${lesson.questions.length} questions</div>${production.length ? `<div class="goal-item"><span>${productionAnswered === production.length ? '✓' : '○'}</span> Produce ${production.length} Japanese answers</div>` : ''}${recognitionGoals}${lessonStatus}`;
+  $('#goalList').innerHTML = progress.sections.map(section => `<a class="goal-item" href="#${section.target}">${section.missing.length ? '○' : '✓'} ${section.label}: ${section.answered}/${section.questions.length} answered</a>`).join('')
+    + `<div class="goal-item">${reviewed}/${lesson.keywords.length} words reviewed · optional</div>`
+    + `<div class="goal-item ${progress.complete ? 'goal-item-complete' : ''}">${progress.complete ? '✓ Lesson complete' : `${progress.total - progress.answered} answers remaining`}</div>`;
+  $('#phaseNavigation').innerHTML = '<a href="#lesson">Learn</a>' + progress.sections.map(section => `<a href="#${section.target}">${section.label} <span>${section.answered}/${section.questions.length}${section.missing.length ? '' : ' ✓'}</span></a>`).join('');
+  const resume = $('#resumeLesson');
+  resume.textContent = progress.complete ? 'See lesson summary →' : progress.answered ? 'Continue practice →' : 'Start lesson →';
+  resume.href = progress.complete ? '#lessonFinish' : progress.answered ? `#${progress.sections.find(section => section.missing.length).target}` : '#lesson';
+  document.querySelectorAll('.completion-status').forEach(status => {
+    status.textContent = progress.complete ? 'Lesson complete' : 'Lesson in progress';
+    status.className = `completion-status completion-status-${progress.complete ? 'complete' : 'incomplete'}`;
+  });
+}
+
+export function renderLessonFinish(lesson, state, nextEntry) {
+  const progress = lessonProgress(lesson, state);
+  const remaining = progress.sections.filter(section => section.missing.length);
+  $('#lessonCompletion').innerHTML = `<h2>${progress.complete ? '✓ Lesson complete' : 'Keep going'}</h2>
+    <p>${progress.answered}/${progress.total} answered. Completion tracks participation, not correctness.</p>
+    ${remaining.length ? `<div class="remaining-answers">${remaining.map(section => `<button class="secondary" data-first-unanswered="${section.key}">${section.label}: ${section.missing.length} left →</button>`).join('')}</div>` : ''}
+    ${progress.complete ? (nextEntry ? `<button class="primary" data-lesson-id="${escapeHtml(nextEntry.id)}">Next lesson: ${escapeHtml(nextEntry.expression)} →</button>` : '<p>You’ve reached the last lesson. Revisit any lesson from the library.</p>') : ''}`;
+}
+
+export function renderSaveStatus(status) {
+  const element = $('#saveStatus');
+  element.textContent = status === 'error' ? 'Could not save on this device. Keep this tab open and copy your answers using Review with AI before leaving.' : status === 'saved' ? 'Saved on this device' : 'Answers are saved on this device.';
+  element.classList.toggle('save-error', status === 'error');
 }
 
 export function renderCompletion(feedback, section = 'all', lessonComplete = false) {
-  const results = $('#completionResults');
+  const results = $(section === 'production' ? '#productionResults' : section === 'recognition' ? '#recognitionResults' : '#completionResults');
   const marker = ['①', '②', '③', '④', '⑤'];
 
   const showTranslation = section === 'all' || section === 'translation';
@@ -220,20 +232,19 @@ export function renderCompletion(feedback, section = 'all', lessonComplete = fal
 
   results.innerHTML = `<div class="completion-heading"><p class="eyebrow">${eyebrow}</p><h3>${heading}</h3><p>Compare your answers with reference and confirm whether meaning is preserved.</p>${completionStatus}</div>${translationReview}${productionReview}${recognitionReview}${noResultsMessage}`;
   results.classList.remove('hidden');
-  $('#checkAnswers').setAttribute('aria-expanded', String(section === 'all' || section === 'translation'));
-  $('#checkProductionAnswers')?.setAttribute('aria-expanded', String(section === 'all' || section === 'production'));
-  $('#checkRecognitionAnswers')?.setAttribute('aria-expanded', String(section === 'all' || section === 'recognition'));
+  $(section === 'production' ? '#checkProductionAnswers' : section === 'recognition' ? '#checkRecognitionAnswers' : '#checkAnswers').setAttribute('aria-expanded', 'true');
   results.focus({ preventScroll: true });
   results.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-export function clearCompletion() {
-  const results = $('#completionResults');
-  results.classList.add('hidden');
-  results.innerHTML = '';
-  $('#checkAnswers').setAttribute('aria-expanded', 'false');
-  $('#checkProductionAnswers')?.setAttribute('aria-expanded', 'false');
-  $('#checkRecognitionAnswers')?.setAttribute('aria-expanded', 'false');
+export function clearCompletion(section) {
+  const panels = { translation: ['#completionResults', '#checkAnswers'], production: ['#productionResults', '#checkProductionAnswers'], recognition: ['#recognitionResults', '#checkRecognitionAnswers'] };
+  Object.entries(panels).forEach(([key, [panel, button]]) => {
+    if (section && key !== section) return;
+    $(panel).classList.add('hidden');
+    $(panel).innerHTML = '';
+    $(button).setAttribute('aria-expanded', 'false');
+  });
 }
 
 export function renderAIReviewPending() {

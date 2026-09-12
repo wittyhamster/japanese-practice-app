@@ -67,6 +67,8 @@ function daysBetween(fromKey, toKey) {
 export function createStateStore() {
   let state = read();
   let currentLessonId = null;
+  let storageStatus = 'ready';
+  const listeners = new Set();
 
   function currentLesson() {
     if (!currentLessonId) return normalizeLesson();
@@ -77,13 +79,18 @@ export function createStateStore() {
   function save() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      storageStatus = 'saved';
+      listeners.forEach(listener => listener(storageStatus));
       return true;
     } catch {
+      storageStatus = 'error';
+      listeners.forEach(listener => listener(storageStatus));
       return false;
     }
   }
 
   return {
+    onSave(listener) { listeners.add(listener); listener(storageStatus); },
     selectLesson(id) {
       currentLessonId = id;
       currentLesson();

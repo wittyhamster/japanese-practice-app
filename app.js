@@ -1,13 +1,15 @@
 import { loadManifest, loadManifestLesson } from './js/lesson.js';
 import { createStateStore } from './js/state.js';
 import { createReferenceFeedback } from './js/feedback.js';
+import { lessonProgress } from './js/progress.js';
 import {
   applyTheme, clearCompletion, renderCompletion, renderLesson, renderLessonLibrary,
-  renderLessonNavigation, renderPitfall, renderStreak, showLoadError, showToast, updateProgress
+  renderLessonNavigation, renderLessonFinish, renderSaveStatus, renderPitfall, renderStreak, showLoadError, showToast, updateProgress
 } from './js/view.js';
 
 const MANIFEST_URL = './data/lessons.json';
 const store = createStateStore();
+store.onSave(renderSaveStatus);
 let manifest;
 let currentEntry;
 let lesson;
@@ -46,16 +48,14 @@ function render() {
   const state = store.get();
   document.querySelector('#lessonTitle').textContent = lesson.title;
   const lessonIndex = getCurrentManifestIndex();
-  const isPlaceholderSubtitle = !lesson.subtitle || lesson.subtitle.trim().toLowerCase() === 'next lesson';
-  document.querySelector('#lessonSubtitle').textContent = isPlaceholderSubtitle
-    ? `Lesson ${lessonIndex >= 0 ? lessonIndex + 1 : ''}`.trim()
-    : lesson.subtitle;
+  document.querySelector('#lessonSubtitle').textContent = `Lesson ${lessonIndex + 1}`;
   document.querySelector('#questionCount').textContent = `${lesson.questions.length} questions`;
   renderLesson(lesson, state);
   renderPitfall(lesson);
   renderLessonLibrary(manifest, currentEntry.id, store);
   renderLessonNavigation(manifest, currentEntry.id, lesson.id);
   renderStreak(store.getStreak());
+  renderLessonFinish(lesson, state, manifest.lessons[lessonIndex + 1]);
 }
 
 function getCurrentManifestIndex() {
@@ -67,10 +67,7 @@ function getCurrentManifestIndex() {
 
 function isCurrentLessonComplete() {
   if (!lesson) return false;
-  const questionCount = lesson.questions.length;
-  const productionQuestionCount = (lesson.productionQuestions || []).length;
-  const recognitionQuestionCount = (lesson.recognitionQuestions || []).length;
-  return store.isLessonComplete(lesson.id, questionCount, productionQuestionCount, recognitionQuestionCount);
+  return lessonProgress(lesson, store.get()).complete;
 }
 
 function escapeForRender(value) {
@@ -101,6 +98,7 @@ function renderAIReviewPanel({ statusMessage, actionHint, payload }) {
       <pre>${escapeForRender(payload)}</pre>
     </details>
     <p>${escapeForRender(actionHint)}</p>
+    <a class="secondary button-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a>
   `;
   panel.classList.remove('hidden');
 }
@@ -132,6 +130,8 @@ async function selectLesson(requestedId, { historyMode = 'push', focusTitle = tr
   updateUrl(currentEntry.id, historyMode);
   clearCompletion();
   clearAIReviewPanel();
+  document.querySelector('#resetConfirmation').classList.add('hidden');
+  document.querySelector('.reset-options').open = false;
   setLibraryOpen(false);
   render();
 
@@ -168,9 +168,13 @@ async function copyToClipboard(payload) {
     fallback.className = 'clipboard-fallback';
     document.body.appendChild(fallback);
     fallback.select();
-    const copied = document.execCommand('copy');
-    fallback.remove();
-    return copied;
+    try {
+      return document.execCommand('copy');
+    } catch {
+      return false;
+    } finally {
+      fallback.remove();
+    }
   }
 }
 
@@ -214,13 +218,30 @@ document.addEventListener('click', async event => {
     const target = manifest.lessons[safeIndex + offset];
     if (target) await selectLesson(target.id);
   } else if (button.id === 'resetAnswers' && lesson) {
+    document.querySelector('#resetConfirmation').classList.remove('hidden');
+    document.querySelector('#cancelReset').focus();
+  } else if (button.id === 'cancelReset') {
+    document.querySelector('#resetConfirmation').classList.add('hidden');
+    document.querySelector('#resetAnswers').focus();
+  } else if (button.id === 'confirmReset' && lesson) {
     store.resetAnswers();
+    document.querySelector('#resetConfirmation').classList.add('hidden');
+    document.querySelector('.reset-options').open = false;
     render();
     clearCompletion();
     clearAIReviewPanel();
     showToast('Answers reset');
+    document.querySelector('.reset-options summary').focus();
   } else if (button.id === 'aiReview' && lesson) {
-    deliverAIReview(buildAIReviewPayload(lesson, store.get()));
+    await deliverAIReview(buildAIReviewPayload(lesson, store.get()));
+  } else if (button.dataset.firstUnanswered && lesson) {
+    const section = lessonProgress(lesson, store.get()).sections.find(item => item.key === button.dataset.firstUnanswered);
+    const first = section?.missing[0];
+    if (first) {
+      const input = [...document.querySelectorAll(`[${section.attribute}]`)].find(element => element.getAttribute(section.attribute) === first.id);
+      input?.focus({ preventScroll: true });
+      input?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   } else if (button.id === 'checkAnswers' && lesson) {
     renderCompletion(createReferenceFeedback(lesson, store.get()), 'translation', isCurrentLessonComplete());
   } else if (button.id === 'checkProductionAnswers' && lesson) {
@@ -244,13 +265,16 @@ document.addEventListener('click', async event => {
 
 document.addEventListener('input', event => {
   if (!lesson || !event.target.matches('[data-answer], [data-production-answer], [data-recognition-answer]')) return;
+  const section = event.target.matches('[data-production-answer]') ? 'production' : event.target.matches('[data-recognition-answer]') ? 'recognition' : 'translation';
   if (event.target.matches('[data-production-answer]')) store.setProductionAnswer(event.target.dataset.productionAnswer, event.target.value);
   else if (event.target.matches('[data-recognition-answer]')) store.setRecognitionAnswer(event.target.dataset.recognitionAnswer, event.target.value);
   else store.setAnswer(event.target.dataset.answer, event.target.value);
   updateProgress(lesson, store.get());
   renderLessonLibrary(manifest, currentEntry.id, store);
   renderStreak(store.getStreak());
-  clearCompletion();
+  renderLessonFinish(lesson, store.get(), manifest.lessons[getCurrentManifestIndex() + 1]);
+  clearCompletion(section);
+  clearAIReviewPanel();
 });
 
 document.addEventListener('keydown', event => {
@@ -261,6 +285,8 @@ document.addEventListener('keydown', event => {
 
 window.addEventListener('popstate', () => {
   const requestedId = new URL(window.location.href).searchParams.get('lesson');
+  // Anchor jumps also emit popstate. Keep the section and open feedback intact.
+  if (requestedId === currentEntry?.id) return;
   selectLesson(entryFor(requestedId)?.id || fallbackEntry().id, { historyMode: requestedId && entryFor(requestedId) ? 'none' : 'replace' });
 });
 
