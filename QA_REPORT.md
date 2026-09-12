@@ -2,6 +2,8 @@
 
 ## Dictation follow-up
 
+Repeat-session repair: automated tests now simulate asynchronous browser shutdown, speech-end and final-result cleanup, three consecutive Japanese dictations, duplicate/late events, and missing-end recovery. All pass, as does the ten-lesson regression suite. This addresses confirmed lifecycle gaps in the app; the reported physical-iPhone symptom has not been reproduced on a connected iPhone and requires a device retest.
+
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Language routing and transcript handling | PASS | `node tests/dictation.mjs`: English en-US and Japanese ja-JP, append without overwriting, no interim-text persistence, duplicate final-event protection. |

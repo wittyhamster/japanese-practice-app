@@ -253,6 +253,12 @@ The previously committed boundary-navigation fix (`aefc08e`) was already present
 
 # English and Japanese dictation — 2026-09-12
 
+## Repeat-dictation follow-up
+
+- `js/dictation.js` — Explicitly stops recognition after speech ends or a final transcript arrives. Keeps the session occupied until the browser disconnects, prevents overlapping starts, ignores discarded late results, and recovers controls when an end event never arrives. Provides recovery instructions when Listening produces no completed transcript.
+- `tests/dictation.mjs` — Uses asynchronous stop/abort simulations instead of immediate end events, covers three consecutive Japanese attempts, prevents overlapping sessions, and tests missing-end-event recovery.
+- `QA_REPORT.md` — Records the repeat-session test evidence and physical-iPhone limitation.
+
 - `js/dictation.js` — Added reusable browser speech recognition with language routing, final-text append, deduplication, editable transcripts, stop/cancel controls, timeout, permission/network messages, and keyboard-dictation fallback. Cancels stale sessions on manual edits, lesson rerenders, navigation, and hidden pages.
 - `app.js` — Initializes dictation and cancels recording before lesson changes or rerenders; dictated input uses existing persistence/progress handling.
 - `js/view.js` — Adds English microphone controls to translation fields and Japanese controls to production fields, with accessible listening status.
