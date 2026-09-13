@@ -129,9 +129,19 @@ export function createDictation({ root = document, Recognition = window.SpeechRe
   }
 
   root.addEventListener('click', event => {
+    const keyboardButton = event.target.closest('[data-keyboard-dictation]');
+    if (keyboardButton) {
+      cancel();
+      keyboardButton.closest('.question-card').querySelector('textarea').focus();
+      return;
+    }
     const button = event.target.closest('[data-dictation]');
     if (button) start(button);
   });
+  root.addEventListener('toggle', event => {
+    if (event.target.matches?.('.browser-dictation-option') && !event.target.open
+      && active && event.target.contains(active.button)) cancel();
+  }, true);
   root.addEventListener('input', event => {
     // Manual edits win over an in-flight transcript.
     if (event.isTrusted && active?.input === event.target) cancel();

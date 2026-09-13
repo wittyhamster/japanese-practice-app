@@ -253,6 +253,17 @@ The previously committed boundary-navigation fix (`aefc08e`) was already present
 
 # English and Japanese dictation — 2026-09-12
 
+## iPhone keyboard-first guidance
+
+- `js/dictation-ui.js` — Reusable Apple-mobile detection and language-specific keyboard guidance, with browser dictation in a closed optional disclosure. Desktop/Android retain their existing microphone controls.
+- `js/view.js` — Selects the appropriate dictation presentation and help text for the device.
+- `js/dictation.js` — Focuses the matching answer field from the keyboard-help button and cancels browser dictation when its disclosure closes.
+- `styles.css` — Styles keyboard instructions and the optional browser-dictation disclosure.
+- `tests/dictation.mjs` — Adds iPhone, desktop-mode iPad, Mac, Windows, and Android detection/presentation assertions.
+- `tests/dictation-preview.html` — Read-only fixture to inspect the Apple-mobile presentation without activating speech recognition.
+- `qa/screenshots/iphone-keyboard-guidance.png` — Captures the guidance fixture at phone width.
+- `QA_REPORT.md` — Records guidance and regression verification, without claiming physical-iPhone testing.
+
 ## Repeat-dictation follow-up
 
 - `js/dictation.js` — Explicitly stops recognition after speech ends or a final transcript arrives. Keeps the session occupied until the browser disconnects, prevents overlapping starts, ignores discarded late results, and recovers controls when an end event never arrives. Provides recovery instructions when Listening produces no completed transcript.

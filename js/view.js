@@ -1,4 +1,5 @@
 import { lessonProgress } from './progress.js';
+import { prefersKeyboardDictation, renderDictationControls } from './dictation-ui.js';
 
 const $ = selector => document.querySelector(selector);
 const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, char => ({
@@ -21,6 +22,10 @@ export function renderStreak(count) {
 }
 
 export function renderLesson(lesson, state) {
+  const keyboardDictation = prefersKeyboardDictation(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
+  $('.dictation-help').textContent = keyboardDictation
+    ? 'On iPhone or iPad, we recommend your keyboard’s microphone. Choose English for Japanese → English and Japanese for English → Japanese. If the microphone is missing, enable Dictation in Settings → General → Keyboard. Browser dictation is available under each optional disclosure and may send audio to its speech service.'
+    : 'Prefer speaking? Use a microphone button or your keyboard’s dictation. Browser dictation may send audio to its speech service and needs microphone permission. Text is added to your answer for you to edit.';
   $('#keywordList').innerHTML = lesson.keywords.map(item => {
     const favoriteId = `word:${item.id}`;
     const favorite = isFavorite(state, favoriteId);
@@ -42,7 +47,7 @@ export function renderLesson(lesson, state) {
       <button class="star-button ${favorite ? 'active' : ''}" data-favorite="${escapeHtml(favoriteId)}" aria-label="Save question ${index + 1}" aria-pressed="${favorite}">★</button></div>
       <p class="prompt">${escapeHtml(item.prompt)}</p>
       <textarea data-answer="${escapeHtml(item.id)}" aria-label="Answer for question ${index + 1}" placeholder="Type your natural English translation...">${escapeHtml(state.answers[item.id] || '')}</textarea>
-      <div class="dictation-controls"><button class="small-button" data-dictation="en-US" aria-pressed="false" aria-label="Dictate English answer for question ${index + 1}">🎙 Dictate English</button><span class="dictation-status" role="status"></span></div>
+      ${renderDictationControls('en-US', index + 1, keyboardDictation)}
       <div class="question-actions"><button class="small-button" data-toggle="hint-${escapeHtml(item.id)}" aria-expanded="false">Hint</button>
       <button class="small-button" data-toggle="answer-${escapeHtml(item.id)}" aria-expanded="false">Show answer</button></div>
       <div id="hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Hint:</strong> ${escapeHtml(item.hint)}</div>
@@ -61,7 +66,7 @@ export function renderLesson(lesson, state) {
     <p class="production-label">English</p><p class="prompt">${escapeHtml(item.prompt)}</p>
     <p class="production-target">Target expression: <strong>${escapeHtml(item.keyword)}</strong></p>
     <textarea data-production-answer="${escapeHtml(item.id)}" aria-label="Japanese answer for production question ${index + 1}" placeholder="Write your Japanese answer...">${escapeHtml(state.productionAnswers[item.id] || '')}</textarea>
-    <div class="dictation-controls"><button class="small-button" data-dictation="ja-JP" aria-pressed="false" aria-label="Dictate Japanese answer for question ${index + 1}">🎙 Dictate Japanese</button><span class="dictation-status" role="status"></span></div>
+    ${renderDictationControls('ja-JP', index + 1, keyboardDictation)}
     ${item.hint ? `<div class="question-actions"><button class="small-button" data-toggle="production-hint-${escapeHtml(item.id)}" aria-expanded="false">Sentence hint</button></div><div id="production-hint-${escapeHtml(item.id)}" class="reveal hidden"><strong>Sentence hint:</strong> ${escapeHtml(item.hint)}</div>` : ''}
     ${item.helpfulVocabulary?.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-vocab-${escapeHtml(item.id)}" aria-expanded="false">Vocabulary</button></div><div id="production-vocab-${escapeHtml(item.id)}" class="reveal hidden"><strong>Helpful vocabulary</strong><table class="vocabulary-table"><thead><tr><th>Japanese</th><th>Reading</th><th>Meaning</th></tr></thead><tbody>${item.helpfulVocabulary.map(word => `<tr><td>${escapeHtml(word.jp)}</td><td>${escapeHtml(word.reading)}</td><td>${escapeHtml(word.en)}</td></tr>`).join('')}</tbody></table></div>` : ''}
     ${references.length ? `<div class="question-actions"><button class="small-button" data-toggle="production-answers-${escapeHtml(item.id)}" aria-expanded="false">Show possible answers</button></div><div id="production-answers-${escapeHtml(item.id)}" class="reveal hidden"><strong>Possible natural answers</strong>${references.map((reference, answerIndex) => `<div class="reference-answer"><p><strong>${markers[answerIndex] || `${answerIndex + 1}.`}</strong> ${escapeHtml(reference.answer)}</p>${reference.level ? `<p class="reference-level">${escapeHtml(reference.level)}</p>` : ''}<p class="reference-note">Why this works: ${escapeHtml(reference.note)}</p></div>`).join('')}</div>` : ''}

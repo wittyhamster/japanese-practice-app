@@ -1,5 +1,15 @@
 import assert from 'node:assert/strict';
 import { appendTranscript, createDictation } from '../js/dictation.js';
+import { prefersKeyboardDictation, renderDictationControls } from '../js/dictation-ui.js';
+assert.equal(prefersKeyboardDictation('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)', 'iPhone', 5), true);
+assert.equal(prefersKeyboardDictation('Mozilla/5.0 (Macintosh)', 'MacIntel', 5), true);
+assert.equal(prefersKeyboardDictation('Mozilla/5.0 (Macintosh)', 'MacIntel', 0), false);
+assert.equal(prefersKeyboardDictation('Mozilla/5.0 (Windows NT 10.0)', 'Win32', 0), false);
+assert.equal(prefersKeyboardDictation('Mozilla/5.0 (Linux; Android)', 'Linux', 5), false);
+assert.match(renderDictationControls('ja-JP', 1, true), /Focus Japanese answer/);
+assert.match(renderDictationControls('en-US', 1, true), /English keyboard/);
+assert.match(renderDictationControls('ja-JP', 1, true), /<details class="browser-dictation-option">/);
+assert.doesNotMatch(renderDictationControls('en-US', 1, false), /<details|keyboard-dictation/);
 assert.equal(appendTranscript('Hello', 'world', 'en-US'), 'Hello world');
 assert.equal(appendTranscript('今日は', '暑いです。', 'ja-JP'), '今日は暑いです。');
 assert.equal(appendTranscript('Keep this', ' ', 'en-US'), 'Keep this');
@@ -19,7 +29,7 @@ function fixture(Constructor) {
     const status = { textContent: '' };
     const input = { value, isConnected: true, events: 0, dispatchEvent() { this.events++; }, focus() {} };
     const button = { textContent: 'Dictate', dataset: { dictation: language }, getAttribute: () => 'Dictate answer', setAttribute() {}, closest: () => ({ querySelector: selector => selector === 'textarea' ? input : status }) };
-    return { button, input, status, click: () => handlers.click({ target: { closest: () => button } }) };
+    return { button, input, status, click: () => handlers.click({ target: { closest: selector => selector === '[data-dictation]' ? button : null } }) };
   }
   return { field, controller, handlers };
 }

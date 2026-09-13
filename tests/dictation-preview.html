@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>iPhone dictation guidance QA</title><link rel="stylesheet" href="../styles.css">
+<main class="app-shell"><h1>iPhone guidance preview</h1><p>Layout fixture using the iPhone presentation. This does not emulate an iPhone microphone.</p><div id="cards" class="stack"></div></main>
+<script type="module">
+import { renderDictationControls } from '../js/dictation-ui.js';
+import { createDictation } from '../js/dictation.js';
+document.querySelector('#cards').innerHTML = ['en-US','ja-JP'].map(language => `<article class="question-card"><h2>${language === 'ja-JP' ? 'English → Japanese' : 'Japanese → English'}</h2><textarea aria-label="${language} test answer"></textarea>${renderDictationControls(language,1,true)}</article>`).join('');
+createDictation({ Recognition: null });
+</script></html>

@@ -2,6 +2,10 @@
 
 ## Dictation follow-up
 
+Keyboard-first iPhone/iPad guidance: PASS for device-detection tests (including desktop-mode iPad and non-Apple desktops), English/Japanese wording, unchanged desktop controls, field-focus buttons, optional disclosure expansion/collapse, and unsupported-recognition fallback. The fixture at `tests/dictation-preview.html` uses the real renderer with Apple-mobile presentation selected explicitly; it does not emulate an iPhone microphone. At 390px viewport width, content width is 375px with no horizontal overflow. Browser console errors/warnings were empty. Both automated suites pass. Physical keyboard language switching and actual iPhone dictation remain device-level checks.
+
+![iPhone keyboard guidance fixture](qa/screenshots/iphone-keyboard-guidance.png)
+
 Repeat-session repair: automated tests now simulate asynchronous browser shutdown, speech-end and final-result cleanup, three consecutive Japanese dictations, duplicate/late events, and missing-end recovery. All pass, as does the ten-lesson regression suite. This addresses confirmed lifecycle gaps in the app; the reported physical-iPhone symptom has not been reproduced on a connected iPhone and requires a device retest.
 
 | Check | Result | Evidence |
