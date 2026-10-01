@@ -1,187 +1,61 @@
 {
-  "id": "core-expression-tabun",
-  "title": "Understanding たぶん",
-  "subtitle": "Next lesson",
-  "keywords": [
-    {
-      "id": "tabun",
-      "word": "たぶん",
-      "reading": "たぶん",
-      "meaning": "probably; perhaps; maybe",
-      "nuance": "たぶん indicates a degree of uncertainty. It usually reflects a guess based on likely outcomes, not hard certainty.",
-      "example": "たぶん、明日行けると思う。",
-      "exampleTranslation": "I think I can probably go tomorrow."
-    }
-  ],
+  "id": "core-expression-igaito",
+  "title": "Understanding 意外と",
+  "subtitle": "Lesson 11",
+  "keywords": [{
+    "id": "igaito",
+    "word": "意外と",
+    "reading": "いがいと",
+    "meaning": "surprisingly; more or less than expected; actually, contrary to expectations",
+    "nuance": "意外と describes a result that differs from the speaker's expectation, with the feeling 'Huh, I didn't expect that.' Something may be harder, easier, better, or less impressive than anticipated. The expectation can be implied rather than stated.",
+    "example": "このゲーム、意外と難しい。",
+    "exampleTranslation": "This game is surprisingly difficult."
+  }],
   "commonPitfall": {
     "title": "Common Pitfall",
-    "body": "Don't use たぶん for facts you know are true. Use it only when you are estimating or guessing."
+    "body": "意外と does not simply mean 'actually': it implies that the result is somewhat unexpected. In the example, the speaker expected the game to be easier.\n\n意外と highlights surprise when reality differs from an expectation. むしろ presents an opposite or alternative description as closer to the truth. このゲームは意外と難しい means the game is unexpectedly difficult; 難しいと思ったけど、むしろ簡単だった corrects the assumption by saying that 'easy' is the better description."
   },
   "questions": [
-    {
-      "id": "tabun-q1",
-      "prompt": "たぶん、彼はもう帰りました。",
-      "hint": "The speaker is making a best guess.",
-      "answer": "He has probably already gone home."
-    },
-    {
-      "id": "tabun-q2",
-      "prompt": "たぶん明日は雨が降るでしょう。",
-      "hint": "There is uncertainty, but a likely expectation.",
-      "answer": "It will probably rain tomorrow."
-    },
-    {
-      "id": "tabun-q3",
-      "prompt": "たぶん、会議は遅れて始まると思う。",
-      "hint": "Use たぶん to soften a prediction.",
-      "answer": "The meeting will probably start late."
-    },
-    {
-      "id": "tabun-q4",
-      "prompt": "たぶん彼女はこのまま辞めない。",
-      "hint": "The speaker is guessing about future action, not certain.",
-      "answer": "She probably won't quit after this."
-    }
+    { "id": "lesson-11-q1", "prompt": "この本、意外と面白い。", "hint": "Consider how the speaker's opinion of the book compares with their earlier expectations.", "answer": "This book is surprisingly interesting." },
+    { "id": "lesson-11-q2", "prompt": "今日は意外と寒いね。", "hint": "The speaker is commenting on the weather compared with what they anticipated. Keep the conversational tone of ね.", "answer": "It's surprisingly cold today, isn't it? / It's surprisingly cold today." },
+    { "id": "lesson-11-q3", "prompt": "彼は意外とよく話す。", "hint": "よく describes how much or how often he talks here, not how skillfully he speaks.", "answer": "He's surprisingly talkative. / He talks a lot more than I expected." },
+    { "id": "lesson-11-q4", "prompt": "日本語で話してみたら、意外と通じた。", "hint": "通じる（つうじる）means that a message gets through or is understood. 〜てみたら describes what happened when someone tried something.", "answer": "When I tried speaking Japanese, I was surprised by how well I was understood. / I tried speaking Japanese, and surprisingly, it got through." }
   ],
   "productionQuestions": [
     {
-      "id": "tabun-prod-1",
-      "prompt": "I think we'll probably get an answer by tomorrow.",
-      "keyword": "たぶん",
-      "hint": "Use たぶん + action timeline.",
-      "helpfulVocabulary": [
-        {
-          "jp": "明日",
-          "reading": "あした",
-          "en": "tomorrow"
-        },
-        {
-          "jp": "答え",
-          "reading": "こたえ",
-          "en": "answer"
-        },
-        {
-          "jp": "もらう",
-          "reading": "もらう",
-          "en": "receive"
-        }
-      ],
+      "id": "lesson-11-prod-1", "prompt": "That restaurant was surprisingly cheap.", "keyword": "意外と",
+      "hint": "Describe the price in the past tense, with a sense that it differed from your expectations.",
+      "helpfulVocabulary": [{ "jp": "店", "reading": "みせ", "en": "restaurant / shop" }, { "jp": "安い", "reading": "やすい", "en": "cheap / inexpensive" }],
       "referenceAnswers": [
-        {
-          "answer": "たぶん明日までに返事が来ると思う。",
-          "level": "Recommended",
-          "note": "Most natural way to state likely timing."
-        },
-        {
-          "answer": "たぶん、明日には返答が来ると思う。",
-          "level": "Natural variation",
-          "note": "Uses には to highlight the expected time window."
-        }
+        { "answer": "あの店、意外と安かった。", "level": "Recommended", "note": "Simple, natural conversational Japanese. 意外と implies that you expected a higher price." },
+        { "answer": "あのレストランは意外と安かった。", "level": "Natural variation", "note": "Makes it explicit that the place was a restaurant, while keeping the same surprise about its price." }
       ]
     },
     {
-      "id": "tabun-prod-2",
-      "prompt": "She will probably be late, so we should start without her.",
-      "keyword": "たぶん",
-      "hint": "Express uncertainty and planned adjustment.",
-      "helpfulVocabulary": [
-        {
-          "jp": "遅れる",
-          "reading": "おくれる",
-          "en": "to be late"
-        },
-        {
-          "jp": "はじめる",
-          "reading": "はじめる",
-          "en": "to start"
-        },
-        {
-          "jp": "一人で",
-          "reading": "ひとりで",
-          "en": "alone"
-        }
-      ],
+      "id": "lesson-11-prod-2", "prompt": "The test was easier than I expected.", "keyword": "意外と",
+      "hint": "You can let the target expression carry the comparison with your expectation.",
+      "helpfulVocabulary": [{ "jp": "試験", "reading": "しけん", "en": "test / exam" }, { "jp": "簡単", "reading": "かんたん", "en": "easy" }, { "jp": "思う", "reading": "おもう", "en": "think" }],
       "referenceAnswers": [
-        {
-          "answer": "たぶん彼女は遅れるから、彼女なしで始めたほうがいい。",
-          "level": "Recommended",
-          "note": "Natural and practical recommendation with たぶん."
-        },
-        {
-          "answer": "たぶん遅れそうなので、彼女を待たずに始めよう。",
-          "level": "Natural variation",
-          "note": "Uses そう as an intuitive prediction rather than たぶん alone."
-        }
+        { "answer": "試験は意外と簡単だった。", "level": "Recommended", "note": "意外と naturally carries the implication that the test was easier than expected." },
+        { "answer": "思っていたより試験は簡単だった。", "level": "Natural variation", "note": "Explicitly says 'easier than I expected.' It conveys the idea naturally without using today's target expression; practice the recommended version to reinforce 意外と." }
       ]
     },
     {
-      "id": "tabun-prod-3",
-      "prompt": "It might be difficult, but I think we'll probably finish by dinner.",
-      "keyword": "たぶん",
-      "hint": "This blends possibility and a tentative forecast.",
-      "helpfulVocabulary": [
-        {
-          "jp": "難しい",
-          "reading": "むずかしい",
-          "en": "difficult"
-        },
-        {
-          "jp": "夕食",
-          "reading": "ゆうしょく",
-          "en": "dinner"
-        },
-        {
-          "jp": "終わる",
-          "reading": "おわる",
-          "en": "to finish"
-        }
-      ],
+      "id": "lesson-11-prod-3", "prompt": "I thought I would be nervous, but I was surprisingly calm.", "keyword": "意外と",
+      "hint": "State the expectation with 〜と思ったけど, then describe how you actually felt.",
+      "helpfulVocabulary": [{ "jp": "緊張する", "reading": "きんちょうする", "en": "be nervous" }, { "jp": "落ち着いている", "reading": "おちついている", "en": "be calm" }, { "jp": "平気", "reading": "へいき", "en": "fine / unbothered" }],
       "referenceAnswers": [
-        {
-          "answer": "難しそうだけど、たぶん夕方までに終わると思う。",
-          "level": "Recommended",
-          "note": "Clear blend of uncertainty and estimate."
-        },
-        {
-          "answer": "難しいけれど、たぶん夕食までには終わりそうです。",
-          "level": "Natural variation",
-          "note": "Polite style with 〜までには."
-        }
+        { "answer": "緊張すると思ったけど、意外と落ち着いていた。", "level": "Recommended", "note": "Clearly contrasts the expected nervousness with the surprising calmness." },
+        { "answer": "緊張すると思っていたけど、意外と平気だった。", "level": "Natural variation", "note": "平気 describes being unexpectedly fine or unbothered, rather than explicitly describing calmness." }
       ]
     },
     {
-      "id": "tabun-prod-4",
-      "prompt": "Probably the store closes early today.",
-      "keyword": "たぶん",
-      "hint": "The key is a guessed schedule detail.",
-      "helpfulVocabulary": [
-        {
-          "jp": "店",
-          "reading": "みせ",
-          "en": "store"
-        },
-        {
-          "jp": "早く閉まる",
-          "reading": "はやくしまる",
-          "en": "close early"
-        },
-        {
-          "jp": "今日",
-          "reading": "きょう",
-          "en": "today"
-        }
-      ],
+      "id": "lesson-11-prod-4", "prompt": "Living alone is surprisingly comfortable.", "keyword": "意外と",
+      "hint": "快適 is a な-adjective. Describe living alone as a noun or a verb phrase.",
+      "helpfulVocabulary": [{ "jp": "一人暮らし", "reading": "ひとりぐらし", "en": "living alone" }, { "jp": "快適", "reading": "かいてき", "en": "comfortable" }],
       "referenceAnswers": [
-        {
-          "answer": "たぶん今日は店は早く閉まると思う。",
-          "level": "Recommended",
-          "note": "Direct, natural use of たぶん with today's expectation."
-        },
-        {
-          "answer": "たぶん今日、店は早く終わるだろう。",
-          "level": "Natural variation",
-          "note": "だろう variant is fine in a casual learner-facing context."
-        }
+        { "answer": "一人暮らしは意外と快適だ。", "level": "Recommended", "note": "Straightforward and natural. The noun 一人暮らし names the experience of living alone." },
+        { "answer": "一人で暮らすのは意外と快適だ。", "level": "Natural variation", "note": "Expresses 'living alone' as a verb phrase with の, preserving the surprise about how comfortable it is." }
       ]
     }
   ]

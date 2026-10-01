@@ -60,3 +60,15 @@ Test environment: local HTTP server, Codex browser, 1440 × 1000 desktop and 390
 ### Phone completion
 
 ![Phone completion](qa/screenshots/mobile-completion.png)
+## Lesson 11 - 意外と (2026-10-01)
+
+- PASS: Automated usability suite validates all 11 manifest lessons, reference formats, progress, persistence, isolation, reset and storage failure recovery.
+- PASS: Automated dictation regression suite.
+- PASS: Local browser displays Lesson 11 title, keyword, pitfall and four questions in each direction.
+- PASS: Filled all eight answers, checked both sections; English references and all Japanese reference variants/notes appear; completion reaches 100%.
+- PASS: Reload preserves all eight responses. Previous opens Lesson 10 with separate empty responses; Next returns to saved Lesson 11.
+- PASS: Favorite and reviewed controls update statistics; vocabulary disclosure opens; theme changes from dark to light.
+- PASS: AI review clipboard includes learner answers and excludes reference solutions.
+- PASS: Phone viewport 390x844 has no horizontal overflow (375px content and scroll widths); screenshot saved. Desktop controls and content inspected.
+- PASS: Browser console has no warnings or errors during these checks.
+- LIMIT: Physical iPhone speech recognition was not retested; no dictation implementation changed.

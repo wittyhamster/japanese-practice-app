@@ -278,3 +278,10 @@ The previously committed boundary-navigation fix (`aefc08e`) was already present
 - `tests/dictation.mjs` — Simulates recognition events to test English/Japanese routing, preserved text, interim/final handling, duplicate and stale events, manual-edit cancellation, errors, and unsupported browsers.
 - `QA_REPORT.md` — Adds dictation checks and the explicit limitation that real speech accuracy and physical mobile microphones are not yet tested.
 - `qa/screenshots/mobile-dictation.png` — Captures the Japanese microphone control at phone width using local test answers.
+## Lesson 11 - 意外と (2026-10-01)
+
+- `data/lesson-11.json` — Replaces the retired lesson with 意外と: meaning, nuance, pitfall, four comprehension questions and four independent production prompts with vocabulary and multiple references.
+- `data/lesson-12.json` through `data/lesson-30.json` — Removes retired lesson data at the user's request; recoverable from Git history.
+- `data/lessons.json` — Adds and activates Lesson 11; preserves Lessons 1–10.
+- `QA_REPORT.md` — Records validation evidence and limits.
+- `qa/screenshots/lesson11-mobile.png` — Local phone-width practice screenshot.

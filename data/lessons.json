@@ -1,5 +1,5 @@
 {
-  "activeLesson": "lesson-10",
+  "activeLesson": "lesson-11",
   "lessons": [
     {
       "id": "lesson-01",
@@ -97,6 +97,16 @@
       "questionCount": 4,
       "productionQuestionCount": 4,
       "file": "lesson-10.json"
+    },
+    {
+      "id": "lesson-11",
+      "contentId": "core-expression-igaito",
+      "title": "Understanding 意外と",
+      "subtitle": "Lesson 11",
+      "expression": "意外と",
+      "questionCount": 4,
+      "productionQuestionCount": 4,
+      "file": "lesson-11.json"
     }
   ]
 }
